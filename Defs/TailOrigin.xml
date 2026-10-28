@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+ <HediffDef>
+  <defName>HET_TailOrigin</defName><label>tail origin</label>
+  <hediffClass>Harvest_Everything.Hediff_TailOrigin</hediffClass>
+  <isBad>false</isBad><scenarioCanAdd>false</scenarioCanAdd>
+  <initialSeverity>1</initialSeverity>
+ </HediffDef>
+</Defs>

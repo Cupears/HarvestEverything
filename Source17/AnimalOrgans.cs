@@ -16,6 +16,14 @@ public class Thing_AnimalOrgan : ThingWithComps
 	private string sourcePartDefName;
 	public bool Fits(Pawn pawn, BodyPartRecord part) => pawn?.def?.defName == sourceRaceDefName && part?.def != null && (sourcePartDefName.NullOrEmpty() ? part.def.label == sourcePartLabel : part.def.defName == sourcePartDefName);
 
+ public TailOrigin DonorOrigin() => sourceRaceDefName.NullOrEmpty() ||
+  !(sourcePartDefName ?? def?.defName ?? "").ToLowerInvariant().Contains("tail") ? null :
+  new TailOrigin{race=sourceRaceDefName,label=sourceRaceLabel,part=sourcePartDefName,partLabel=sourcePartLabel};
+ public void SetDonorOrigin(TailOrigin origin) {
+  sourceRaceDefName=origin.race;sourceRaceLabel=origin.label;
+  sourcePartDefName=origin.part;sourcePartLabel=origin.partLabel;
+ }
+
 	public void SetSourceRace(ThingDef race)
 	{
 		if (race == null)

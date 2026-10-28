@@ -10,22 +10,14 @@ installation and per-race tail support are built in, so the standalone tails mod
 
 ## Features
 
-- **Body parts.** Harvest and reinstall natural body parts on humanoid races that actually have
-  the part. Missing parts, incompatible anatomy and vanilla surgery checks are respected.
-- **Tails.** A race with a real tail body part can have it removed and reinstalled. The removed
-  tail becomes an item and the install recipe asks for that same item. Each race maps to its own
-  tail type, so the correct tail is restored.
-- **Animal butchering.** A separate **Butcher for animal parts** bill on the butcher spot or
-  butcher table recovers undamaged organs that have a natural body-part item: heart, lung, kidney,
-  liver, stomach and brain. Each organ is labelled with the source animal, for example
-  "muffalo heart", and cannot be transplanted into humanlikes. The chance per organ scales with
-  butchery efficiency, at 25% for 100% efficiency. This bill yields half the meat of ordinary
-  butchering; the ordinary **Butcher creature** bill is unchanged and never recovers organs.
-- **Race support.** 23 tailed humanoid races, listed in [RACE-COVERAGE.md](RACE-COVERAGE.md).
-  Race-specific content only loads when that race mod is active.
+- **Natural body parts.** Harvest and transplant organs, limbs, hands, feet, fingers, toes and tongues on compatible humanoid anatomy.
+- **Animal parts.** The **Butcher for animal parts** bill recovers healthy parts from fresh animal corpses and yields half the normal meat. Recovered items show the donor species. Animal transplant ingredients must match the patient's exact species and body-part type.
+- **Tails.** Natural tails can be transplanted between compatible animal and humanoid tail anatomy. Newly recovered tails retain their donor name through successful surgery, save/load and later removal. Cosmetic gene tails without an anatomical body part cannot be harvested.
+- **Recovery chances.** At 100% butcher efficiency, digits and claws have a 5% chance, hooves/horns/antlers/tusks/beaks 12.5%, and larger parts and organs 25%. Whole parts need intact, healthy children; a recovered parent does not also produce its child parts.
+- **Modded animals and races.** Shared anatomy works automatically. Recognized custom body-part names support tails, limbs, paws, digits, claws, hooves, horns, beaks, tusks, wings, shells and tentacles. Unrecognized anatomy requires a specific mapping.
+- **Surgery menus.** Part names follow the target anatomy. Matching-animal surgery is offered only when a suitable donor part is available; queued bills wait for donor parts before requesting medical rest.
 
-Purely visual tails, such as gene or xenotype appearance tails and anthro variants with no tail
-body part, have nothing to remove and are not touched.
+Old items without saved donor information cannot be given a reliable donor identity. The new donor records have no pain or health effects.
 
 ## Compatibility
 
@@ -79,8 +71,4 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ### Small natural parts
 
-Natural fingers and toes can be transplanted into matching humanoid anatomy. Post Mortem autopsies use a separate recovery roll for each eligible digit, at 20% of the usual natural-part chance. Whole limbs and their loose digits are not both recovered. Damaged or missing child parts prevent the enclosing limb counting as intact. Surgery on living pawns has no added recovery chance penalty. Mechanical digits are excluded.
-
-Natural tongues can be recovered from eligible humanoid corpses and transplanted with surgery.
-
-Animal body-part support starts with shared RimWorld anatomy. Recovered parts keep the source species in their item label and stack only with matching source and part. Natural tails can be transplanted between pawns whose anatomy uses the shared `Tail` body-part type. Race-specific anatomy is handled in later compatibility updates.
+Post Mortem autopsies recover eligible fingers and toes at 20% of the normal natural-part chance. Living surgery has no added recovery-loss roll. Matching natural fingers, toes and tongues can be transplanted when their parent anatomy is present.

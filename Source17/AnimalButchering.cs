@@ -124,7 +124,7 @@ public static class AnimalButcherParts
 		foreach (BodyPartRecord part in pawn.health.hediffSet.GetNotMissingParts().ToList())
 		{
 			ThingDef thingDef = part.def?.spawnThingOnRemoved;
-			if (pawn.health.hediffSet.PartIsMissing(part) || (!IsBaseAnimalCollectible(part) && (thingDef == null || !IsOrgan(part))))
+			if (part.parent==null || pawn.health.hediffSet.PartIsMissing(part) || (!IsBaseAnimalCollectible(part) && (thingDef == null || !IsOrgan(part))))
 			{
 				continue;
 			}
@@ -132,16 +132,18 @@ public static class AnimalButcherParts
 			{
 				continue;
 			}
-			if (!Rand.Chance(chance))
+			if (!Rand.Chance(RecoveryChance(part, efficiency)))
 			{
 				continue;
 			}
+			var tailOrigin=TailOrigins.IsTail(part.def)?TailOrigins.FromPawn(pawn,part):null;
 			pawn.health.AddHediff(HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn, part));
 			Thing thing = ThingMaker.MakeThing(AnimalOrganFor(part, thingDef));
 			if (thing is Thing_AnimalOrgan organ)
 			{
 				organ.SetAnimalPart(pawn, part);
 			}
+			TailOrigins.Apply(thing,tailOrigin);
 			results.Add(thing);
 		}
 		return results;
@@ -211,12 +213,20 @@ public static class AnimalButcherParts
 		List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 		for (int i = 0; i < hediffs.Count; i++)
 		{
-			if (hediffs[i].Part == part)
+			if (hediffs[i].Part == part && !(hediffs[i] is Hediff_TailOrigin))
 			{
 				return false;
 			}
 		}
-		return true;
-	}
+		foreach(var child in part.parts)
+   if(pawn.health.hediffSet.PartIsMissing(child)||!IsPartClean(pawn,child))return false;
+  return true;
+ }
+ public static float RecoveryChance(BodyPartRecord part,float efficiency) {
+  string name=part.def.defName.ToLowerInvariant();
+  float factor=name.Contains("finger")||name.Contains("toe")||name.Contains("claw")?0.2f:
+   name.Contains("hoof")||name.Contains("horn")||name.Contains("antler")||name.Contains("tusk")||name.Contains("beak")?0.5f:1f;
+  return Mathf.Clamp01(efficiency*BaseDropChance)*factor;
+ }
 }
 

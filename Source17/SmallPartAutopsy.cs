@@ -41,7 +41,7 @@ public static class SmallPartAutopsy
         foreach (var child in part.parts)
         {
             if (pawn.health.hediffSet.PartIsMissing(child) ||
-                pawn.health.hediffSet.hediffs.Any(h => h.Part == child) ||
+                pawn.health.hediffSet.hediffs.Any(h => h.Part == child && !(h is Hediff_TailOrigin)) ||
                 HasDamagedDescendant(pawn, child)) return true;
         }
         return false;

@@ -1,3 +1,13 @@
+## Changes - 1.7.1.17
+
+- Fixed direct Bionic Icons mappings drawing red/green mask textures as sprites. Mapped parts now use Bionic Icons' box-and-mask renderer.
+- Added source-species tracking to natural tail items recovered through surgery and Post Mortem, including humanoid and hybrid tails.
+- Successful natural tail transplants keep a hidden donor record. Later recovery uses the original donor rather than the recipient's race. Tail records survive save/load and stack splitting.
+- Tail transplantation accepts supported natural tail items across compatible tail anatomy. Tailbones are excluded.
+- Animal digits and claws use a 5% base recovery chance; hooves, horns, antlers, tusks and beaks use 12.5%; larger parts and organs use 25%, scaled by butcher efficiency.
+- Whole-part recovery rejects damaged or missing child parts. Core body sections are excluded, and recovered parents suppress duplicate child drops.
+- Both builds pass. 34 focused donor/recovery checks pass, plus the existing donor-matching check across 734 resolved race records. Icon appearance and live transplant/removal loops still need in-game confirmation.
+
 ## Changes - 1.7.1.16
 
 - Added optional direct Bionic Icons mappings for recovered animal parts, small natural parts and race tail items.
