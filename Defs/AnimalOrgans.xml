@@ -146,7 +146,7 @@
   </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
     <defName>HET_InstallAnimalTail</defName>
-    <label>install natural tail</label>
+    <label>install tail</label>
     <description>Install a tail recovered from an animal into a compatible tail body part.</description>
     <jobString>Installing natural tail.</jobString>
     <ingredients>
@@ -171,7 +171,7 @@
   </RecipeDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
     <defName>HET_InstallAnimalPart</defName>
-    <label>install matching animal part</label>
+    <label>install animal part</label>
     <description>Replace a damaged or missing part using the same body part from the same animal species.</description>
     <jobString>Transplanting animal part.</jobString>
     <workerClass>Harvest_Everything.Recipe_InstallAnimalPart</workerClass>

@@ -6,6 +6,10 @@ using Verse;
 namespace Harvest_Everything;
 public class Recipe_InstallAnimalPart : Recipe_InstallNaturalBodyPart
 {
+ public override string GetLabelWhenUsedOn(Pawn pawn, BodyPartRecord part) =>
+  part?.def == null ? base.GetLabelWhenUsedOn(pawn, part) :
+   "HET_InstallAnimalPartLabel".Translate(part.def.label);
+
  public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)
  {
   if(pawn?.RaceProps?.Animal!=true || pawn.RaceProps.IsMechanoid) yield break;

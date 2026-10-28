@@ -1,3 +1,8 @@
+## Changes - 1.7.1.11
+
+- Animal transplant surgery uses RimWorld-style names such as "install paw", "install hand" and "install hoof".
+- Tail surgery is named "install tail". Side-specific target names remain in parentheses.
+
 ## Changes - 1.7.1.10
 
 - Added matching animal-part transplant surgery for damaged or missing parts with an intact natural parent part.
