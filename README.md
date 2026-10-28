@@ -1,10 +1,10 @@
-# Harvest Everything — 1.7 Race Support
+﻿# Harvest Everything â€” 1.7 Race Support
 
 ![RimWorld](https://img.shields.io/badge/RimWorld-1.7-orange) ![Stage](https://img.shields.io/badge/stage-beta.1-purple)
 
 Natural body-part harvesting and transplantation across compatible humanoid races.
 
-## Changes — 1.7.0-beta.1
+## Changes â€” 1.7.0-beta.1
 
 - Rebuilt runtime code against RimWorld 1.7 / .NET 10.
 - Included current 1.6 Workshop XML content in the 1.7 content folder.
@@ -21,7 +21,7 @@ Compatible recipes become available on humanoid races that contain the required 
 
 ## Load order
 
-Harmony —†’ race/content mods —†’ Harvest All The Tails fork —†’ this fork —†’ Harvest Organs Post Mortem —†’ compatibility patches.
+Harmony â€”â€ â€™ race/content mods â€”â€ â€™ Harvest All The Tails fork â€”â€ â€™ this fork â€”â€ â€™ Harvest Organs Post Mortem â€”â€ â€™ compatibility patches.
 
 ## Credits and Workshop status
 
