@@ -24,6 +24,7 @@
     <li>Races/Yanzihko/Common</li>
     <li>Races/Xenomorph/Common</li>
     <li>Races/InsectTails</li>
+    <li IfModActive="automatic.bionicicons">Integrations/BionicIcons</li>
   </v1.6>
   <v1.7>
     <li>/</li>
@@ -49,5 +50,6 @@
     <li>Races/Yanzihko/Common</li>
     <li>Races/Xenomorph/Common</li>
     <li>Races/InsectTails</li>
+    <li IfModActive="automatic.bionicicons">Integrations/BionicIcons</li>
   </v1.7>
 </loadFolders>

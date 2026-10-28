@@ -45,6 +45,7 @@
         <li>fluffy.thebirdsandthebees</li>
         <li>Rah.RBSE</li>
         <li>TranslucencY.BrainInAJar</li>
+        <li>automatic.bionicicons</li>
     </loadAfter>
     <loadBefore>
         <li>Smuffle.HarvestOrgansPostMortem</li>
@@ -63,5 +64,5 @@
         </li>
     </modDependencies>
     <url>https://github.com/Cupears/HarvestEverything</url>
-    <modVersion>1.7.1.15</modVersion>
+    <modVersion>1.7.1.16</modVersion>
 </ModMetaData>

@@ -5,7 +5,7 @@ a=E.parse(p/'About/About.xml').getroot()
 packageId=a.findtext('packageId')
 version=a.findtext('modVersion') or 'dev'
 output=p/(f'{packageId}-{version}.zip')
-folders=['About','Defs','Patches','1.6','1.7','Textures','Languages','Races']
+folders=['About','Defs','Patches','1.6','1.7','Textures','Languages','Races','Integrations']
 with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED) as z:
  for folder in folders:
   d=p/folder

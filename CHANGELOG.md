@@ -1,3 +1,8 @@
+## Changes - 1.7.1.16
+
+- Added optional direct Bionic Icons mappings for recovered animal parts, small natural parts and race tail items.
+- The integration loads only when Bionic Icons is active and uses its installed artwork.
+
 ## Changes - 1.7.1.15
 
 - Animal part surgery is offered only when a non-forbidden matching donor part is on the map or being carried by a spawned pawn.
