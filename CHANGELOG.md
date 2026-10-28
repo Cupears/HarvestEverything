@@ -1,3 +1,14 @@
+## Changes - 1.7.1.6
+
+- Added natural finger and toe items and matching transplant recipes for humanoid anatomy.
+- Existing finger/toe item mappings from other mods remain unchanged.
+- Post Mortem corpse autopsies recover each eligible finger/toe at 20% of the normal natural-part chance. For a 40% autopsy chance, each digit has an 8% final chance.
+- Missing, injured or implanted digits remain subject to Post Mortem health checks.
+- Damaged or missing child parts prevent an enclosing limb being recovered as fully intact; surviving smaller parts can then be considered.
+- Whole recovered limbs retain their digits; no duplicate loose fingers/toes are produced alongside the enclosing limb.
+- Autopsy age limits, skill scaling and total-part limits remain in effect. Living surgery has no added random recovery loss.
+- Built for 1.6 and 1.7; 27 automated checks passed, including Harmony binding against the installed Post Mortem assembly. In-game extraction/transplant testing remains pending.
+
 ## Changes - 1.7.1.5
 
 - Fixed animal organ names repeating the species twice.

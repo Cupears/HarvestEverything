@@ -72,3 +72,7 @@ Game and Harmony assemblies are referenced locally and are not shipped.
 ## Changes
 
 See [CHANGELOG.md](CHANGELOG.md).
+
+### Small natural parts
+
+Natural fingers and toes can be transplanted into matching humanoid anatomy. Post Mortem autopsies use a separate recovery roll for each eligible digit, at 20% of the usual natural-part chance. Whole limbs and their loose digits are not both recovered. Damaged or missing child parts prevent the enclosing limb counting as intact. Surgery on living pawns has no added recovery chance penalty. Mechanical digits are excluded.

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/BodyPartDef[defName="Finger"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/BodyPartDef[defName="Finger"]/spawnThingOnRemoved</xpath>
+          <nomatch Class="PatchOperationSequence">
+            <operations>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/BodyPartDef[defName="Finger"]</xpath>
+                <value>
+                  <spawnThingOnRemoved>HET_NaturalFinger</spawnThingOnRemoved>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                  <ThingDef ParentName="BodyPartNaturalBase">
+                    <defName>HET_NaturalFinger</defName>
+                    <label>finger (natural)</label>
+                    <description>A natural finger, usable to replace the matching damaged or missing digit.</description>
+                    <statBases>
+                      <Mass>.04</Mass>
+                      <MarketValue>12</MarketValue>
+                    </statBases>
+                  </ThingDef>
+                  <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+                    <defName>HET_InstallNaturalFinger</defName>
+                    <label>install natural finger</label>
+                    <jobString>Installing natural finger.</jobString>
+                    <ingredients>
+                      <li>
+                        <filter>
+                          <thingDefs>
+                            <li>HET_NaturalFinger</li>
+                          </thingDefs>
+                        </filter>
+                        <count>1</count>
+                      </li>
+                    </ingredients>
+                    <fixedIngredientFilter>
+                      <thingDefs>
+                        <li>HET_NaturalFinger</li>
+                      </thingDefs>
+                    </fixedIngredientFilter>
+                    <appliedOnFixedBodyParts>
+                      <li>Finger</li>
+                    </appliedOnFixedBodyParts>
+                    <recipeUsers Inherit="False" />
+                  </RecipeDef>
+                </value>
+              </li>
+            </operations>
+          </nomatch>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/BodyPartDef[defName="Toe"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/BodyPartDef[defName="Toe"]/spawnThingOnRemoved</xpath>
+          <nomatch Class="PatchOperationSequence">
+            <operations>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/BodyPartDef[defName="Toe"]</xpath>
+                <value>
+                  <spawnThingOnRemoved>HET_NaturalToe</spawnThingOnRemoved>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                  <ThingDef ParentName="BodyPartNaturalBase">
+                    <defName>HET_NaturalToe</defName>
+                    <label>toe (natural)</label>
+                    <description>A natural toe, usable to replace the matching damaged or missing digit.</description>
+                    <statBases>
+                      <Mass>.025</Mass>
+                      <MarketValue>8</MarketValue>
+                    </statBases>
+                  </ThingDef>
+                  <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+                    <defName>HET_InstallNaturalToe</defName>
+                    <label>install natural toe</label>
+                    <jobString>Installing natural toe.</jobString>
+                    <ingredients>
+                      <li>
+                        <filter>
+                          <thingDefs>
+                            <li>HET_NaturalToe</li>
+                          </thingDefs>
+                        </filter>
+                        <count>1</count>
+                      </li>
+                    </ingredients>
+                    <fixedIngredientFilter>
+                      <thingDefs>
+                        <li>HET_NaturalToe</li>
+                      </thingDefs>
+                    </fixedIngredientFilter>
+                    <appliedOnFixedBodyParts>
+                      <li>Toe</li>
+                    </appliedOnFixedBodyParts>
+                    <recipeUsers Inherit="False" />
+                  </RecipeDef>
+                </value>
+              </li>
+            </operations>
+          </nomatch>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>
