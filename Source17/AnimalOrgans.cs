@@ -63,7 +63,7 @@ public class Thing_AnimalOrgan : ThingWithComps
 			: part.Contains("stomach") ? "that breaks down food"
 			: part.Contains("brain") ? "that controls movement and the senses"
 			: part.Contains("paw") || part.Contains("hand") || part.Contains("finger") ? "used for gripping and movement"
-			: part.Contains("foot") || part.Contains("toe") || part.Contains("hoof") ? "used for support and movement"
+			: part.Contains("leg") || part.Contains("foot") || part.Contains("toe") || part.Contains("hoof") ? "used for support and movement"
 			: part.Contains("claw") ? "used for gripping, digging or defense"
 			: part.Contains("horn") || part.Contains("antler") || part.Contains("tusk") ? "used for defense or display"
 			: part.Contains("beak") ? "used for feeding"

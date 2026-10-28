@@ -1,3 +1,12 @@
+## Changes - 1.7.1.15
+
+- Animal part surgery is offered only when a non-forbidden matching donor part is on the map or being carried by a spawned pawn.
+- Queued matching-animal surgeries wait for suitable donor parts before requesting patient rest.
+- Natural transplant recipes supplied by this fork hide when ingredients are missing, including humanlike part and tail surgeries.
+- Added source-labeled animal leg and arm recovery and ingredient support.
+- Corrected custom tail anatomy registration.
+- Both game-version builds pass; availability hooks bind and donor matching was checked against 734 race records from the current resolved mod data. Live medical jobs still require an in-game check.
+
 ## Changes - 1.7.1.14
 
 - Recovered animal parts now describe their saved donor species and biological role, including modded species.

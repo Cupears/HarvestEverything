@@ -10,7 +10,7 @@ public static class NaturalRaceSupport {
   if(race?.race==null||race.thingClass==null||!typeof(Pawn).IsAssignableFrom(race.thingClass)||race.race.IsMechanoid||race.race.body==null)return false;
   if(recipe.defName=="HET_InstallAnimalPart") return race.race.Animal;
   if(recipe.defName=="HET_InstallAnimalTail")
-   return (race.race.Humanlike||race.race.Animal)&&race.race.body.AllParts.Any(p=>p.def.defName=="Tail");
+   return (race.race.Humanlike||race.race.Animal)&&race.race.body.AllParts.Any(p=>recipe.appliedOnFixedBodyParts.Contains(p.def));
   if(!race.race.Humanlike)return false;
   if(recipe.defName=="HarvestEverything")return true;
   if(recipe.workerClass!=typeof(Recipe_InstallNaturalBodyPart)||recipe.appliedOnFixedBodyParts==null)return false;
@@ -18,6 +18,10 @@ public static class NaturalRaceSupport {
  }
  public static int Apply(){
   int count=0;
+  foreach(var recipe in DefDatabase<RecipeDef>.AllDefsListForReading)
+   if(recipe.workerClass!=null && typeof(Recipe_InstallNaturalBodyPart).IsAssignableFrom(recipe.workerClass) &&
+      (recipe.defName.StartsWith("HET_") || recipe.defName.StartsWith("HATT17_") || recipe.modContentPack?.PackageId=="cupears.harvesteverythingtails"))
+    recipe.dontShowIfAnyIngredientMissing=true;
   foreach(var race in DefDatabase<ThingDef>.AllDefsListForReading.Where(r=>r.race?.Humanlike==true||r.race?.Animal==true)){
    bool changed=false;
    foreach(var recipe in DefDatabase<RecipeDef>.AllDefsListForReading){

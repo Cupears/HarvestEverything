@@ -153,6 +153,7 @@ public static class AnimalButcherParts
 		{
 			string name = part.def.defName;
 			string collectible = name.IndexOf("Tail", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalTail"
+				: name.IndexOf("Leg", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Arm", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Shoulder", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalLimb"
 				: name.IndexOf("Paw", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Foot", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalPaw"
 				: name.IndexOf("Claw", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Finger", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Toe", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalClaw"
 				: name.IndexOf("Hoof", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalHoof"
@@ -182,7 +183,7 @@ public static class AnimalButcherParts
 	{
 		string name = part?.def?.defName;
 		return !string.IsNullOrEmpty(name) &&
-			new[] { "Tail", "Paw", "Foot", "Finger", "Toe", "Claw", "Hoof", "Horn", "Antler", "Tusk", "Beak", "Wing", "Shell", "Tentacle" }
+			new[] { "Tail", "Leg", "Arm", "Shoulder", "Paw", "Foot", "Finger", "Toe", "Claw", "Hoof", "Horn", "Antler", "Tusk", "Beak", "Wing", "Shell", "Tentacle" }
 				.Any(term => name.IndexOf(term, System.StringComparison.OrdinalIgnoreCase) >= 0);
 	}
 

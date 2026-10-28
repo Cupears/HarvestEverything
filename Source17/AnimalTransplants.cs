@@ -37,3 +37,32 @@ public static class AnimalTransplantIngredients
   if(thing is Thing_AnimalOrgan donor) __result=donor.Fits(medical.GiverPawn,medical.Part);
  }
 }
+
+public static class AnimalPartAvailability
+{
+ public static bool HasMatchingPart(Pawn pawn, BodyPartRecord part)
+ {
+  var map=pawn?.MapHeld;
+  if(map==null || part==null)return false;
+  if(map.listerThings.AllThings.OfType<Thing_AnimalOrgan>().Any(d=>!d.IsForbidden(pawn)&&d.Fits(pawn,part)))return true;
+  return map.mapPawns.AllPawnsSpawned.Any(p=>p.carryTracker?.CarriedThing is Thing_AnimalOrgan d && d.Fits(pawn,part));
+ }
+}
+[HarmonyPatch(typeof(RecipeDef),nameof(RecipeDef.AvailableOnNow))]
+public static class AnimalPartMenuAvailability
+{
+ public static void Postfix(RecipeDef __instance,Thing __0,BodyPartRecord __1,ref bool __result)
+ {
+  if(__result && __instance.defName=="HET_InstallAnimalPart")
+   __result=__0 is Pawn pawn && AnimalPartAvailability.HasMatchingPart(pawn,__1);
+ }
+}
+[HarmonyPatch(typeof(Bill_Medical),nameof(Bill_Medical.ShouldDoNow))]
+public static class AnimalPartBillAvailability
+{
+ public static void Postfix(Bill_Medical __instance,ref bool __result)
+ {
+  if(__result && __instance.recipe?.defName=="HET_InstallAnimalPart")
+   __result=AnimalPartAvailability.HasMatchingPart(__instance.GiverPawn,__instance.Part);
+ }
+}

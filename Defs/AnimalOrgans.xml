@@ -144,6 +144,8 @@
       <Mass>0.4</Mass>
     </statBases>
   </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalLimb</defName><label>animal limb</label><description>A limb used for support and movement.</description><statBases><MarketValue>120</MarketValue><Mass>1</Mass></statBases></ThingDef>
+
   <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
     <defName>HET_InstallAnimalTail</defName>
     <label>install tail</label>
@@ -179,6 +181,7 @@
       <li>
         <filter>
           <thingDefs>
+            <li>HET_AnimalLimb</li>
             <li>HET_AnimalHeart</li>
             <li>HET_AnimalLung</li>
             <li>HET_AnimalKidney</li>
@@ -200,7 +203,8 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>HET_AnimalHeart</li>
+        <li>HET_AnimalLimb</li>
+            <li>HET_AnimalHeart</li>
         <li>HET_AnimalLung</li>
         <li>HET_AnimalKidney</li>
         <li>HET_AnimalLiver</li>
