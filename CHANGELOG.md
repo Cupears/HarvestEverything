@@ -11,6 +11,7 @@
 - Fixed job-string typos in the race patches.
 - Unwrapped tail patches whose "if Harvest Everything is loaded" gate could never match.
 - Race modules are gated on their race mod, so a game with no tailed races loads no race defs and produces no errors.
+- Moved every race module under `Races/`; load gating is unchanged.
 - Declared incompatibility with `cupears.harvestalltails17` and `espio.harvestkurintails`.
 
 ## Changes - 1.7.0-beta.1

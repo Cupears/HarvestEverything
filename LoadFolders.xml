@@ -3,26 +3,26 @@
   <v1.7>
     <li>/</li>
     <li>1.7</li>
-    <li IfModActive="Seioch.Kurin.HAR, inoshishi3.kttfde">Kurin/Common</li>
-    <li IfModActive="FS.ReviaRace">Revia/Common</li>
-    <li IfModActive="Nemonian.MY">Moyo/Common</li>
-    <li IfModActive="Vazrua.DragonianRacePrime2.0">Dragonian/Common</li>
-    <li IfModActive="Eggbed.DragonianRacePrime2.0Unofficial">DragonianUnofficial/Common</li>
-    <li IfModActive="Ayameduki.HARSilkiera">Silkiera/Common</li>
-    <li IfModActive="Solaris.RatkinRaceMod">Ratkin/Common</li>
-    <li IfModActive="Ancot.KiiroRace">Kiiro/Common</li>
-    <li IfModActive="RunneLatki.RabbieRaceMod">Rabbie/Common</li>
-    <li IfModActive="bep.glassy.terr">Glassy/Common</li>
-    <li IfModActive="bep.mofy.twfiaclr">Mofy/Common</li>
-    <li IfModActive="aelanna.heruan">Heruan/Common</li>
-    <li IfModActive="Farmradish.Nyaron">Nyaron/Common</li>
-    <li>BigSmall/Common</li>
-    <li>Dogbold/Common</li>
-    <li>Foxbold/Common</li>
-    <li>Orassan/Common</li>
-    <li>Tozol/Common</li>
-    <li>Yanzihko/Common</li>
-    <li>Xenomorph/Common</li>
-    <li>Races17</li>
+    <li IfModActive="Seioch.Kurin.HAR, inoshishi3.kttfde">Races/Kurin/Common</li>
+    <li IfModActive="FS.ReviaRace">Races/Revia/Common</li>
+    <li IfModActive="Nemonian.MY">Races/Moyo/Common</li>
+    <li IfModActive="Vazrua.DragonianRacePrime2.0">Races/Dragonian/Common</li>
+    <li IfModActive="Eggbed.DragonianRacePrime2.0Unofficial">Races/DragonianUnofficial/Common</li>
+    <li IfModActive="Ayameduki.HARSilkiera">Races/Silkiera/Common</li>
+    <li IfModActive="Solaris.RatkinRaceMod">Races/Ratkin/Common</li>
+    <li IfModActive="Ancot.KiiroRace">Races/Kiiro/Common</li>
+    <li IfModActive="RunneLatki.RabbieRaceMod">Races/Rabbie/Common</li>
+    <li IfModActive="bep.glassy.terr">Races/Glassy/Common</li>
+    <li IfModActive="bep.mofy.twfiaclr">Races/Mofy/Common</li>
+    <li IfModActive="aelanna.heruan">Races/Heruan/Common</li>
+    <li IfModActive="Farmradish.Nyaron">Races/Nyaron/Common</li>
+    <li>Races/BigSmall/Common</li>
+    <li>Races/Dogbold/Common</li>
+    <li>Races/Foxbold/Common</li>
+    <li>Races/Orassan/Common</li>
+    <li>Races/Tozol/Common</li>
+    <li>Races/Yanzihko/Common</li>
+    <li>Races/Xenomorph/Common</li>
+    <li>Races/InsectTails</li>
   </v1.7>
 </loadFolders>

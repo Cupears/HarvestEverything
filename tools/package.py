@@ -5,7 +5,7 @@ a=E.parse(p/'About/About.xml').getroot()
 packageId=a.findtext('packageId')
 version=a.findtext('modVersion') or 'dev'
 output=p/(f'{packageId}-{version}.zip')
-folders=['About','1.7','Textures','Languages','Races17','Kurin','Revia','Moyo','Dragonian','DragonianUnofficial','Silkiera','Ratkin','Kiiro','Rabbie','Glassy','Mofy','Heruan','Nyaron','BigSmall','Dogbold','Foxbold','Orassan','Tozol','Yanzihko','Xenomorph']
+folders=['About','1.7','Textures','Languages','Races']
 with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED) as z:
  for folder in folders:
   d=p/folder
