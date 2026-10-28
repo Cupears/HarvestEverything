@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!-- Au Ra Tail -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/BodyPartDef[defName="Heruan_Tail"]/spawnThingOnRemoved</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BodyPartDef[defName="Heruan_Tail"]</xpath>
+			<value>
+				<spawnThingOnRemoved>Heruan_Tail</spawnThingOnRemoved>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="Heruan_Tail"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="BodyPartNaturalBase">
+					<defName>Heruan_Tail</defName>
+					<label>heruan tail</label>
+					<description>A biological Heruan tail.</description>
+					<descriptionHyperlinks>
+						<RecipeDef>InstallHeruanTail</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+						<MarketValue>50</MarketValue>
+						<Mass>1</Mass>
+					</statBases>
+				</ThingDef>
+				<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+					<defName>InstallHeruanTail</defName>
+					<label>install a Heruan tail</label>
+					<description>Install a natural Heruan tail.</description>
+					<descriptionHyperlinks><ThingDef>Heruan_Tail</ThingDef></descriptionHyperlinks>
+					<jobString>Installing tail.</jobString>
+					<ingredients>
+					<li>
+						<filter>
+						<thingDefs>
+							<li>Heruan_Tail</li>
+						</thingDefs>
+						</filter>
+						<count>1</count>
+					</li>
+					</ingredients>
+					<fixedIngredientFilter>
+					<thingDefs>
+						<li>Heruan_Tail</li>
+					</thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+						<li>Heruan_Tail</li>
+					</appliedOnFixedBodyParts>
+				</RecipeDef>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<!-- Heruan Crownfeathers, if Harvest Everything -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+		<li Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="Heruan_Crownfeather"]</xpath>
+			<nomatch Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>/Defs</xpath>
+						<value>
+							<ThingDef ParentName="BodyPartNaturalBase">
+								<defName>Heruan_Crownfeather</defName>
+								<label>Heruan Crownfeather</label>
+								<description>A biological Heruan crownfeather.</description>
+								<statBases>
+									<MarketValue>5</MarketValue>
+									<Mass>1</Mass>
+								</statBases>
+							</ThingDef>
+							<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+								<defName>InstallHeruanCrownfeather</defName>
+								<label>install Heruan crownfeather</label>
+								<description>Install a natural Heruan crownfeather.</description>
+								<descriptionHyperlinks><ThingDef>Heruan_Crownfeather</ThingDef></descriptionHyperlinks>
+								<jobString>Installing crownfeather.</jobString>
+								<ingredients>
+								<li>
+									<filter>
+									<thingDefs>
+										<li>Heruan_Crownfeather</li>
+									</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								</ingredients>
+								<fixedIngredientFilter>
+								<thingDefs>
+									<li>Heruan_Crownfeather</li>
+								</thingDefs>
+								</fixedIngredientFilter>
+								<appliedOnFixedBodyParts>
+									<li>Heruan_Crownfeather</li>
+								</appliedOnFixedBodyParts>
+							</RecipeDef>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/BodyPartDef[defName="Heruan_Crownfeather"]/spawnThingOnRemoved</xpath>
+							<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/BodyPartDef[defName="Heruan_Crownfeather"]</xpath>
+							<value>
+								<spawnThingOnRemoved>Heruan_Crownfeather</spawnThingOnRemoved>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</nomatch>					
+		</li>
+		</operations>
+	</Operation>
+
+
+</Patch>

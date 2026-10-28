@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!-- Nayron Tail -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/BodyPartDef[defName="NR_CatTail"]/spawnThingOnRemoved</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BodyPartDef[defName="NR_CatTail"]</xpath>
+			<value>
+				<spawnThingOnRemoved>NR_CatTail</spawnThingOnRemoved>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="NR_CatTail"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="BodyPartNaturalBase">
+					<defName>NR_CatTail</defName>
+					<label>nayron tail</label>
+					<description>A biological Nayron tail.</description>
+					<descriptionHyperlinks>
+						<RecipeDef>InstallNayronTail</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+						<MarketValue>350</MarketValue>
+						<Mass>2</Mass>
+					</statBases>
+				</ThingDef>
+				<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+					<defName>InstallNayronTail</defName>
+					<label>install Nayron tail</label>
+					<description>Install a natural Nayron tail.</description>
+					<descriptionHyperlinks><ThingDef>NR_CatTail</ThingDef></descriptionHyperlinks>
+					<jobString>Installing tail.</jobString>
+					<ingredients>
+					<li>
+						<filter>
+						<thingDefs>
+							<li>NR_CatTail</li>
+						</thingDefs>
+						</filter>
+						<count>1</count>
+					</li>
+					</ingredients>
+					<fixedIngredientFilter>
+					<thingDefs>
+						<li>NR_CatTail</li>
+					</thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+						<li>NR_CatTail</li>
+					</appliedOnFixedBodyParts>
+				</RecipeDef>
+			</value>
+		</nomatch>
+	</Operation>
+
+
+
+
+</Patch>

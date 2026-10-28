@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!-- Kurin Tail -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/BodyPartDef[defName="Kurin_Tail"]/spawnThingOnRemoved</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BodyPartDef[defName="Kurin_Tail"]</xpath>
+			<value>
+				<spawnThingOnRemoved>Kurin_Tail</spawnThingOnRemoved>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="Kurin_Tail"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="BodyPartNaturalBase">
+					<defName>Kurin_Tail</defName>
+					<label>kurin tail</label>
+					<description>A biological Kurin tail. Very soft and fluffy.</description>
+					<descriptionHyperlinks>
+						<RecipeDef>InstallKurinTail</RecipeDef>
+						<RecipeDef>Skin_KurinTail</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+						<MarketValue>350</MarketValue>
+						<Mass>2</Mass>
+					</statBases>
+				</ThingDef>
+				<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+					<defName>InstallKurinTail</defName>
+					<label>install kurin tail</label>
+					<description>Install a natural kurin tail.</description>
+					<descriptionHyperlinks><ThingDef>Kurin_Tail</ThingDef></descriptionHyperlinks>
+					<jobString>Installing tail.</jobString>
+					<ingredients>
+					<li>
+						<filter>
+						<thingDefs>
+							<li>Kurin_Tail</li>
+						</thingDefs>
+						</filter>
+						<count>1</count>
+					</li>
+					</ingredients>
+					<fixedIngredientFilter>
+					<thingDefs>
+						<li>Kurin_Tail</li>
+					</thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+						<li>Kurin_Tail</li>
+					</appliedOnFixedBodyParts>
+				</RecipeDef>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<!-- Kurin Ear, if Harvest Everything -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+		<li Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="Kurin_Ear"]</xpath>
+			<nomatch Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>/Defs</xpath>
+						<value>
+							<ThingDef ParentName="BodyPartNaturalBase">
+								<defName>Kurin_Ear</defName>
+								<label>kurin ear</label>
+								<description>A biological Kurin ear.</description>
+								<statBases>
+									<MarketValue>35</MarketValue>
+									<Mass>2</Mass>
+								</statBases>
+							</ThingDef>
+							<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+								<defName>InstallKurinEar</defName>
+								<label>install kurin ear</label>
+								<description>Install a natural kurin ear.</description>
+								<descriptionHyperlinks><ThingDef>Kurin_Ear</ThingDef></descriptionHyperlinks>
+								<jobString>Installing ear.</jobString>
+								<ingredients>
+								<li>
+									<filter>
+									<thingDefs>
+										<li>Kurin_Ear</li>
+									</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								</ingredients>
+								<fixedIngredientFilter>
+								<thingDefs>
+									<li>Kurin_Ear</li>
+								</thingDefs>
+								</fixedIngredientFilter>
+								<appliedOnFixedBodyParts>
+									<li>Kurin_Ear</li>
+								</appliedOnFixedBodyParts>
+							</RecipeDef>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/BodyPartDef[defName="Kurin_Ear"]/spawnThingOnRemoved</xpath>
+							<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/BodyPartDef[defName="Kurin_Ear"]</xpath>
+							<value>
+								<spawnThingOnRemoved>Kurin_Ear</spawnThingOnRemoved>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</nomatch>					
+		</li>
+		</operations>
+	</Operation>
+
+	<!-- Kurin HAR: Modify tail blade recipe -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Kurin HAR Edition</li></mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="KurinTailBlade"]</xpath>
+					<value>
+						<ThingDef ParentName="BodyPartBionicBase">
+							<defName>KurinTailBlade</defName>
+							<label>kurin tail blade</label>
+							<description>A soft fluffy Kurin tail, but if the wearer wishes so, it opens at the end to reveal a razor-sharp dagger. Unsuspecting tail-grabbers have often found an early demise from a surprise tail blade.</description>
+							<descriptionHyperlinks><RecipeDef>InstallTailBlade</RecipeDef></descriptionHyperlinks>
+							<thingSetMakerTags>
+							<li>RewardStandardMidFreq</li>
+							</thingSetMakerTags>
+							<costList>
+								<Plasteel>40</Plasteel>
+								<ComponentSpacer>1</ComponentSpacer>
+								<Kurin_Tail>1</Kurin_Tail>
+							</costList>
+							<statBases>
+							<WorkToMake>26000</WorkToMake>
+							<Mass>4</Mass>
+							</statBases>
+							<techHediffsTags>
+							<li>Advanced</li>
+							<li>AdvancedWeapon</li>
+							</techHediffsTags>
+						</ThingDef>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+
+
+
+</Patch>

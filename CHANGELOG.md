@@ -1,3 +1,18 @@
+## Changes - 1.7.0.2
+
+- Merged Harvest All The Tails into this mod; the standalone tails mod is no longer required.
+- Added tail harvesting and transplantation for 23 tailed humanoid races.
+- Added per-race tail mapping so each race restores its own tail type and item.
+- Added generic `Tail`, Tozol, Yanzihko and xenomorph tail items and recipes.
+- Added Logann, Ferrex and Xenomorph Type coverage.
+- The generic tail install recipe also accepts race-supplied `Tail` items.
+- Reused native Dogbold, Foxbold and Orassan tail items.
+- Added anatomy-based surgery availability across installed humanoid races.
+- Fixed job-string typos in the race patches.
+- Unwrapped tail patches whose "if Harvest Everything is loaded" gate could never match.
+- Race modules are gated on their race mod, so a game with no tailed races loads no race defs and produces no errors.
+- Declared incompatibility with `cupears.harvestalltails17` and `espio.harvestkurintails`.
+
 ## Changes - 1.7.0-beta.1
 
 - Rebuilt runtime code against RimWorld 1.7 / .NET 10.

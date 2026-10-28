@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- Mofy Wool Stuff -->
+    <ThingDef ParentName="WoolBase">
+        <defName>WoolMofy</defName>
+        <label>mofy tail fur</label>
+        <description>The soft, plush, beautiful fur of mofy tail.</description>
+        <graphicData>
+            <color>(254,254,254)</color>
+        </graphicData>
+        <statBases>
+            <MarketValue>11.0</MarketValue>
+            <StuffPower_Armor_Sharp>1.8</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.4</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>1.2</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>32</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>32</StuffPower_Insulation_Heat>
+            <DeteriorationRate>10.0</DeteriorationRate>
+        </statBases>
+        <stuffProps>
+            <color>(127,43,10)</color>
+            <statOffsets>
+                <Insulation_Cold>3</Insulation_Cold>
+                <Insulation_Heat>3</Insulation_Heat>
+            </statOffsets>
+            <statFactors>
+                <Flammability>0.4</Flammability>
+                <MaxHitPoints>1.75</MaxHitPoints>
+            </statFactors>
+        </stuffProps>
+    </ThingDef>
+
+    <!-- Skin Mofy Tail Recipe -->
+    <RecipeDef>
+        <defName>Skin_MofyTail</defName>
+        <label>skin mofy tail</label>
+        <description>Skin a harvested Mofy tail to obtain the lush, beautiful fur for use in crafting.</description>
+        <descriptionHyperlinks>
+			<ThingDef>Mofy_Tail</ThingDef>
+			<ThingDef>WoolMofy</ThingDef>
+		</descriptionHyperlinks>
+        <jobString>Skinning Mofy tail.</jobString>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Tailor</effectWorking>
+        <soundWorking>Recipe_Tailor</soundWorking>
+        <workAmount>500</workAmount>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <targetCountAdjustment>50</targetCountAdjustment>
+        <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+        </recipeUsers>
+        <ingredients>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>Mofy_Tail</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <products>
+        <WoolMofy>50</WoolMofy>
+        </products>
+        <workSkill>Crafting</workSkill>
+        <displayPriority>0</displayPriority>
+    </RecipeDef>
+
+
+
+
+</Defs>

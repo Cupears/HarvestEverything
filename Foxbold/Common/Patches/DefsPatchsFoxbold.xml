@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Patch>
+  <!-- Foxbold tail -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/BodyPartDef[defName="FoxboldTail"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Install_FoxboldTail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+                <defName>HATT17_Install_FoxboldTail</defName>
+                <label>install natural foxbold tail</label>
+                <jobString>Installing natural tail.</jobString>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>FoxboldTail</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                  <thingDefs>
+                    <li>FoxboldTail</li>
+                  </thingDefs>
+                </fixedIngredientFilter>
+                <appliedOnFixedBodyParts>
+                  <li>FoxboldTail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Remove_FoxboldTail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryFlesh">
+                <defName>HATT17_Remove_FoxboldTail</defName>
+                <label>remove natural foxbold tail</label>
+                <jobString>Removing natural tail.</jobString>
+                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workAmount>400</workAmount>
+                <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+                <appliedOnFixedBodyParts>
+                  <li>FoxboldTail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

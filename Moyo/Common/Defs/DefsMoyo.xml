@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Butcher Moyo Tail Recipe -->
+    <RecipeDef>
+        <defName>Butcher_MoyoTail</defName>
+        <label>wring out moyo tail</label>
+        <description>Wring out a harvested Moyo tail to obtain the Moyo blood contained within.</description>
+        <descriptionHyperlinks>
+			<ThingDef>Moyo_Tail</ThingDef>
+			<ThingDef>Moyo_BloodBag</ThingDef>
+		</descriptionHyperlinks>
+        <jobString>Wringing out Moyo tail.</jobString>
+        <workSpeedStat>ButcheryFleshSpeed</workSpeedStat>
+        <effectWorking>ButcherFlesh</effectWorking>
+        <soundWorking>Recipe_ButcherCorpseFlesh</soundWorking>
+        <workAmount>500</workAmount>
+        <allowMixingIngredients>false</allowMixingIngredients>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Moyo_Tail</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <Moyo_BloodBag>5</Moyo_BloodBag>
+        </products>
+        <workSkill>Cooking</workSkill>
+        <displayPriority>0</displayPriority>
+    </RecipeDef>
+
+
+
+</Defs>

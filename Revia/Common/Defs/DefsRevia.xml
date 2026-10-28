@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- Revia Wool Stuff -->
+    <ThingDef ParentName="WoolBase">
+        <defName>WoolRevia</defName>
+        <label>revia tail fur</label>
+        <description>The soft, plush, beautiful fur of revian tail.</description>
+        <graphicData>
+            <color>(117,33,10)</color>
+        </graphicData>
+        <statBases>
+            <MarketValue>11.0</MarketValue>
+            <StuffPower_Armor_Sharp>1.8</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.4</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>1.2</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>32</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>32</StuffPower_Insulation_Heat>
+            <DeteriorationRate>10.0</DeteriorationRate>
+        </statBases>
+        <stuffProps>
+            <color>(117,33,10)</color>
+            <statOffsets>
+                <Insulation_Cold>3</Insulation_Cold>
+                <Insulation_Heat>3</Insulation_Heat>
+            </statOffsets>
+            <statFactors>
+                <Flammability>0.4</Flammability>
+                <MaxHitPoints>1.75</MaxHitPoints>
+            </statFactors>
+        </stuffProps>
+    </ThingDef>
+
+    <!-- Skin Revia Tail Recipe -->
+    <RecipeDef>
+        <defName>Skin_ReviaTail</defName>
+        <label>skin revia tail</label>
+        <description>Skin a harvested Revian tail to obtain the lush, beautiful fur for use in crafting.</description>
+        <descriptionHyperlinks>
+			<ThingDef>ReviaRaceTail</ThingDef>
+			<ThingDef>WoolRevia</ThingDef>
+		</descriptionHyperlinks>
+        <jobString>Skinning Revia tail.</jobString>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Tailor</effectWorking>
+        <soundWorking>Recipe_Tailor</soundWorking>
+        <workAmount>500</workAmount>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <targetCountAdjustment>50</targetCountAdjustment>
+        <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+        </recipeUsers>
+        <ingredients>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>ReviaRaceTail</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <products>
+        <WoolRevia>50</WoolRevia>
+        </products>
+        <workSkill>Crafting</workSkill>
+        <displayPriority>0</displayPriority>
+    </RecipeDef>
+
+    <!-- Thought: Revia wearing Revia - happy -->
+    <ThoughtDef>
+        <defName>ReviaWoolApparelHappy</defName>
+        <workerClass>Harvest_Everything.ThoughtWorker_Precept_ReviaWoolApparel</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+        <li>
+            <label>Wearing Revian fur</label>
+            <description>I was always jealous of her fur color.</description>
+            <baseMoodEffect>4</baseMoodEffect>
+        </li>
+        <li>
+            <label>Wearing Revian fur x2</label>
+            <description>Do you think these fur colors clash?</description>
+            <baseMoodEffect>8</baseMoodEffect>
+        </li>
+        <li>
+            <label>Wearing Revian fur x3</label>
+            <description>So many pretty colors from my sisters...</description>
+            <baseMoodEffect>12</baseMoodEffect>
+        </li>
+        <li>
+            <label>Wearing Revian fur completely</label>
+            <description>I am twice the Revia my sisters will ever be!</description>
+            <baseMoodEffect>16</baseMoodEffect>
+        </li>
+        </stages>
+        <requiredTraits>
+        <li>Psychopath</li>
+        <li>Bloodlust</li>
+        <li>Cannibal</li>
+        </requiredTraits>
+    </ThoughtDef>
+    <!-- Social thought: Revia sees someone else wearing revia -->
+    <ThoughtDef>
+        <defName>ReviaWoolWorn_Others</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>Harvest_Everything.ThoughtWorker_ReviaWoolWorn</workerClass>
+        <stages>
+        <li>
+            <!-- Non revia with 1-2 pieces -->
+            <label>Unworthy wearing our fur.</label>
+            <baseOpinionOffset>-20</baseOpinionOffset>
+        </li>
+        <li>
+            <!-- Non revia wearing 3+ pieces -->
+            <label>The gall! There's no way you earned all that fur!</label>
+            <baseOpinionOffset>-40</baseOpinionOffset>
+        </li>
+        <li>
+            <!-- Revia wearing less fur -->
+            <label>Look upon your better, furless</label>
+            <baseOpinionOffset>10</baseOpinionOffset>
+        </li>
+        <li>
+            <!-- Revia wearing more fur -->
+            <label>I must get more fur then she has...</label>
+            <baseOpinionOffset>-10</baseOpinionOffset>
+        </li>
+        </stages>
+    </ThoughtDef>
+
+
+
+</Defs>

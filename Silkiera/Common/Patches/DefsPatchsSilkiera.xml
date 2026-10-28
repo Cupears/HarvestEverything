@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!-- Kurin Tail -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/BodyPartDef[defName="Silkiera_Tail"]/spawnThingOnRemoved</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BodyPartDef[defName="Silkiera_Tail"]</xpath>
+			<value>
+				<spawnThingOnRemoved>Silkiera_Tail</spawnThingOnRemoved>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="Silkiera_Tail"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="BodyPartNaturalBase">
+					<defName>Silkiera_Tail</defName>
+					<label>silkiera tail</label>
+					<description>A biological Silkiera tail. Very soft and fluffy.</description>
+					<descriptionHyperlinks>
+						<RecipeDef>InstallSilkieraTail</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+						<MarketValue>350</MarketValue>
+						<Mass>2</Mass>
+					</statBases>
+				</ThingDef>
+				<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+					<defName>InstallSilkieraTail</defName>
+					<label>install silkiera tail</label>
+					<description>Install a natural silkiera tail.</description>
+					<descriptionHyperlinks><ThingDef>Silkiera_Tail</ThingDef></descriptionHyperlinks>
+					<jobString>Installing tail.</jobString>
+					<ingredients>
+					<li>
+						<filter>
+						<thingDefs>
+							<li>Silkiera_Tail</li>
+						</thingDefs>
+						</filter>
+						<count>1</count>
+					</li>
+					</ingredients>
+					<fixedIngredientFilter>
+					<thingDefs>
+						<li>Silkiera_Tail</li>
+					</thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+						<li>Silkiera_Tail</li>
+					</appliedOnFixedBodyParts>
+				</RecipeDef>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<!-- Silkiera Ear, if Harvest Everything -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+		<li Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="Silkiera_Ear"]</xpath>
+			<nomatch Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>/Defs</xpath>
+						<value>
+							<ThingDef ParentName="BodyPartNaturalBase">
+								<defName>Silkiera_Ear</defName>
+								<label>silkiera ear</label>
+								<description>Biological Silkiera ears.</description>
+								<statBases>
+									<MarketValue>35</MarketValue>
+									<Mass>2</Mass>
+								</statBases>
+							</ThingDef>
+							<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+								<defName>InstallSilkieraEar</defName>
+								<label>install silkiera ear</label>
+								<description>Install a natural silkeria ear.</description>
+								<descriptionHyperlinks><ThingDef>Silkiera_Ear</ThingDef></descriptionHyperlinks>
+								<jobString>Installing ear.</jobString>
+								<ingredients>
+								<li>
+									<filter>
+									<thingDefs>
+										<li>Silkiera_Ear</li>
+									</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								</ingredients>
+								<fixedIngredientFilter>
+								<thingDefs>
+									<li>Silkiera_Ear</li>
+								</thingDefs>
+								</fixedIngredientFilter>
+								<appliedOnFixedBodyParts>
+									<li>Silkiera_Ear</li>
+								</appliedOnFixedBodyParts>
+							</RecipeDef>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/BodyPartDef[defName="Silkiera_Ear"]/spawnThingOnRemoved</xpath>
+							<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/BodyPartDef[defName="Silkiera_Ear"]</xpath>
+							<value>
+								<spawnThingOnRemoved>Silkiera_Ear</spawnThingOnRemoved>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</nomatch>					
+		</li>
+		</operations>
+	</Operation>
+
+
+</Patch>

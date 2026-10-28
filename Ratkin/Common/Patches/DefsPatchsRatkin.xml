@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!-- Ratkin Tail -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/BodyPartDef[defName="RK_RatTail"]/spawnThingOnRemoved</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BodyPartDef[defName="RK_RatTail"]</xpath>
+			<value>
+				<spawnThingOnRemoved>RK_RatTail</spawnThingOnRemoved>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="RK_RatTail"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="BodyPartNaturalBase">
+					<defName>RK_RatTail</defName>
+					<label>Ratkin tail</label>
+					<description>A biological Ratkin tail.</description>
+					<descriptionHyperlinks>
+						<RecipeDef>InstallRatkinTail</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+						<MarketValue>350</MarketValue>
+						<Mass>2</Mass>
+					</statBases>
+				</ThingDef>
+				<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+					<defName>InstallRatkinTail</defName>
+					<label>install ratkin tail</label>
+					<description>Install a natural ratkin tail.</description>
+					<descriptionHyperlinks><ThingDef>RK_RatTail</ThingDef></descriptionHyperlinks>
+					<jobString>Installing tail.</jobString>
+					<ingredients>
+					<li>
+						<filter>
+						<thingDefs>
+							<li>RK_RatTail</li>
+						</thingDefs>
+						</filter>
+						<count>1</count>
+					</li>
+					</ingredients>
+					<fixedIngredientFilter>
+					<thingDefs>
+						<li>RK_RatTail</li>
+					</thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+						<li>RK_RatTail</li>
+					</appliedOnFixedBodyParts>
+				</RecipeDef>
+			</value>
+		</nomatch>
+	</Operation>
+
+
+
+
+</Patch>

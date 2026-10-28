@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Patch>
+  <!-- Xenomorph Type (Starbeast humanlike races: XMT_Adult / XMT_Queen bodies) -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/BodyPartDef[defName="StarbeastTail"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="HATT17_StarbeastTail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="BodyPartNaturalBase">
+                <defName>HATT17_StarbeastTail</defName>
+                <label>xenomorph tail</label>
+                <description>A natural xenomorph tail. Transplantable into humanoid races with the matching anatomical tail type.</description>
+                <statBases>
+                  <MarketValue>250</MarketValue>
+                  <Mass>2</Mass>
+                </statBases>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/BodyPartDef[defName="StarbeastTail"]/spawnThingOnRemoved</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/BodyPartDef[defName="StarbeastTail"]</xpath>
+            <value>
+              <spawnThingOnRemoved>HATT17_StarbeastTail</spawnThingOnRemoved>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Install_StarbeastTail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+                <defName>HATT17_Install_StarbeastTail</defName>
+                <label>install natural xenomorph tail</label>
+                <jobString>Installing natural tail.</jobString>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>HATT17_StarbeastTail</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                  <thingDefs>
+                    <li>HATT17_StarbeastTail</li>
+                  </thingDefs>
+                </fixedIngredientFilter>
+                <appliedOnFixedBodyParts>
+                  <li>StarbeastTail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Remove_StarbeastTail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryFlesh">
+                <defName>HATT17_Remove_StarbeastTail</defName>
+                <label>remove natural xenomorph tail</label>
+                <jobString>Removing natural tail.</jobString>
+                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workAmount>400</workAmount>
+                <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+                <appliedOnFixedBodyParts>
+                  <li>StarbeastTail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

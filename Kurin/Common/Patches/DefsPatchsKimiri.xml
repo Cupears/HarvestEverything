@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Kurin, The Three Tailed Fox [Deluxe Edition]</li></mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Kimiri Tail -->
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/BodyPartDef[defName="Kimiri_Tail"]/spawnThingOnRemoved</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/BodyPartDef[defName="Kimiri_Tail"]</xpath>
+						<value>
+							<spawnThingOnRemoved>Kimiri_Tail</spawnThingOnRemoved>
+						</value>
+					</nomatch>
+				</li>
+
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/ThingDef[defName="Kimiri_Tail"]</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs</xpath>
+						<value>
+							<ThingDef ParentName="BodyPartNaturalBase">
+								<defName>Kimiri_Tail</defName>
+								<label>kimiri tail</label>
+								<description>A biological Kimiri tail.</description>
+								<descriptionHyperlinks>
+									<RecipeDef>InstallKimiriTail</RecipeDef>
+								</descriptionHyperlinks>
+								<statBases>
+									<MarketValue>350</MarketValue>
+									<Mass>2</Mass>
+								</statBases>
+							</ThingDef>
+							<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+								<defName>InstallKimiriTail</defName>
+								<label>install kimiri tail</label>
+								<description>Install a natural kimiri tail.</description>
+								<descriptionHyperlinks><ThingDef>Kimiri_Tail</ThingDef></descriptionHyperlinks>
+								<jobString>Installing tail.</jobString>
+								<ingredients>
+								<li>
+									<filter>
+									<thingDefs>
+										<li>Kimiri_Tail</li>
+									</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								</ingredients>
+								<fixedIngredientFilter>
+								<thingDefs>
+									<li>Kimiri_Tail</li>
+								</thingDefs>
+								</fixedIngredientFilter>
+								<appliedOnFixedBodyParts>
+									<li>Kimiri_Tail</li>
+								</appliedOnFixedBodyParts>
+							</RecipeDef>
+						</value>
+					</nomatch>
+				</li>
+
+				<!-- Kimiri Ear, if Harvest Everything -->
+				<li Class="PatchOperationSequence">
+					<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/ThingDef[defName="Kimiri_Ear"]</xpath>
+						<nomatch Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationAdd">
+									<xpath>/Defs</xpath>
+									<value>
+										<ThingDef ParentName="BodyPartNaturalBase">
+											<defName>Kimiri_Ear</defName>
+											<label>kimiri ear</label>
+											<description>A biological Kimiri ear.</description>
+											<statBases>
+												<MarketValue>35</MarketValue>
+												<Mass>2</Mass>
+											</statBases>
+										</ThingDef>
+										<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+											<defName>InstallKimiriEar</defName>
+											<label>install kimiri ear</label>
+											<description>Install a natural kimiri ear.</description>
+											<descriptionHyperlinks><ThingDef>Kimiri_Ear</ThingDef></descriptionHyperlinks>
+											<jobString>Installing ear.</jobString>
+											<ingredients>
+											<li>
+												<filter>
+												<thingDefs>
+													<li>Kimiri_Ear</li>
+												</thingDefs>
+												</filter>
+												<count>1</count>
+											</li>
+											</ingredients>
+											<fixedIngredientFilter>
+											<thingDefs>
+												<li>Kimiri_Ear</li>
+											</thingDefs>
+											</fixedIngredientFilter>
+											<appliedOnFixedBodyParts>
+												<li>Kimiri_Ear</li>
+											</appliedOnFixedBodyParts>
+										</RecipeDef>
+									</value>
+								</li>
+								<li Class="PatchOperationConditional">
+									<xpath>/Defs/BodyPartDef[defName="Kimiri_Ear"]/spawnThingOnRemoved</xpath>
+										<nomatch Class="PatchOperationAdd">
+										<xpath>/Defs/BodyPartDef[defName="Kimiri_Ear"]</xpath>
+										<value>
+											<spawnThingOnRemoved>Kimiri_Ear</spawnThingOnRemoved>
+										</value>
+									</nomatch>
+								</li>
+							</operations>
+						</nomatch>					
+					</li>
+					</operations>
+				</li>
+
+				<!-- Kimiri Horn, if Harvest Everything -->
+				<li Class="PatchOperationSequence">
+					<operations>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/ThingDef[defName="Kimiri_Horn"]</xpath>
+						<nomatch Class="PatchOperationSequence">
+							<operations>
+								<li Class="PatchOperationAdd">
+									<xpath>/Defs</xpath>
+									<value>
+										<ThingDef ParentName="BodyPartNaturalBase">
+											<defName>Kimiri_Horn</defName>
+											<label>kimiri horn</label>
+											<description>A biological Kimiri horn.</description>
+											<statBases>
+												<MarketValue>35</MarketValue>
+												<Mass>2</Mass>
+											</statBases>
+										</ThingDef>
+										<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+											<defName>InstallKimiriHorn</defName>
+											<label>install kimiri horn</label>
+											<description>Install a natural kimiri horn.</description>
+											<descriptionHyperlinks><ThingDef>Kimiri_Horn</ThingDef></descriptionHyperlinks>
+											<jobString>Installing horn.</jobString>
+											<ingredients>
+											<li>
+												<filter>
+												<thingDefs>
+													<li>Kimiri_Horn</li>
+												</thingDefs>
+												</filter>
+												<count>1</count>
+											</li>
+											</ingredients>
+											<fixedIngredientFilter>
+											<thingDefs>
+												<li>Kimiri_Horn</li>
+											</thingDefs>
+											</fixedIngredientFilter>
+											<appliedOnFixedBodyParts>
+												<li>Kimiri_Horn</li>
+											</appliedOnFixedBodyParts>
+										</RecipeDef>
+									</value>
+								</li>
+								<li Class="PatchOperationConditional">
+									<xpath>/Defs/BodyPartDef[defName="Kimiri_Horn"]/spawnThingOnRemoved</xpath>
+										<nomatch Class="PatchOperationAdd">
+										<xpath>/Defs/BodyPartDef[defName="Kimiri_Horn"]</xpath>
+										<value>
+											<spawnThingOnRemoved>Kimiri_Horn</spawnThingOnRemoved>
+										</value>
+									</nomatch>
+								</li>
+							</operations>
+						</nomatch>					
+					</li>
+					</operations>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!-- Moyo Tail -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/BodyPartDef[defName="Moyo_Tail"]/spawnThingOnRemoved</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BodyPartDef[defName="Moyo_Tail"]</xpath>
+			<value>
+				<spawnThingOnRemoved>Moyo_Tail</spawnThingOnRemoved>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="Moyo_Tail"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="BodyPartNaturalBase">
+					<defName>Moyo_Tail</defName>
+					<label>moyo tail</label>
+					<description>A biological Moyo tail. Very squishy.</description>
+					<descriptionHyperlinks>
+						<RecipeDef>InstallMoyoTail</RecipeDef>
+						<RecipeDef>Butcher_MoyoTail</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+						<MarketValue>350</MarketValue>
+						<Mass>2</Mass>
+					</statBases>
+				</ThingDef>
+				<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+					<defName>InstallMoyoTail</defName>
+					<label>install moyo tail</label>
+					<description>Install a natural moyo tail.</description>
+					<descriptionHyperlinks><ThingDef>Moyo_Tail</ThingDef></descriptionHyperlinks>
+					<jobString>Installing tail.</jobString>
+					<ingredients>
+					<li>
+						<filter>
+						<thingDefs>
+							<li>Moyo_Tail</li>
+						</thingDefs>
+						</filter>
+						<count>1</count>
+					</li>
+					</ingredients>
+					<fixedIngredientFilter>
+					<thingDefs>
+						<li>Moyo_Tail</li>
+					</thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+						<li>Moyo_Tail</li>
+					</appliedOnFixedBodyParts>
+				</RecipeDef>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="TableButcher"]/recipes</xpath>
+		<value>
+			<li>Butcher_MoyoTail</li>
+		</value>
+	</Operation>
+
+
+
+
+</Patch>

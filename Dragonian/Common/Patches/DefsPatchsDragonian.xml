@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!-- Dragonian Tail -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/BodyPartDef[defName="DR_Tail"]/spawnThingOnRemoved</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BodyPartDef[defName="DR_Tail"]</xpath>
+			<value>
+				<spawnThingOnRemoved>DR_Tail</spawnThingOnRemoved>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="DR_Tail"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="BodyPartNaturalBase">
+					<defName>DR_Tail</defName>
+					<label>dragonian tail</label>
+					<description>A biological Dragonian tail.</description>
+					<descriptionHyperlinks>
+						<RecipeDef>InstallDragonianTail</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+						<MarketValue>350</MarketValue>
+						<Mass>2</Mass>
+					</statBases>
+				</ThingDef>
+				<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+					<defName>InstallDragonianTail</defName>
+					<label>install dragonian tail</label>
+					<description>Install a natural dragonian tail.</description>
+					<descriptionHyperlinks><ThingDef>DR_Tail</ThingDef></descriptionHyperlinks>
+					<jobString>Installing tail.</jobString>
+					<ingredients>
+					<li>
+						<filter>
+						<thingDefs>
+							<li>DR_Tail</li>
+						</thingDefs>
+						</filter>
+						<count>1</count>
+					</li>
+					</ingredients>
+					<fixedIngredientFilter>
+					<thingDefs>
+						<li>DR_Tail</li>
+					</thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+						<li>DR_Tail</li>
+					</appliedOnFixedBodyParts>
+				</RecipeDef>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<!-- Dragonian Horn, if Harvest Everything
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Harvest Everything!</li></mods>
+		<match Class="PatchOperationConditional"> 
+			<xpath>/Defs/ThingDef[defName="DragonianHorn"]</xpath>
+			<nomatch Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>/Defs</xpath>
+						<value>
+							<ThingDef ParentName="BodyPartNaturalBase">
+								<defName>DragonianHorn</defName>
+								<label>dragonian horn</label>
+								<description>A biological dragonian horn</description>
+								<statBases>
+									<MarketValue>35</MarketValue>
+									<Mass>2</Mass>
+								</statBases>
+							</ThingDef>
+							<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+								<defName>InstallDRHorn</defName>
+								<label>install dragonian horn</label>
+								<description>Install a natural dragonian horn.</description>
+								<descriptionHyperlinks><ThingDef>DragonianLeftHorn</ThingDef></descriptionHyperlinks>
+								<jobString>Installing horn.</jobString>
+								<ingredients>
+								<li>
+									<filter>
+									<thingDefs>
+										<li>DragonianHorn</li>
+									</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								</ingredients>
+								<fixedIngredientFilter>
+								<thingDefs>
+									<li>DragonianHorn</li>
+								</thingDefs>
+								</fixedIngredientFilter>
+								<appliedOnFixedBodyParts>
+									<li>DragonianLeftHorn</li>
+									<li>DragonianRightHorn</li>
+								</appliedOnFixedBodyParts>
+							</RecipeDef>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/BodyPartDef[defName="DragonianLeftHorn"]/spawnThingOnRemoved</xpath>
+							<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/BodyPartDef[defName="DragonianLeftHorn"]</xpath>
+							<value>
+								<spawnThingOnRemoved>DragonianHorn</spawnThingOnRemoved>
+							</value>
+						</nomatch>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/BodyPartDef[defName="DragonianRightHorn"]/spawnThingOnRemoved</xpath>
+							<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/BodyPartDef[defName="DragonianRightHorn"]</xpath>
+							<value>
+								<spawnThingOnRemoved>DragonianHorn</spawnThingOnRemoved>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</nomatch>					
+		</match>
+	</Operation>  -->
+
+
+
+
+</Patch>

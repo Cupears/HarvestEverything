@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Patch>
+  <!-- Yanzihko felines, Fressalfar, Kisalfar, Lombax, Vulpoid -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/BodyPartDef[defName="Yanz_Base_Tail"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="HATT17_Yanz_Base_Tail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="BodyPartNaturalBase">
+                <defName>HATT17_Yanz_Base_Tail</defName>
+                <label>tail (natural)</label>
+                <description>A natural tail. Transplantable into humanoid races with the matching anatomical tail type.</description>
+                <statBases>
+                  <MarketValue>250</MarketValue>
+                  <Mass>2</Mass>
+                </statBases>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/BodyPartDef[defName="Yanz_Base_Tail"]/spawnThingOnRemoved</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/BodyPartDef[defName="Yanz_Base_Tail"]</xpath>
+            <value>
+              <spawnThingOnRemoved>HATT17_Yanz_Base_Tail</spawnThingOnRemoved>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Install_Yanz_Base_Tail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+                <defName>HATT17_Install_Yanz_Base_Tail</defName>
+                <label>install natural tail</label>
+                <jobString>Installing natural tail.</jobString>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>HATT17_Yanz_Base_Tail</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                  <thingDefs>
+                    <li>HATT17_Yanz_Base_Tail</li>
+                  </thingDefs>
+                </fixedIngredientFilter>
+                <appliedOnFixedBodyParts>
+                  <li>Yanz_Base_Tail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Remove_Yanz_Base_Tail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryFlesh">
+                <defName>HATT17_Remove_Yanz_Base_Tail</defName>
+                <label>remove natural tail</label>
+                <jobString>Removing natural tail.</jobString>
+                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workAmount>400</workAmount>
+                <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+                <appliedOnFixedBodyParts>
+                  <li>Yanz_Base_Tail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

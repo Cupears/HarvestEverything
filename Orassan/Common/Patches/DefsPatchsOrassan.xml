@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Patch>
+  <!-- Orassan tail (neko / orassan) -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/BodyPartDef[defName="OTail"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Install_OTail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+                <defName>HATT17_Install_OTail</defName>
+                <label>install natural orassan tail</label>
+                <jobString>Installing natural tail.</jobString>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>OTail</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                  <thingDefs>
+                    <li>OTail</li>
+                  </thingDefs>
+                </fixedIngredientFilter>
+                <appliedOnFixedBodyParts>
+                  <li>OTail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Remove_OTail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryFlesh">
+                <defName>HATT17_Remove_OTail</defName>
+                <label>remove natural orassan tail</label>
+                <jobString>Removing natural tail.</jobString>
+                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workAmount>400</workAmount>
+                <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+                <appliedOnFixedBodyParts>
+                  <li>OTail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

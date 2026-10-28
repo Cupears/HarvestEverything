@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- Kurin Wool Stuff -->
+    <ThingDef ParentName="WoolBase">
+        <defName>WoolKurin</defName>
+        <label>kurin tail fur</label>
+        <description>The soft, plush, beautiful fur of kurin tail.</description>
+        <graphicData>
+            <color>(127,43,10)</color>
+        </graphicData>
+        <statBases>
+            <MarketValue>11.0</MarketValue>
+            <StuffPower_Armor_Sharp>1.8</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.4</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>1.2</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>32</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>32</StuffPower_Insulation_Heat>
+            <DeteriorationRate>10.0</DeteriorationRate>
+        </statBases>
+        <stuffProps>
+            <color>(127,43,10)</color>
+            <statOffsets>
+                <Insulation_Cold>3</Insulation_Cold>
+                <Insulation_Heat>3</Insulation_Heat>
+            </statOffsets>
+            <statFactors>
+                <Flammability>0.4</Flammability>
+                <MaxHitPoints>1.75</MaxHitPoints>
+            </statFactors>
+        </stuffProps>
+    </ThingDef>
+
+    <!-- Skin Kurin Tail Recipe -->
+    <RecipeDef>
+        <defName>Skin_KurinTail</defName>
+        <label>skin kurin tail</label>
+        <description>Skin a harvested Kurin tail to obtain the lush, beautiful fur for use in crafting.</description>
+        <descriptionHyperlinks>
+			<ThingDef>Kurin_Tail</ThingDef>
+			<ThingDef>WoolKurin</ThingDef>
+		</descriptionHyperlinks>
+        <jobString>Skinning Kurin tail.</jobString>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <effectWorking>Tailor</effectWorking>
+        <soundWorking>Recipe_Tailor</soundWorking>
+        <workAmount>500</workAmount>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <targetCountAdjustment>50</targetCountAdjustment>
+        <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+        </recipeUsers>
+        <ingredients>
+        <li>
+            <filter>
+            <thingDefs>
+                <li>Kurin_Tail</li>
+            </thingDefs>
+            </filter>
+            <count>1</count>
+        </li>
+        </ingredients>
+        <products>
+        <WoolKurin>50</WoolKurin>
+        </products>
+        <workSkill>Crafting</workSkill>
+        <displayPriority>0</displayPriority>
+    </RecipeDef>
+    <!-- Thought: Kurin wearing kurin - sad -->
+    <ThoughtDef>
+        <defName>KurinWoolApparelSad</defName>
+        <workerClass>Harvest_Everything.ThoughtWorker_Precept_KurinWoolApparel</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+        <li>
+            <label>Wearing Kurin fur</label>
+            <description>I'm wearing a part of my fox sister...</description>
+            <baseMoodEffect>-5</baseMoodEffect>
+        </li>
+        <li>
+            <label>Wearing Kurin fur x2</label>
+            <description>My poor fox sisters, why am I wearing them?</description>
+            <baseMoodEffect>-10</baseMoodEffect>
+        </li>
+        <li>
+            <label>Wearing Kurin fur x3</label>
+            <description>*sobs* Why is there so much kurin fur on me thats not me?</description>
+            <baseMoodEffect>-15</baseMoodEffect>
+        </li>
+        <li>
+            <label>Wearing Kurin fur completely</label>
+            <description>Get it off, get it off, GET IT OFF!!</description>
+            <baseMoodEffect>-20</baseMoodEffect>
+        </li>
+        </stages>
+        <nullifyingTraits>
+        <li>Psychopath</li>
+        <li>Bloodlust</li>
+        <li>Cannibal</li>
+        </nullifyingTraits>
+    </ThoughtDef>
+    <!-- Thought: Kurin wearing kurin - happy -->
+    <ThoughtDef>
+        <defName>KurinWoolApparelHappy</defName>
+        <workerClass>Harvest_Everything.ThoughtWorker_Precept_KurinWoolApparel</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+        <li>
+            <label>Wearing Kurin fur</label>
+            <description>I was always jealous of her fur color.</description>
+            <baseMoodEffect>2</baseMoodEffect>
+        </li>
+        <li>
+            <label>Wearing Kurin fur x2</label>
+            <description>Do you think these fur colors clash?</description>
+            <baseMoodEffect>4</baseMoodEffect>
+        </li>
+        <li>
+            <label>Wearing Kurin fur x3</label>
+            <description>So many pretty colors from my sisters...</description>
+            <baseMoodEffect>6</baseMoodEffect>
+        </li>
+        <li>
+            <label>Wearing Kurin fur completely</label>
+            <description>I am twice the Kurin my sisters will ever be!</description>
+            <baseMoodEffect>8</baseMoodEffect>
+        </li>
+        </stages>
+        <requiredTraits>
+        <li>Psychopath</li>
+        <li>Bloodlust</li>
+        <li>Cannibal</li>
+        </requiredTraits>
+    </ThoughtDef>
+    <!-- Social thought: Kurin sees someone else wearing kurin -->
+    <ThoughtDef>
+        <defName>KurinWoolWorn_Disapproved</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>Harvest_Everything.ThoughtWorker_KurinWoolWorn_Disapproved</workerClass>
+        <stages>
+        <li>
+            <!-- Non kurin with 1-2 pieces -->
+            <label>Wearing Kurin fur apparel.</label>
+            <baseOpinionOffset>-20</baseOpinionOffset>
+        </li>
+        <li>
+            <!-- Non kurin wearing 3+ pieces -->
+            <label>Covered in Kurin fur apparel!</label>
+            <baseOpinionOffset>-40</baseOpinionOffset>
+        </li>
+        <li>
+            <!-- Kurin wearing 1-2 pieces -->
+            <label>Traitor! Wearing the fur of her fallen sisters!</label>
+            <baseOpinionOffset>-30</baseOpinionOffset>
+        </li>
+        <li>
+            <!-- Kurin wearing 3+ pieces -->
+            <label>Betrayal! Covered in the fur of her fallen sisters!</label>
+            <baseOpinionOffset>-60</baseOpinionOffset>
+        </li>
+        </stages>
+    </ThoughtDef>
+
+
+
+</Defs>

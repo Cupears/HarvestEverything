@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Patch>
+  <!-- Generic anatomical "Tail" part (Big and Small bodies, Frosty and others) -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/BodyPartDef[defName="Tail"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="HATT17_Tail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="BodyPartNaturalBase">
+                <defName>HATT17_Tail</defName>
+                <label>tail (natural)</label>
+                <description>A natural tail. Transplantable into humanoid races with the matching anatomical tail type.</description>
+                <statBases>
+                  <MarketValue>250</MarketValue>
+                  <Mass>2</Mass>
+                </statBases>
+              </ThingDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/BodyPartDef[defName="Tail"]/spawnThingOnRemoved</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/BodyPartDef[defName="Tail"]</xpath>
+            <value>
+              <spawnThingOnRemoved>HATT17_Tail</spawnThingOnRemoved>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Install_Tail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+                <defName>HATT17_Install_Tail</defName>
+                <label>install natural tail</label>
+                <jobString>Installing natural tail.</jobString>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>HATT17_Tail</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                  <thingDefs>
+                    <li>HATT17_Tail</li>
+                  </thingDefs>
+                </fixedIngredientFilter>
+                <appliedOnFixedBodyParts>
+                  <li>Tail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/RecipeDef[defName="HATT17_Remove_Tail"]</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="SurgeryFlesh">
+                <defName>HATT17_Remove_Tail</defName>
+                <label>remove natural tail</label>
+                <jobString>Removing natural tail.</jobString>
+                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workAmount>400</workAmount>
+                <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+                <appliedOnFixedBodyParts>
+                  <li>Tail</li>
+                </appliedOnFixedBodyParts>
+                <recipeUsers Inherit="False" />
+              </RecipeDef>
+            </value>
+          </nomatch>
+        </li>
+        <!--
+          Some race mods (Logann, Ferrex) already ship their own generic "Tail" item
+          for the shared Tail body part. Their removed tails drop that item, so the
+          install recipe has to accept it as well as the generic HATT17_Tail.
+        -->
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Tail"]</xpath>
+          <match Class="PatchOperationSequence">
+            <operations>
+              <li Class="PatchOperationConditional">
+                <xpath>Defs/RecipeDef[defName="HATT17_Install_Tail"]/ingredients/li/filter/thingDefs/li[.="Tail"]</xpath>
+                <nomatch Class="PatchOperationAdd">
+                  <xpath>Defs/RecipeDef[defName="HATT17_Install_Tail"]/ingredients/li/filter/thingDefs</xpath>
+                  <value>
+                    <li>Tail</li>
+                  </value>
+                </nomatch>
+              </li>
+              <li Class="PatchOperationConditional">
+                <xpath>Defs/RecipeDef[defName="HATT17_Install_Tail"]/fixedIngredientFilter/thingDefs/li[.="Tail"]</xpath>
+                <nomatch Class="PatchOperationAdd">
+                  <xpath>Defs/RecipeDef[defName="HATT17_Install_Tail"]/fixedIngredientFilter/thingDefs</xpath>
+                  <value>
+                    <li>Tail</li>
+                  </value>
+                </nomatch>
+              </li>
+            </operations>
+          </match>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!-- Kiiro Tail -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/BodyPartDef[defName="Kiiro_Tail"]/spawnThingOnRemoved</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BodyPartDef[defName="Kiiro_Tail"]</xpath>
+			<value>
+				<spawnThingOnRemoved>Kiiro_Tail</spawnThingOnRemoved>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="Kiiro_Tail"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="BodyPartNaturalBase">
+					<defName>Kiiro_Tail</defName>
+					<label>kiiro tail</label>
+					<description>A biological Kiiro tail. Very soft and smooth.</description>
+					<descriptionHyperlinks>
+						<RecipeDef>InstallKiiroTail</RecipeDef>
+					</descriptionHyperlinks>
+					<statBases>
+						<MarketValue>350</MarketValue>
+						<Mass>2</Mass>
+					</statBases>
+				</ThingDef>
+				<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+					<defName>InstallKiiroTail</defName>
+					<label>install kiiro tail</label>
+					<description>Install a natural kiiro tail.</description>
+					<descriptionHyperlinks><ThingDef>Kiiro_Tail</ThingDef></descriptionHyperlinks>
+					<jobString>Installing tail.</jobString>
+					<ingredients>
+					<li>
+						<filter>
+						<thingDefs>
+							<li>Kiiro_Tail</li>
+						</thingDefs>
+						</filter>
+						<count>1</count>
+					</li>
+					</ingredients>
+					<fixedIngredientFilter>
+					<thingDefs>
+						<li>Kiiro_Tail</li>
+					</thingDefs>
+					</fixedIngredientFilter>
+					<appliedOnFixedBodyParts>
+						<li>Kiiro_Tail</li>
+					</appliedOnFixedBodyParts>
+				</RecipeDef>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<!-- Kiiro Tailbone, if Harvest Everything -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+		<li Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="Kiiro_Tailbone"]</xpath>
+			<nomatch Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>/Defs</xpath>
+						<value>
+							<ThingDef ParentName="BodyPartNaturalBase">
+								<defName>Kiiro_Tailbone</defName>
+								<label>kiiro tailbone</label>
+								<description>A biological Kiiro tailbone.</description>
+								<statBases>
+									<MarketValue>35</MarketValue>
+									<Mass>2</Mass>
+								</statBases>
+							</ThingDef>
+							<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+								<defName>InstallKiiroTailbone</defName>
+								<label>install kiiro tailbone</label>
+								<description>Install a natural kiiro tailbone.</description>
+								<descriptionHyperlinks><ThingDef>Kiiro_Tailbone</ThingDef></descriptionHyperlinks>
+								<jobString>Installing tailbone.</jobString>
+								<ingredients>
+								<li>
+									<filter>
+									<thingDefs>
+										<li>Kiiro_Tailbone</li>
+									</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								</ingredients>
+								<fixedIngredientFilter>
+								<thingDefs>
+									<li>Kiiro_Tailbone</li>
+								</thingDefs>
+								</fixedIngredientFilter>
+								<appliedOnFixedBodyParts>
+									<li>Kiiro_Tailbone</li>
+								</appliedOnFixedBodyParts>
+							</RecipeDef>
+						</value>
+					</li>
+					<li Class="PatchOperationConditional">
+						<xpath>/Defs/BodyPartDef[defName="Kiiro_Tailbone"]/spawnThingOnRemoved</xpath>
+							<nomatch Class="PatchOperationAdd">
+							<xpath>/Defs/BodyPartDef[defName="Kiiro_Tailbone"]</xpath>
+							<value>
+								<spawnThingOnRemoved>Kiiro_Tailbone</spawnThingOnRemoved>
+							</value>
+						</nomatch>
+					</li>
+				</operations>
+			</nomatch>					
+		</li>
+		</operations>
+	</Operation>
+
+</Patch>

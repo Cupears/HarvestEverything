@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<!-- Revia Tail -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>/Defs/BodyPartDef[defName="ReviaRaceTail"]/spawnThingOnRemoved</xpath>
+					<nomatch Class="PatchOperationAdd">
+					<xpath>/Defs/BodyPartDef[defName="ReviaRaceTail"]</xpath>
+					<value>
+						<spawnThingOnRemoved>ReviaRaceTail</spawnThingOnRemoved>
+					</value>
+				</nomatch>
+			</li>
+			<li Class="PatchOperationConditional">
+				<xpath>/Defs/ThingDef[defName="ReviaRaceTail"]</xpath>
+		
+				<nomatch Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<ThingDef ParentName="BodyPartNaturalBase">
+							<defName>ReviaRaceTail</defName>
+							<label>revia tail</label>
+							<description>A biological Revia tail. Very soft and fluffy.</description>
+							<descriptionHyperlinks>
+								<RecipeDef>InstallReviaTail</RecipeDef>
+								<RecipeDef>Skin_ReviaTail</RecipeDef>
+							</descriptionHyperlinks>
+							<statBases>
+								<MarketValue>350</MarketValue>
+								<Mass>2</Mass>
+							</statBases>
+						</ThingDef>
+						<RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+							<defName>InstallReviaTail</defName>
+							<label>install revia tail</label>
+							<description>Install a natural revia tail.</description>
+							<descriptionHyperlinks><ThingDef>ReviaRaceTail</ThingDef></descriptionHyperlinks>
+							<jobString>Installing tail.</jobString>
+							<ingredients>
+							<li>
+								<filter>
+								<thingDefs>
+									<li>ReviaRaceTail</li>
+								</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+							</ingredients>
+							<fixedIngredientFilter>
+							<thingDefs>
+								<li>ReviaRaceTail</li>
+							</thingDefs>
+							</fixedIngredientFilter>
+							<appliedOnFixedBodyParts>
+								<li>ReviaRaceTail</li>
+							</appliedOnFixedBodyParts>
+						</RecipeDef>
+					</value>
+				</nomatch>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

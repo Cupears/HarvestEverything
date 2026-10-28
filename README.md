@@ -1,11 +1,21 @@
-# Harvest Everything - 1.7 Race Support
+# Harvest Everything + Tails - 1.7 Race Support
 
-![RimWorld](https://img.shields.io/badge/RimWorld-1.7-orange) ![Stage](https://img.shields.io/badge/stage-beta.1-purple)
+![RimWorld](https://img.shields.io/badge/RimWorld-1.7-orange) ![Stage](https://img.shields.io/badge/stage-beta.1-purple) ![Tails](https://img.shields.io/badge/tails-supported-green)
 
-Natural body-part harvesting and transplantation across compatible humanoid races.
+Natural body-part harvesting and transplantation across compatible humanoid races,
+**now including natural tails**, plus animal butchering for organs.
 
-## Changes - 1.7.0-beta.1
+This mod merges Harvest Everything with Harvest All The Tails. You no longer need a
+separate tails mod: tail harvesting, tail installation and per-race tail support are all
+built in here.
 
+## Changes - 1.7.0.2
+
+- Merged Harvest All The Tails into this mod. Tail harvesting and transplantation are now built in.
+- Added tail support for 23 tailed humanoid races, including Big and Small bodies, Dogbold, Foxbold, Orassan, Tozol, Yanzihko felines, Frosty, Logann, Ferrex and Xenomorph Type.
+- Each supported race maps to its own tail body part and tail item, so the correct tail type is restored.
+- Race modules load only when their race mod is active, so nothing breaks if you have no tailed races installed.
+- Fixed tail patches whose "if Harvest Everything is loaded" gate could never match, so the compatible item and recipe patches now apply.
 - Rebuilt runtime code against RimWorld 1.7 / .NET 10.
 - Included current 1.6 Workshop XML content in the 1.7 content folder.
 - Replaced removed surgery-bill fields with the supported Part properties.
@@ -15,6 +25,30 @@ Natural body-part harvesting and transplantation across compatible humanoid race
 - Kept missing parent parts, incompatible anatomy, and existing game surgery checks intact.
 - Added animal butchering support: fresh animal corpses now give up clean organs.
 - Added a separate package identity and incompatibility with the original.
+
+## Tail harvesting
+
+A humanoid with an actual tail body part can have that tail surgically removed and
+installed again. Removing a clean tail produces a tail item; the install recipe asks for
+that same item, so a removed tail can always be put back. Matching tail types share an
+item, and different anatomical tail types do not.
+
+**Visual-only tails are not anatomical parts.** Anthro Race variants and xenotype or gene
+appearance tails with no tail BodyPartRecord have nothing to amputate or transplant. No body
+structure or gene is invented or changed. See [race coverage](RACE-COVERAGE.md) for the full
+51-race audit.
+
+### Playing without tailed races
+
+Tail support is entirely def-driven. Race-specific modules are gated on their race mod
+being active; the generic tail content targets a `Tail` body part and stays inert on races
+that do not have one. If you install this mod with no tailed race mods at all:
+
+- No errors, red errors or missing-def warnings are produced.
+- The race patches for Kurin, Revia, Moyo, Dragonian, Silkiera, Ratkin, Kiiro, Rabbie,
+  Glassy, Mofy, Heruan and Nyaron are not loaded at all.
+- Generic tail items and recipes exist but simply have no valid pawn part to act on.
+- Body-part harvesting and animal butchering continue to work normally.
 
 ## Animal butchering
 
@@ -27,17 +61,22 @@ non-fresh corpses are skipped. The chance per organ scales with butchery efficie
 
 ## Coverage
 
-Compatible recipes become available on humanoid races that contain the required actual body part. Standard arms and legs are covered on HAR bodies, Anthro variants and compatible gene-based humanoids. Mechanical-only parts, nonexistent limbs and purely visual tails are not converted into biological transplants. Tail items are supplied by the tail fork or race mods.
+Compatible recipes become available on humanoid races that contain the required actual body part. Standard arms and legs are covered on HAR bodies, Anthro variants and compatible gene-based humanoids. Mechanical-only parts, nonexistent limbs and purely visual tails are not converted into biological transplants. Tail items come from this mod or from the race mod itself.
 
 ## Load order
 
-Harmony -> race/content mods -> Harvest All The Tails fork -> this fork -> Harvest Organs Post Mortem -> compatibility patches.
+Harmony -> race and content mods -> **Harvest Everything + Tails** -> Harvest Organs Post Mortem -> compatibility patches.
+
+Do not load the standalone Harvest All The Tails mod alongside this one. It is declared
+incompatible because its content is already included here.
 
 ## Credits and Workshop status
 
-Original project: [Ogliss/HarvestEverything](https://github.com/Ogliss/HarvestEverything), based on Ykara's Harvest Everything and later updates. Runtime source was reconstructed from the installed author's 1.6 assembly to match the current Workshop behavior, then updated for 1.7.
+Original Harvest Everything project: [Ogliss/HarvestEverything](https://github.com/Ogliss/HarvestEverything), based on Ykara's Harvest Everything and later updates. Runtime source was reconstructed from the installed author's 1.6 assembly to match the current Workshop behavior, then updated for 1.7.
 
-**Workshop redistribution pending upstream permission.** No license file was supplied in the upstream repository. A public GitHub fork does not establish permission to redistribute upstream code/assets on Steam. No new license is assigned to upstream content. The original Workshop publishing ID is not used by this fork.
+Tails content: [EspioIdsavant/Harvest-All-The-Tails](https://github.com/EspioIdsavant/Harvest-All-The-Tails), used under the MIT license. The original MIT notice is retained in [LICENSE-Tails](LICENSE-Tails).
+
+**Workshop redistribution pending upstream permission.** No license file was supplied in the Harvest Everything upstream repository. A public GitHub fork does not establish permission to redistribute upstream code/assets on Steam. No new license is assigned to upstream content. The original Workshop publishing IDs are not used by this fork.
 
 ## Repository layout
 
@@ -49,6 +88,9 @@ Original project: [Ogliss/HarvestEverything](https://github.com/Ogliss/HarvestEv
 | `Textures/` | Textures |
 | `Source17/` | C# source for the 1.7 build |
 | `tools/` | Packaging script |
+| `Races17/` | Insect tail patches (def-driven fallback) |
+| `Kurin/`, `Revia/`, `Moyo/`, `Dragonian/`, `DragonianUnofficial/`, `Silkiera/`, `Ratkin/`, `Kiiro/`, `Rabbie/`, `Glassy/`, `Mofy/`, `Heruan/`, `Nyaron/` | Race modules for HAR and anthro races |
+| `BigSmall/`, `Dogbold/`, `Foxbold/`, `Orassan/`, `Tozol/`, `Yanzihko/`, `Xenomorph/` | Race modules for tailed non-HAR races |
 
 ## Build
 
@@ -62,4 +104,6 @@ Game and Harmony assemblies are referenced locally and are not included in the 1
 
 ## Installation
 
-Enable the fork instead of the original. Both versions are declared incompatible to prevent duplicate content. Keep Harmony enabled. Existing upstream item names are retained.
+Enable this mod instead of the original Harvest Everything. Enable only one copy: the
+original, the standalone tails mod and this merge are declared incompatible to prevent
+duplicate content. Keep Harmony enabled. Existing upstream item names are retained.
