@@ -1,3 +1,9 @@
+## Changes - 1.7.1.2
+
+- About.xml now states requirements and conflicts: Harmony is a hard dependency; Humanoid Alien Races and tailed-race mods are optional.
+- Added the old `Cupears.HarvestEverything17` package id to `incompatibleWith` so an older copy cannot load alongside this one.
+- Fixed package id casing on the existing incompatibility entries and removed a duplicated `loadBefore` entry for Harvest Organs Post Mortem.
+
 ## Changes - 1.7.1.1
 
 - Renamed the assembly to `HarvestEverythingTails` so it no longer shares a name with the original Harvest Everything DLL.
