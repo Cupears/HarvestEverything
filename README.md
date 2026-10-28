@@ -1,32 +1,32 @@
 # Harvest Everything + Tails
 
-![RimWorld](https://img.shields.io/badge/RimWorld-1.6%20%7C%201.7-orange) ![Stage](https://img.shields.io/badge/stage-beta-purple) ![Tails](https://img.shields.io/badge/tails-supported-green)
-
-Harvest and transplant natural body parts from humans, animals and supported modded races.
-Includes Harvest All The Tails.
+Harvest natural body parts from humans, animals and supported modded races, then use them in surgery. Includes the tail-harvesting content from Harvest All The Tails.
 
 ## Features
 
-- Recover organs, limbs and smaller parts such as fingers, toes and tongues.
-- Butcher animals for parts labeled with their donor species.
-- Replace animal parts with matching parts from the same species.
-- Transplant natural tails across compatible anatomy while keeping their donor name.
-- Optional [Bionic Icons](https://steamcommunity.com/sharedfiles/filedetails/?id=1677616980) support.
+- Recover natural organs, limbs, fingers, toes, tongues and other supported parts.
+- Butcher animals for species-labeled body parts. This uses a separate bill and gives half the usual meat.
+- Replace animal parts with a matching part from the same species.
+- Harvest and install natural tails on compatible races. Tails keep their donor name.
 
-## Installation
+## Requirements and load order
 
-Supports **RimWorld 1.6 and 1.7**. Requires **Harmony**.
+Supports RimWorld **1.6** and **1.7**. [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077) is required.
 
-Enable this mod instead of the original Harvest Everything or standalone Harvest All The Tails.
+Load Harmony first, then race and content mods, then this mod. If using [Harvest Organs Post Mortem](https://steamcommunity.com/sharedfiles/filedetails/?id=1204502413), load it after this mod. Load compatibility patches after both.
 
-**Load order:** Harmony → race and content mods → Harvest Everything + Tails → Harvest Organs Post Mortem → compatibility patches.
+Harvest Organs Post Mortem is optional. It is not needed for animal parts; use this mod's **Butcher for animal parts** bill.
 
-## More information
+[Bionic Icons](https://steamcommunity.com/sharedfiles/filedetails/?id=1677616980) is optional and adds artwork to recovered parts.
+
+Race mods are optional and only needed for the races they add.
+
+## Compatibility
+
+Use this mod instead of the original [Harvest Everything](https://steamcommunity.com/sharedfiles/filedetails/?id=2007485974) and [Harvest All The Tails](https://steamcommunity.com/sharedfiles/filedetails/?id=2991826214), formerly Harvest Kurin Tails. Do not enable those older mods alongside this one.
+
+## Help and credits
 
 [FAQ](FAQ.md) · [Race support](RACE-COVERAGE.md) · [Changelog](CHANGELOG.md) · [Building from source](BUILDING.md) · [Licensing](LICENSE-STATUS.md)
 
-## Credits
-
-Harvest Everything: [Ogliss](https://github.com/Ogliss/HarvestEverything), based on Ykara's original mod.
-
-Harvest All The Tails: [Espio Idsavant](https://github.com/EspioIdsavant/Harvest-All-The-Tails), used under the [MIT license](LICENSE-Tails).
+Harvest Everything by Ogliss, based on Ykara's original mod. Tail content by Espio Idsavant. Maintenance and RimWorld 1.6/1.7 support by Cupears.

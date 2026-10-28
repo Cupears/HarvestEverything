@@ -1,160 +1,59 @@
-## Changes - 1.7.1.18
+# Changelog
 
-- Fixed healthy transplanted tails being treated as dirty by the native surgery recovery check.
-- Added animal tail removal and source-labeled recovery for supported natural animal parts removed by surgery. Animal parts cannot turn into human donor items.
-- Tail removal recipes now target only their declared anatomy.
-- Fixed bulk harvesting assigning bill targets before the bill was attached. Repeated clicks no longer duplicate bills, and deep parent/child anatomy is handled correctly.
-- Fixed duplicated inherited medicine costs in older human transplant recipes.
-- Blocked natural recovery beneath prosthetic ancestors and unsafe replacement targets. Partial or unknown donor records are rejected instead of matched by display name.
-- Added missing animal senses, mouth parts, spine, antenna, fin and digit mappings, plus function-based support for custom organs.
-- Separated animal fingers, toes, feet and tusks for clearer artwork. Paw and hoof items use the animal-limb fallback; ears use animal ear artwork. Organ icons retain their corresponding organ artwork.
-- Fixed the missing tail metadata description reported at startup. Added missing-value guards to optional integrations and race apparel thoughts.
-- Kept vanilla surgery success rules. Animal sleeping spots have a 0.7 environment factor; animal beds and sleeping boxes have 1.0 before other modifiers.
-- Both builds pass; 427 focused checks pass across the safety, tail and small-part suites. Live rendering and surgeries still need a game check.
+## 1.7.1.18
 
-## Changes - 1.7.1.17
+- Added natural animal-tail removal and recovery of supported animal parts after surgery.
+- Improved part replacement checks and handling of custom animal anatomy.
+- Refined recovered-part icons while keeping organ-specific artwork.
 
-- Fixed direct Bionic Icons mappings drawing red/green mask textures as sprites. Mapped parts now use Bionic Icons' box-and-mask renderer.
-- Added source-species tracking to natural tail items recovered through surgery and Post Mortem, including humanoid and hybrid tails.
-- Successful natural tail transplants keep a hidden donor record. Later recovery uses the original donor rather than the recipient's race. Tail records survive save/load and stack splitting.
-- Tail transplantation accepts supported natural tail items across compatible tail anatomy. Tailbones are excluded.
-- Animal digits and claws use a 5% base recovery chance; hooves, horns, antlers, tusks and beaks use 12.5%; larger parts and organs use 25%, scaled by butcher efficiency.
-- Whole-part recovery rejects damaged or missing child parts. Core body sections are excluded, and recovered parents suppress duplicate child drops.
-- Both builds pass. 34 focused donor/recovery checks pass, plus the existing donor-matching check across 734 resolved race records. Icon appearance and live transplant/removal loops still need in-game confirmation.
+## 1.7.1.17
 
-## Changes - 1.7.1.16
+- Fixed Bionic Icons rendering for recovered parts.
+- Recovered tails now retain their original donor species through surgery and save/load.
+- Recovery skips damaged or missing parts and avoids duplicate drops from nested body parts.
 
-- Added optional direct Bionic Icons mappings for recovered animal parts, small natural parts and race tail items.
-- The integration loads only when Bionic Icons is active and uses its installed artwork.
+## 1.7.1.16
 
-## Changes - 1.7.1.15
+- Added optional Bionic Icons artwork for animal and small natural parts.
 
-- Animal part surgery is offered only when a non-forbidden matching donor part is on the map or being carried by a spawned pawn.
-- Queued matching-animal surgeries wait for suitable donor parts before requesting patient rest.
-- Natural transplant recipes supplied by this fork hide when ingredients are missing, including humanlike part and tail surgeries.
-- Added source-labeled animal leg and arm recovery and ingredient support.
-- Corrected custom tail anatomy registration.
-- Both game-version builds pass; availability hooks bind and donor matching was checked against 734 race records from the current resolved mod data. Live medical jobs still require an in-game check.
+## 1.7.1.15
 
-## Changes - 1.7.1.14
+- Surgery now appears only when a matching donor part is available.
+- Added recovery and replacement support for more animal limbs.
 
-- Recovered animal parts now describe their saved donor species and biological role, including modded species.
+## 1.7.1.14–1.7.1.12
 
-## Changes - 1.7.1.13
+- Added short biological descriptions to recovered animal parts, organs and natural body parts.
 
-- Applied short biological descriptions to older natural body parts, race-specific tails, ears, horns and tail materials in both supported game versions.
+## 1.7.1.11
 
-## Changes - 1.7.1.12
+- Updated surgery names to use RimWorld-style labels such as “install paw” and “install tail”.
 
-- Replaced feature explanations in new body-part descriptions with short biological descriptions.
+## 1.7.1.10–1.7.1.8
 
-## Changes - 1.7.1.11
+- Added same-species animal-part replacement and more recoverable animal parts.
+- Added source-species labels and saved anatomy information for matching animal surgery.
+- Added support for additional modded tail types.
 
-- Animal transplant surgery uses RimWorld-style names such as "install paw", "install hand" and "install hoof".
-- Tail surgery is named "install tail". Side-specific target names remain in parentheses.
+## 1.7.1.7–1.7.1.6
 
-## Changes - 1.7.1.10
+- Added natural tongue, finger and toe recovery and replacement for humanoid races.
+- Added optional Post Mortem recovery for eligible fingers and toes.
 
-- Added matching animal-part transplant surgery for damaged or missing parts with an intact natural parent part.
-- Ingredient selection requires the donor race definition and exact body-part definition to match the patient and surgery target. Tails retain their separate cross-species recipe.
-- Added saved anatomical identity to recovered parts. Unknown old donor records are rejected safely.
-- Fixed external-part collection skipping parts without a pre-existing removal item.
-- Built for 1.6 and 1.7; seven matching and patch-binding checks passed, including a modded-race fixture. Live surgery remains to be checked in game.
+## 1.7.1.5–1.7.1.3
 
-## Changes - 1.7.1.9
+- Added species-labeled animal organs and a separate **Butcher for animal parts** bill.
+- Ordinary animal butchering remains unchanged and does not produce these parts.
 
-- Extended source-labeled collection and tail replacement to modded body-part names containing a supported part type.
-- Tail transplant surgery now includes compatible custom tail anatomy and source-labeled animal tail items.
-- Built successfully for RimWorld 1.6 and 1.7.
+## 1.7.1.0
 
-## Changes - 1.7.1.8
+- Added RimWorld 1.6 support alongside 1.7.
 
-- Started animal-part support with shared RimWorld anatomy: tails, paws/feet, fingers/toes, claws, hooves, horns/antlers, tusks and beaks.
-- Butchered parts are labeled with the source species and exact body-part label; different species and part types do not stack together.
-- Added a tail transplant recipe for animals and humanoids that share the standard Tail body-part type. The tail keeps its source-species name in storage and on the ingredient.
-- Mod-specific body-part types remain for the next compatibility pass.
+## 1.7.0.2
 
-## Changes - 1.7.1.7
+- Combined Harvest All The Tails with Harvest Everything.
+- Added tail harvesting and replacement support for compatible race mods.
 
-- Added a recoverable natural tongue and a matching transplant surgery.
-- Humanlike corpse autopsies can recover tongues through the existing natural-part recovery rules.
-- An existing tongue item mapping from another mod is preserved.
+## 1.7.0-beta.1
 
-## Changes - 1.7.1.6
-
-- Added natural finger and toe items and matching transplant recipes for humanoid anatomy.
-- Existing finger/toe item mappings from other mods remain unchanged.
-- Post Mortem corpse autopsies recover each eligible finger/toe at 20% of the normal natural-part chance. For a 40% autopsy chance, each digit has an 8% final chance.
-- Missing, injured or implanted digits remain subject to Post Mortem health checks.
-- Damaged or missing child parts prevent an enclosing limb being recovered as fully intact; surviving smaller parts can then be considered.
-- Whole recovered limbs retain their digits; no duplicate loose fingers/toes are produced alongside the enclosing limb.
-- Autopsy age limits, skill scaling and total-part limits remain in effect. Living surgery has no added random recovery loss.
-- Built for 1.6 and 1.7; 27 automated checks passed, including Harmony binding against the installed Post Mortem assembly. In-game extraction/transplant testing remains pending.
-
-## Changes - 1.7.1.5
-
-- Fixed animal organ names repeating the species twice.
-- Stack labels keep their normal counts.
-- Existing organs use the corrected labels without save edits.
-
-## Changes - 1.7.1.4
-
-- Animal organs now come from a separate **Butcher for animal parts** bill on the butcher spot and butcher table, instead of the ordinary **Butcher creature** bill.
-- The organ bill only accepts animal corpses and yields half the meat of ordinary butchering.
-- Ordinary butchering is unchanged: it gives full meat and leather and never recovers organs.
-- The new bill is added to every work table that already supports creature butchery, including modded tables.
-
-## Changes - 1.7.1.3
-
-- Animal butchering now produces animal-specific organs labelled with the source species, for example "muffalo heart" or "muffalo brain", instead of the human donor organs.
-- Animal organs cannot be installed in humanlikes. They remain sellable.
-- Added the `HET_AnimalHeart`, `HET_AnimalLung`, `HET_AnimalKidney`, `HET_AnimalLiver`, `HET_AnimalStomach` and `HET_AnimalBrain` item defs.
-- Organs already present in existing saves are unchanged; only new butchering uses the animal items.
-
-## Changes - 1.7.1.2
-
-- About.xml now states requirements and conflicts: Harmony is a hard dependency; Humanoid Alien Races and tailed-race mods are optional.
-- Added the old `Cupears.HarvestEverything17` package id to `incompatibleWith` so an older copy cannot load alongside this one.
-- Fixed package id casing on the existing incompatibility entries and removed a duplicated `loadBefore` entry for Harvest Organs Post Mortem.
-
-## Changes - 1.7.1.1
-
-- Renamed the assembly to `HarvestEverythingTails` so it no longer shares a name with the original Harvest Everything DLL.
-- Changed the package id to `cupears.harvesteverythingtails`.
-- Renamed the local mod folder to `Cupears-HarvestEverything-Tails`.
-- Existing saves reference the old package id and will list it as missing once; defs and items are unchanged, so no content is lost.
-
-## Changes - 1.7.1.0
-
-- Added RimWorld 1.6 support with a dedicated `1.6/` content folder and a `<v1.6>` load-folder block.
-- Added `Source16`, which compiles the shared C# sources against the 1.6 assemblies for .NET Framework 4.7.2.
-- Verified the shared XML against the original 1.6 Workshop release: defs identical, patches content-identical.
-- About now lists both 1.6 and 1.7 as supported versions.
-
-## Changes - 1.7.0.2
-
-- Merged Harvest All The Tails into this mod; the standalone tails mod is no longer required.
-- Added tail harvesting and transplantation for 23 tailed humanoid races.
-- Added per-race tail mapping so each race restores its own tail type and item.
-- Added generic `Tail`, Tozol, Yanzihko and xenomorph tail items and recipes.
-- Added Logann, Ferrex and Xenomorph Type coverage.
-- The generic tail install recipe also accepts race-supplied `Tail` items.
-- Reused native Dogbold, Foxbold and Orassan tail items.
-- Added anatomy-based surgery availability across installed humanoid races.
-- Fixed job-string typos in the race patches.
-- Unwrapped tail patches whose "if Harvest Everything is loaded" gate could never match.
-- Race modules are gated on their race mod, so a game with no tailed races loads no race defs and produces no errors.
-- Moved every race module under `Races/`; load gating is unchanged.
-- Declared incompatibility with `cupears.harvestalltails17` and `espio.harvestkurintails`.
-
-## Changes - 1.7.0-beta.1
-
-- Rebuilt runtime code against RimWorld 1.7 / .NET 10.
-- Included current 1.6 Workshop XML content in the 1.7 content folder.
-- Replaced removed surgery-bill fields with the supported Part properties.
-- Fixed a null-parent access when queueing body-part removal.
-- Added null-safe natural-transplant recipe handling.
-- Added anatomy-based natural surgery availability for humanoid races.
-- Kept missing parent parts, incompatible anatomy, and existing game surgery checks intact.
-- Added animal butchering support: fresh animal corpses now give up clean, undamaged organs (heart, lung, kidney, liver, stomach, brain).
-- Added a separate package identity and incompatibility with the original.
+- Updated the mod for RimWorld 1.7 and added the first animal-part recovery features.

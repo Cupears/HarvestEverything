@@ -1,55 +1,51 @@
-# Frequently asked questions
+# FAQ
 
-## Where do animal parts come from?
+## How do I get animal parts?
 
-Add **Butcher for animal parts** at a butcher table or butcher spot. It recovers healthy parts from fresh animal corpses and produces half the usual meat. Ordinary butchering keeps its normal products.
+Add **Butcher for animal parts** at a butcher table or butcher spot. It recovers healthy parts from fresh animal corpses and gives half the usual meat. The regular **Butcher creature** bill is unchanged.
 
-## What are the recovery chances?
+## How often are parts recovered?
 
-At 100% butcher efficiency:
+At 100% butcher efficiency, each eligible part has its own chance:
 
-| Part group | Chance per eligible part |
-| --- | --- |
+| Part group | Chance |
+| --- | ---: |
 | Fingers, toes and claws | 5% |
 | Hooves, horns, antlers, tusks, beaks and antennae | 12.5% |
 | Larger parts and organs | 25% |
 
-Butcher efficiency scales these chances. Missing, damaged or artificial parts are excluded. Whole parts need intact, healthy children; a recovered parent does not also produce its child parts.
+Butcher efficiency changes these chances. Damaged, missing or artificial parts are skipped. A recovered larger part does not also produce its smaller parts.
 
 ## Why is a transplant missing from the Operations menu?
 
-The patient must have compatible anatomy and a suitable donor part must be available. Animal donors must match the patient's exact species and body-part type. The parent body part must still be present. Medicine and the normal surgery requirements also apply.
+The patient needs compatible anatomy, and the correct donor part must be available on the map or carried by a spawned pawn. Animal transplants require the same species and body-part type. The part's parent anatomy must still be present.
 
-## Why does surgery fail with a skilled doctor?
+## Why can surgery fail with a skilled doctor?
 
-The mod uses RimWorld's normal surgery rules. Doctor skill, sight, manipulation, medicine and the patient's bed affect the chance.
+The game still uses its normal surgery rules. Doctor skill, sight, manipulation, medicine and the patient's bed all matter. Animal beds and sleeping boxes give a better surgery chance than animal sleeping spots. A small chance of failure remains.
 
-Animal sleeping spots apply a **0.7** surgery factor. Animal beds and sleeping boxes use **1.0** before other modifiers. Use a bed or sleeping box with suitable medicine; a small failure risk remains even under good conditions.
+## Can I use a tail from another species?
 
-## Can tails be used on another species?
+Yes, if the recipient has compatible natural tail anatomy. Recovered tails keep the donor's name, including after transplantation and later removal. Use **Remove tail** to recover a healthy natural animal tail.
 
-Yes, where the recipient has compatible natural tail anatomy. Newly recovered tails keep the original donor name through transplantation, save/load and later removal.
+## Why can't I remove a visible tail?
 
-Use **remove tail** to recover a healthy natural animal tail.
+Some genes and xenotypes add a visual tail without adding an anatomical body part. Only a natural tail defined in the race's anatomy can be removed.
 
-## Why can some visible tails not be harvested?
+## Do I need Harvest Organs Post Mortem for animal parts?
 
-A tail must exist as an anatomical body part. Cosmetic gene or xenotype tails may only change appearance and have no part to remove.
+No. Animal parts come from this mod's **Butcher for animal parts** bill. [Harvest Organs Post Mortem](https://steamcommunity.com/sharedfiles/filedetails/?id=1204502413) is optional and adds corpse autopsies. During autopsies, eligible fingers and toes use 20% of the normal natural-part recovery chance. For example, a 40% chance becomes 8% per digit.
 
-## How do fingers and toes work with Post Mortem?
+## Does it work with modded animals and hybrids?
 
-Eligible fingers and toes use **20% of the normal natural-part recovery chance** during Post Mortem autopsies. For example, a 40% autopsy chance gives an 8% chance per eligible digit. Living surgery has no added recovery-loss roll.
+Animal parts are matched to the donor's species and anatomy. Common body parts and recognized custom anatomy are supported; unusual parts may need a dedicated mapping. Mechanical parts and core body sections are not recovered.
 
-## Does it support modded animals and hybrids?
+See [race support](RACE-COVERAGE.md) for race-specific tail support.
 
-Shared anatomy works automatically. Recognized body-part names and function tags cover supported custom organs and appendages. Unknown anatomy needs a specific mapping. Core body sections and unsupported mechanical anatomy are excluded.
+## Why won't an older animal part work in matching surgery?
 
-See [Race support](RACE-COVERAGE.md) for the race modules included with the mod.
+Matching surgery needs the part's saved donor species and body-part identity. Older items that lack this information cannot be matched safely. Recover a new part with this mod.
 
-## What happens to older parts without donor data?
+## Do I need Bionic Icons?
 
-Their source cannot be reliably reconstructed. Items without the required donor identity are rejected for matching-animal transplants rather than guessed.
-
-## Does it work with Bionic Icons?
-
-Yes. When Bionic Icons is active, recovered parts use its artwork. Animal artwork is used where available; internal organs keep their organ-specific icons. Some parts use the closest available fallback.
+No. [Bionic Icons](https://steamcommunity.com/sharedfiles/filedetails/?id=1677616980) is optional. When active, recovered parts use its artwork where a suitable icon is available; other parts use the closest available icon.
