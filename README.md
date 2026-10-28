@@ -27,6 +27,10 @@ installation and per-race tail support are built in, so the standalone tails mod
 Purely visual tails, such as gene or xenotype appearance tails and anthro variants with no tail
 body part, have nothing to remove and are not touched.
 
+## Compatibility
+
+Works with [Bionic Icons](https://steamcommunity.com/sharedfiles/filedetails/?id=1677616980) to show body-part icons on recovered items. Bionic Icons is optional.
+
 ## Load order
 
 Harmony -> race and content mods -> **Harvest Everything + Tails** -> Harvest Organs Post Mortem -> compatibility patches.
