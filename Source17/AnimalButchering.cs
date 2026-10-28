@@ -8,36 +8,40 @@ using Verse;
 namespace Harvest_Everything;
 
 /// <summary>
-/// Lets butchered animals give up their healthy organs, not just humanlikes.
-/// Vanilla animal butchery only yields meat, leather and the life stage's
-/// butcherBodyPart (horn, tusk, ...). This postfix appends clean organ parts
-/// that already have a spawnThingOnRemoved thing def.
+/// Lets the separate "Butcher for animal parts" bill recover healthy organs
+/// from animal corpses. The ordinary "butcher creature" bill is untouched and
+/// keeps its full meat and leather yield. The organ bill trades half of the
+/// meat for the organs it recovers.
 /// </summary>
 [HarmonyPatch(typeof(Pawn), nameof(Pawn.ButcherProducts))]
 public static class Pawn_ButcherProducts_Patch
 {
-	public static void Postfix(Pawn __instance, float efficiency, ref IEnumerable<Thing> __result)
+	public static void Postfix(Pawn __instance, Pawn butcher, float efficiency, ref IEnumerable<Thing> __result)
 	{
-		if (__result == null || !AnimalButcherParts.ShouldApply(__instance))
+		if (__result == null || !AnimalButcherParts.IsAnimalPartsBill(butcher))
 		{
 			return;
 		}
 		// Vanilla's iterator marks lifeStage.butcherBodyPart parts as missing while
 		// it yields them, so drain it first and only then look for leftover organs.
 		List<Thing> vanilla = __result.ToList();
-		List<Thing> extra = AnimalButcherParts.Extract(__instance, efficiency);
-		if (extra.Count == 0)
+		AnimalButcherParts.ReduceMeat(__instance, vanilla);
+		if (AnimalButcherParts.ShouldApply(__instance))
 		{
-			__result = vanilla;
-			return;
+			vanilla.AddRange(AnimalButcherParts.Extract(__instance, efficiency));
 		}
-		vanilla.AddRange(extra);
 		__result = vanilla;
 	}
 }
 
 public static class AnimalButcherParts
 {
+	// Matches the recipe def in Defs/Recipes_AnimalParts.xml.
+	public const string AnimalPartsRecipeDefName = "HET_ButcherAnimalParts";
+
+	// The organ bill wastes meat because the carcass is picked apart for parts.
+	private const float MeatYieldFactor = 0.5f;
+
 	// Chance per organ at 100% butchery efficiency.
 	private const float BaseDropChance = 0.25f;
 
@@ -80,6 +84,33 @@ public static class AnimalButcherParts
 		}
 		// Only while butchering a corpse, and only fresh ones.
 		return pawn.ParentHolder is Corpse corpse && corpse.GetRotStage() == RotStage.Fresh;
+	}
+
+	// True while the pawn is running the mod's own organ bill. GenRecipe calls
+	// ButcherProducts from inside that job, so the recipe is the current bill's.
+	public static bool IsAnimalPartsBill(Pawn butcher)
+	{
+		RecipeDef recipe = butcher?.jobs?.curJob?.RecipeDef;
+		return recipe != null && recipe.defName == AnimalPartsRecipeDefName;
+	}
+
+	// The organ bill recovers parts instead of meat, so it yields less meat.
+	public static void ReduceMeat(Pawn pawn, List<Thing> products)
+	{
+		ThingDef meatDef = pawn?.RaceProps?.meatDef;
+		if (meatDef == null)
+		{
+			return;
+		}
+		for (int i = 0; i < products.Count; i++)
+		{
+			if (products[i].def != meatDef)
+			{
+				continue;
+			}
+			int reduced = Mathf.RoundToInt(products[i].stackCount * MeatYieldFactor);
+			products[i].stackCount = Mathf.Max(1, reduced);
+		}
 	}
 
 	public static List<Thing> Extract(Pawn pawn, float efficiency)

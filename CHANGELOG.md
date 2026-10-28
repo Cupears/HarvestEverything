@@ -1,3 +1,10 @@
+## Changes - 1.7.1.4
+
+- Animal organs now come from a separate **Butcher for animal parts** bill on the butcher spot and butcher table, instead of the ordinary **Butcher creature** bill.
+- The organ bill only accepts animal corpses and yields half the meat of ordinary butchering.
+- Ordinary butchering is unchanged: it gives full meat and leather and never recovers organs.
+- The new bill is added to every work table that already supports creature butchery, including modded tables.
+
 ## Changes - 1.7.1.3
 
 - Animal butchering now produces animal-specific organs labelled with the source species, for example "muffalo heart" or "muffalo brain", instead of the human donor organs.

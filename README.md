@@ -3,7 +3,7 @@
 ![RimWorld](https://img.shields.io/badge/RimWorld-1.6%20%7C%201.7-orange) ![Stage](https://img.shields.io/badge/stage-beta.1-purple) ![Tails](https://img.shields.io/badge/tails-supported-green)
 
 Harvest and transplant natural body parts on compatible humanoid races, including natural
-tails. Butcher fresh animal corpses for their organs.
+tails. Butcher fresh animal corpses for their organs with a dedicated butcher-table bill.
 
 This mod merges Harvest Everything with Harvest All The Tails. Tail harvesting, tail
 installation and per-race tail support are built in, so the standalone tails mod is not needed.
@@ -15,10 +15,12 @@ installation and per-race tail support are built in, so the standalone tails mod
 - **Tails.** A race with a real tail body part can have it removed and reinstalled. The removed
   tail becomes an item and the install recipe asks for that same item. Each race maps to its own
   tail type, so the correct tail is restored.
-- **Animal butchering.** Butchering a fresh animal corpse also yields undamaged organs that have
-  a natural body-part item: heart, lung, kidney, liver, stomach and brain. Each organ is labelled
-  with the source animal, for example "muffalo heart", and cannot be transplanted into humanlikes.
-  The chance per organ scales with butchery efficiency, at 25% for 100% efficiency.
+- **Animal butchering.** A separate **Butcher for animal parts** bill on the butcher spot or
+  butcher table recovers undamaged organs that have a natural body-part item: heart, lung, kidney,
+  liver, stomach and brain. Each organ is labelled with the source animal, for example
+  "muffalo heart", and cannot be transplanted into humanlikes. The chance per organ scales with
+  butchery efficiency, at 25% for 100% efficiency. This bill yields half the meat of ordinary
+  butchering; the ordinary **Butcher creature** bill is unchanged and never recovers organs.
 - **Race support.** 23 tailed humanoid races, listed in [RACE-COVERAGE.md](RACE-COVERAGE.md).
   Race-specific content only loads when that race mod is active.
 

@@ -3,7 +3,7 @@
     <name>Harvest Everything + Tails</name>
     <author>Ykara (Updated for 1.1 by Ogliss); tails by Espio Idsavant; 1.7 fork: Cupears</author>
     <packageId>cupears.harvesteverythingtails</packageId>
-    <description>Harvest and transplant natural body parts across compatible humanoid races, including natural tails. Also lets you butcher animals for their body parts. Includes the former Harvest All The Tails content: tail harvesting, tail installation, and per-race tail support. Supports RimWorld 1.6 and 1.7. Maintained fork by Cupears. See README and RACE-COVERAGE.md for the supported race list and load order. Requires Harmony. Humanoid Alien Races and tailed-race mods are optional, not required: tails only appear for races that are installed. Cannot be used with the original Harvest Everything, Harvest Kurin Tails, or any earlier Harvest Everything / Harvest All The Tails copy.</description>
+    <description>Harvest and transplant natural body parts across compatible humanoid races, including natural tails. Also adds a separate "butcher for animal parts" bill that trades meat for animal organs. Includes the former Harvest All The Tails content: tail harvesting, tail installation, and per-race tail support. Supports RimWorld 1.6 and 1.7. Maintained fork by Cupears. See README and RACE-COVERAGE.md for the supported race list and load order. Requires Harmony. Humanoid Alien Races and tailed-race mods are optional, not required: tails only appear for races that are installed. Cannot be used with the original Harvest Everything, Harvest Kurin Tails, or any earlier Harvest Everything / Harvest All The Tails copy.</description>
     <supportedVersions>
         <li>1.6</li>
         <li>1.7</li>
@@ -63,5 +63,5 @@
         </li>
     </modDependencies>
     <url>https://github.com/Cupears/HarvestEverything</url>
-    <modVersion>1.7.1.3</modVersion>
+    <modVersion>1.7.1.4</modVersion>
 </ModMetaData>

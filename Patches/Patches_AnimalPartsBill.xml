@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Add the organ bill to every work table that can already butcher creatures,
+       so modded butcher tables get it too. Vanilla matches ButcherSpot and
+       ButcherTable. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[recipes/li="ButcherCorpseFlesh"]/recipes</xpath>
+    <value>
+      <li>HET_ButcherAnimalParts</li>
+    </value>
+  </Operation>
+
+</Patch>
