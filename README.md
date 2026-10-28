@@ -2,132 +2,70 @@
 
 ![RimWorld](https://img.shields.io/badge/RimWorld-1.6%20%7C%201.7-orange) ![Stage](https://img.shields.io/badge/stage-beta.1-purple) ![Tails](https://img.shields.io/badge/tails-supported-green)
 
-Natural body-part harvesting and transplantation across compatible humanoid races,
-**now including natural tails**, plus animal butchering for organs.
+Harvest and transplant natural body parts on compatible humanoid races, including natural
+tails. Butcher fresh animal corpses for their organs.
 
-This mod merges Harvest Everything with Harvest All The Tails. You no longer need a
-separate tails mod: tail harvesting, tail installation and per-race tail support are all
-built in here.
+This mod merges Harvest Everything with Harvest All The Tails. Tail harvesting, tail
+installation and per-race tail support are built in, so the standalone tails mod is not needed.
 
-## Changes - 1.7.1.0
+## Features
 
-- Added RimWorld 1.6 support. The mod now ships a `1.6/` content folder with its own
-  .NET Framework 4.7.2 assembly plus a `<v1.6>` load-folder block.
-- 1.6 and 1.7 share the same XML content and the same C# sources; only the compiled
-  assembly differs, because 1.6 runs on .NET Framework 4.7.2 and 1.7 on .NET 10.
-- The 1.7 XML was verified against the original 1.6 Workshop release: the defs are
-  byte-identical and the patch file is content-identical up to whitespace.
+- **Body parts.** Harvest and reinstall natural body parts on humanoid races that actually have
+  the part. Missing parts, incompatible anatomy and vanilla surgery checks are respected.
+- **Tails.** A race with a real tail body part can have it removed and reinstalled. The removed
+  tail becomes an item and the install recipe asks for that same item. Each race maps to its own
+  tail type, so the correct tail is restored.
+- **Animal butchering.** Butchering a fresh animal corpse also yields undamaged organs that have
+  a natural body-part item: heart, lung, kidney, liver, stomach and brain. The chance per organ
+  scales with butchery efficiency, at 25% for 100% efficiency.
+- **Race support.** 23 tailed humanoid races, listed in [RACE-COVERAGE.md](RACE-COVERAGE.md).
+  Race-specific content only loads when that race mod is active.
 
-## Changes - 1.7.0.2
-
-- Merged Harvest All The Tails into this mod. Tail harvesting and transplantation are now built in.
-- Added tail support for 23 tailed humanoid races, including Big and Small bodies, Dogbold, Foxbold, Orassan, Tozol, Yanzihko felines, Frosty, Logann, Ferrex and Xenomorph Type.
-- Each supported race maps to its own tail body part and tail item, so the correct tail type is restored.
-- Race modules load only when their race mod is active, so nothing breaks if you have no tailed races installed.
-- Fixed tail patches whose "if Harvest Everything is loaded" gate could never match, so the compatible item and recipe patches now apply.
-- Rebuilt runtime code against RimWorld 1.7 / .NET 10.
-- Included current 1.6 Workshop XML content in the 1.7 content folder.
-- Replaced removed surgery-bill fields with the supported Part properties.
-- Fixed a null-parent access when queueing body-part removal.
-- Added null-safe natural-transplant recipe handling.
-- Added anatomy-based natural surgery availability for humanoid races.
-- Kept missing parent parts, incompatible anatomy, and existing game surgery checks intact.
-- Added animal butchering support: fresh animal corpses now give up clean organs.
-- Added a separate package identity and incompatibility with the original.
-
-## Tail harvesting
-
-A humanoid with an actual tail body part can have that tail surgically removed and
-installed again. Removing a clean tail produces a tail item; the install recipe asks for
-that same item, so a removed tail can always be put back. Matching tail types share an
-item, and different anatomical tail types do not.
-
-**Visual-only tails are not anatomical parts.** Anthro Race variants and xenotype or gene
-appearance tails with no tail BodyPartRecord have nothing to amputate or transplant. No body
-structure or gene is invented or changed. See [race coverage](RACE-COVERAGE.md) for the full
-51-race audit.
-
-### Playing without tailed races
-
-Tail support is entirely def-driven. Race-specific modules are gated on their race mod
-being active; the generic tail content targets a `Tail` body part and stays inert on races
-that do not have one. If you install this mod with no tailed race mods at all:
-
-- No errors, red errors or missing-def warnings are produced.
-- The race patches for Kurin, Revia, Moyo, Dragonian, Silkiera, Ratkin, Kiiro, Rabbie,
-  Glassy, Mofy, Heruan and Nyaron are not loaded at all.
-- Generic tail items and recipes exist but simply have no valid pawn part to act on.
-- Body-part harvesting and animal butchering continue to work normally.
-
-## Animal butchering
-
-Butchering a fresh animal corpse yields its undamaged organs in addition to vanilla meat,
-leather and life-stage parts. Only organ body parts that have a natural body-part item are
-dropped (heart, lung, kidney, liver, stomach and brain), and only if the organ is undamaged.
-Limbs, jaws, eyes and ears are never taken this way. Mechanoids, anomaly entities and
-non-fresh corpses are skipped. The chance per organ scales with butchery efficiency
-(25% at 100% efficiency), so a skilled cook recovers more organs.
-
-## Coverage
-
-Compatible recipes become available on humanoid races that contain the required actual body part. Standard arms and legs are covered on HAR bodies, Anthro variants and compatible gene-based humanoids. Mechanical-only parts, nonexistent limbs and purely visual tails are not converted into biological transplants. Tail items come from this mod or from the race mod itself.
+Purely visual tails, such as gene or xenotype appearance tails and anthro variants with no tail
+body part, have nothing to remove and are not touched.
 
 ## Load order
 
 Harmony -> race and content mods -> **Harvest Everything + Tails** -> Harvest Organs Post Mortem -> compatibility patches.
 
-Do not load the standalone Harvest All The Tails mod alongside this one. It is declared
-incompatible because its content is already included here.
+## Installation
 
-## Credits and Workshop status
+Supports RimWorld 1.6 and 1.7. Keep Harmony enabled, and enable this mod instead of the original
+Harvest Everything or the standalone Harvest All The Tails. All three are declared incompatible
+with each other, so only one copy can load. Existing upstream item names are retained.
 
-Original Harvest Everything project: [Ogliss/HarvestEverything](https://github.com/Ogliss/HarvestEverything), based on Ykara's Harvest Everything and later updates. Runtime source was reconstructed from the installed author's 1.6 assembly to match the current Workshop behavior, then updated for 1.7.
+## Credits
 
-Tails content: [EspioIdsavant/Harvest-All-The-Tails](https://github.com/EspioIdsavant/Harvest-All-The-Tails), used under the MIT license. The original MIT notice is retained in [LICENSE-Tails](LICENSE-Tails).
+Original Harvest Everything: [Ogliss/HarvestEverything](https://github.com/Ogliss/HarvestEverything),
+based on Ykara's Harvest Everything and later updates.
 
-**Workshop redistribution pending upstream permission.** No license file was supplied in the Harvest Everything upstream repository. A public GitHub fork does not establish permission to redistribute upstream code/assets on Steam. No new license is assigned to upstream content. The original Workshop publishing IDs are not used by this fork.
+Tails content: [EspioIdsavant/Harvest-All-The-Tails](https://github.com/EspioIdsavant/Harvest-All-The-Tails),
+used under the MIT license. The original MIT notice is retained in [LICENSE-Tails](LICENSE-Tails).
 
-## Repository layout
+**Workshop redistribution pending upstream permission.** No license file was supplied in the
+Harvest Everything upstream repository. A public GitHub fork does not establish permission to
+redistribute upstream code or assets on Steam. No new license is assigned to upstream content,
+and the original Workshop publishing IDs are not used by this fork.
 
-| Path | Purpose |
-|---|---|
-| `1.6/` | RimWorld 1.6 content (net472 assembly, Defs, Patches) |
-| `1.7/` | RimWorld 1.7 content (Assemblies, Defs, Patches) |
-| `About/` | Mod metadata and preview image |
-| `Languages/` | Translations |
-| `Textures/` | Textures |
-| `Source17/` | Shared C# source, compiled for the 1.7 build |
-| `Source16/` | Build project that compiles the shared source against the 1.6 assemblies |
-| `tools/` | Packaging script |
-| `Races/` | Per-race modules; each one is only loaded when its race mod is active |
-| `Races/Kurin/`, `Races/Revia/`, `Races/Moyo/`, `Races/Dragonian/`, `Races/DragonianUnofficial/`, `Races/Silkiera/`, `Races/Ratkin/`, `Races/Kiiro/`, `Races/Rabbie/`, `Races/Glassy/`, `Races/Mofy/`, `Races/Heruan/`, `Races/Nyaron/` | Race modules for HAR and anthro races |
-| `Races/BigSmall/`, `Races/Dogbold/`, `Races/Foxbold/`, `Races/Orassan/`, `Races/Tozol/`, `Races/Yanzihko/`, `Races/Xenomorph/` | Race modules for tailed non-HAR races |
-| `Races/InsectTails/` | Insect tail patches (def-driven fallback) |
+## Building from source
 
-## Build
-
-Requires the .NET 10 SDK (the 1.6 build only needs the .NET Framework 4.7.2 reference
-assemblies, which ship with the .NET Framework targeting pack), RimWorld 1.7 and Harmony.
-
-1.7 build:
+Requires the .NET 10 SDK, RimWorld 1.7 and Harmony.
 
 ```powershell
 dotnet build Source17/Mod.csproj -c Release -p:RimWorldDir="M:/Steam/steamapps/common/RimWorld" -p:HarmonyPath="M:/Steam/steamapps/workshop/content/294100/2009463077/1.7/Assemblies/0Harmony.dll"
 ```
 
-1.6 build (same sources, compiled against 1.6 assemblies):
+The 1.6 build compiles the same sources against the 1.6 assemblies:
 
 ```powershell
 dotnet build Source16/Mod.csproj -c Release -p:Ref16Dir="C:/ref16"
 ```
 
-`Ref16Dir` must contain `Assembly-CSharp.dll`, `UnityEngine.CoreModule.dll` and
-`0Harmony.dll` from a RimWorld 1.6 install or the Harmony 1.6 folder.
+`Ref16Dir` must contain `Assembly-CSharp.dll`, `UnityEngine.CoreModule.dll` and `0Harmony.dll`
+from a RimWorld 1.6 install or the Harmony 1.6 folder.
 
-Game and Harmony assemblies are referenced locally and are not included in the package.
+Game and Harmony assemblies are referenced locally and are not shipped.
 
-## Installation
+## Changes
 
-Enable this mod instead of the original Harvest Everything. Enable only one copy: the
-original, the standalone tails mod and this merge are declared incompatible to prevent
-duplicate content. Keep Harmony enabled. Existing upstream item names are retained.
+See [CHANGELOG.md](CHANGELOG.md).
