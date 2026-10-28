@@ -1,6 +1,6 @@
-# Harvest Everything + Tails - 1.7 Race Support
+# Harvest Everything + Tails
 
-![RimWorld](https://img.shields.io/badge/RimWorld-1.7-orange) ![Stage](https://img.shields.io/badge/stage-beta.1-purple) ![Tails](https://img.shields.io/badge/tails-supported-green)
+![RimWorld](https://img.shields.io/badge/RimWorld-1.6%20%7C%201.7-orange) ![Stage](https://img.shields.io/badge/stage-beta.1-purple) ![Tails](https://img.shields.io/badge/tails-supported-green)
 
 Natural body-part harvesting and transplantation across compatible humanoid races,
 **now including natural tails**, plus animal butchering for organs.
@@ -8,6 +8,15 @@ Natural body-part harvesting and transplantation across compatible humanoid race
 This mod merges Harvest Everything with Harvest All The Tails. You no longer need a
 separate tails mod: tail harvesting, tail installation and per-race tail support are all
 built in here.
+
+## Changes - 1.7.1.0
+
+- Added RimWorld 1.6 support. The mod now ships a `1.6/` content folder with its own
+  .NET Framework 4.7.2 assembly plus a `<v1.6>` load-folder block.
+- 1.6 and 1.7 share the same XML content and the same C# sources; only the compiled
+  assembly differs, because 1.6 runs on .NET Framework 4.7.2 and 1.7 on .NET 10.
+- The 1.7 XML was verified against the original 1.6 Workshop release: the defs are
+  byte-identical and the patch file is content-identical up to whitespace.
 
 ## Changes - 1.7.0.2
 
@@ -82,11 +91,13 @@ Tails content: [EspioIdsavant/Harvest-All-The-Tails](https://github.com/EspioIds
 
 | Path | Purpose |
 |---|---|
+| `1.6/` | RimWorld 1.6 content (net472 assembly, Defs, Patches) |
 | `1.7/` | RimWorld 1.7 content (Assemblies, Defs, Patches) |
 | `About/` | Mod metadata and preview image |
 | `Languages/` | Translations |
 | `Textures/` | Textures |
-| `Source17/` | C# source for the 1.7 build |
+| `Source17/` | Shared C# source, compiled for the 1.7 build |
+| `Source16/` | Build project that compiles the shared source against the 1.6 assemblies |
 | `tools/` | Packaging script |
 | `Races/` | Per-race modules; each one is only loaded when its race mod is active |
 | `Races/Kurin/`, `Races/Revia/`, `Races/Moyo/`, `Races/Dragonian/`, `Races/DragonianUnofficial/`, `Races/Silkiera/`, `Races/Ratkin/`, `Races/Kiiro/`, `Races/Rabbie/`, `Races/Glassy/`, `Races/Mofy/`, `Races/Heruan/`, `Races/Nyaron/` | Race modules for HAR and anthro races |
@@ -95,13 +106,25 @@ Tails content: [EspioIdsavant/Harvest-All-The-Tails](https://github.com/EspioIds
 
 ## Build
 
-Requires the .NET 10 SDK, RimWorld 1.7 and Harmony.
+Requires the .NET 10 SDK (the 1.6 build only needs the .NET Framework 4.7.2 reference
+assemblies, which ship with the .NET Framework targeting pack), RimWorld 1.7 and Harmony.
+
+1.7 build:
 
 ```powershell
 dotnet build Source17/Mod.csproj -c Release -p:RimWorldDir="M:/Steam/steamapps/common/RimWorld" -p:HarmonyPath="M:/Steam/steamapps/workshop/content/294100/2009463077/1.7/Assemblies/0Harmony.dll"
 ```
 
-Game and Harmony assemblies are referenced locally and are not included in the 1.7 package.
+1.6 build (same sources, compiled against 1.6 assemblies):
+
+```powershell
+dotnet build Source16/Mod.csproj -c Release -p:Ref16Dir="C:/ref16"
+```
+
+`Ref16Dir` must contain `Assembly-CSharp.dll`, `UnityEngine.CoreModule.dll` and
+`0Harmony.dll` from a RimWorld 1.6 install or the Harmony 1.6 folder.
+
+Game and Harmony assemblies are referenced locally and are not included in the package.
 
 ## Installation
 

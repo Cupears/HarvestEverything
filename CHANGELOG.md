@@ -1,3 +1,10 @@
+## Changes - 1.7.1.0
+
+- Added RimWorld 1.6 support with a dedicated `1.6/` content folder and a `<v1.6>` load-folder block.
+- Added `Source16`, which compiles the shared C# sources against the 1.6 assemblies for .NET Framework 4.7.2.
+- Verified the shared XML against the original 1.6 Workshop release: defs identical, patches content-identical.
+- About now lists both 1.6 and 1.7 as supported versions.
+
 ## Changes - 1.7.0.2
 
 - Merged Harvest All The Tails into this mod; the standalone tails mod is no longer required.

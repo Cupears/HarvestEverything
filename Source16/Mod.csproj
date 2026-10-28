@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    RimWorld 1.6 build. 1.6 runs on .NET Framework 4.7.2, while 1.7 runs on
+    .NET 10, so this project compiles the shared Source17 sources a second time
+    against the 1.6 game assemblies.
+
+    The 1.6 game assemblies are not redistributed. Point Ref16Dir at a folder
+    that contains Assembly-CSharp.dll, UnityEngine.CoreModule.dll and
+    0Harmony.dll from a RimWorld 1.6 install (or from the Harmony 1.6 folder).
+
+    Example:
+      dotnet build Source16/Mod.csproj -c Release -p:Ref16Dir="C:/ref16"
+  -->
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AssemblyName>Harvest Everything</AssemblyName>
+    <RootNamespace>Harvest_Everything</RootNamespace>
+    <OutputPath>../1.6/Assemblies/</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DebugType>none</DebugType>
+    <NoWarn>$(NoWarn);CS0108;CS0114;CS0169;CS0649</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="GlobalUsings.cs" />
+    <Compile Include="../Source17/*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(Ref16Dir)/Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(Ref16Dir)/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(Ref16Dir)/0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
