@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>Moyo_Tail</defName>
 					<label>moyo tail</label>
-					<description>A biological Moyo tail. Very squishy.</description>
+					<description>A soft, flexible tail.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallMoyoTail</RecipeDef>
 						<RecipeDef>Butcher_MoyoTail</RecipeDef>

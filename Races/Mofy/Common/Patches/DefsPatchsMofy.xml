@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>Mofy_Tail</defName>
 					<label>mofy tail</label>
-					<description>A biological Mofy tail. Very soft and fluffy.</description>
+					<description>A soft, fur-covered tail.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallMofyTail</RecipeDef>
 						<RecipeDef>Skin_MofyTail</RecipeDef>

@@ -22,7 +22,7 @@
 						<ThingDef ParentName="BodyPartNaturalBase">
 							<defName>ReviaRaceTail</defName>
 							<label>revia tail</label>
-							<description>A biological Revia tail. Very soft and fluffy.</description>
+							<description>A soft, fur-covered tail.</description>
 							<descriptionHyperlinks>
 								<RecipeDef>InstallReviaTail</RecipeDef>
 								<RecipeDef>Skin_ReviaTail</RecipeDef>

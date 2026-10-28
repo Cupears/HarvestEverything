@@ -4,7 +4,7 @@
     <ThingDef ParentName="WoolBase">
         <defName>WoolKurin</defName>
         <label>kurin tail fur</label>
-        <description>The soft, plush, beautiful fur of kurin tail.</description>
+        <description>Soft fur gathered from a tail.</description>
         <graphicData>
             <color>(127,43,10)</color>
         </graphicData>

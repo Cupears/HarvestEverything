@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>Glassy_Tail</defName>
 					<label>glassy tail</label>
-					<description>A biological Glassy tail. Very soft and fluffy.</description>
+					<description>A soft, fur-covered tail.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallGlassyTail</RecipeDef>
 					</descriptionHyperlinks>

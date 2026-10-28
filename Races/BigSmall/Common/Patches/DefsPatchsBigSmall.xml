@@ -13,7 +13,7 @@
               <ThingDef ParentName="BodyPartNaturalBase">
                 <defName>HATT17_Tail</defName>
                 <label>tail (natural)</label>
-                <description>A natural tail, used for balance, movement or display.</description>
+                <description>A tail used for balance, movement or display.</description>
                 <statBases>
                   <MarketValue>250</MarketValue>
                   <Mass>2</Mass>

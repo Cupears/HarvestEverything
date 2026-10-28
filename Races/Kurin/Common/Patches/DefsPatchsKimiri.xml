@@ -24,7 +24,7 @@
 							<ThingDef ParentName="BodyPartNaturalBase">
 								<defName>Kimiri_Tail</defName>
 								<label>kimiri tail</label>
-								<description>A biological Kimiri tail.</description>
+								<description>A tail used for balance, movement or display.</description>
 								<descriptionHyperlinks>
 									<RecipeDef>InstallKimiriTail</RecipeDef>
 								</descriptionHyperlinks>
@@ -75,7 +75,7 @@
 										<ThingDef ParentName="BodyPartNaturalBase">
 											<defName>Kimiri_Ear</defName>
 											<label>kimiri ear</label>
-											<description>A biological Kimiri ear.</description>
+											<description>An organ that detects sound.</description>
 											<statBases>
 												<MarketValue>35</MarketValue>
 												<Mass>2</Mass>
@@ -136,7 +136,7 @@
 										<ThingDef ParentName="BodyPartNaturalBase">
 											<defName>Kimiri_Horn</defName>
 											<label>kimiri horn</label>
-											<description>A biological Kimiri horn.</description>
+											<description>A hard growth used for defense or display.</description>
 											<statBases>
 												<MarketValue>35</MarketValue>
 												<Mass>2</Mass>

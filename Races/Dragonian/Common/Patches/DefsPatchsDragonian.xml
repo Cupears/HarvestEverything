@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>DR_Tail</defName>
 					<label>dragonian tail</label>
-					<description>A biological Dragonian tail.</description>
+					<description>A tail used for balance, movement or display.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallDragonianTail</RecipeDef>
 					</descriptionHyperlinks>

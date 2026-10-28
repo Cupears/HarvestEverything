@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>Silkiera_Tail</defName>
 					<label>silkiera tail</label>
-					<description>A biological Silkiera tail. Very soft and fluffy.</description>
+					<description>A soft, fur-covered tail.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallSilkieraTail</RecipeDef>
 					</descriptionHyperlinks>
@@ -71,7 +71,7 @@
 							<ThingDef ParentName="BodyPartNaturalBase">
 								<defName>Silkiera_Ear</defName>
 								<label>silkiera ear</label>
-								<description>Biological Silkiera ears.</description>
+								<description>An organ that detects sound.</description>
 								<statBases>
 									<MarketValue>35</MarketValue>
 									<Mass>2</Mass>

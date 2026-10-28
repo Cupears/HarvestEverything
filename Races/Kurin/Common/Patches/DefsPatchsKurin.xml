@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>Kurin_Tail</defName>
 					<label>kurin tail</label>
-					<description>A biological Kurin tail. Very soft and fluffy.</description>
+					<description>A soft, fur-covered tail.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallKurinTail</RecipeDef>
 						<RecipeDef>Skin_KurinTail</RecipeDef>
@@ -72,7 +72,7 @@
 							<ThingDef ParentName="BodyPartNaturalBase">
 								<defName>Kurin_Ear</defName>
 								<label>kurin ear</label>
-								<description>A biological Kurin ear.</description>
+								<description>An organ that detects sound.</description>
 								<statBases>
 									<MarketValue>35</MarketValue>
 									<Mass>2</Mass>
@@ -131,7 +131,7 @@
 						<ThingDef ParentName="BodyPartBionicBase">
 							<defName>KurinTailBlade</defName>
 							<label>kurin tail blade</label>
-							<description>A soft fluffy Kurin tail, but if the wearer wishes so, it opens at the end to reveal a razor-sharp dagger. Unsuspecting tail-grabbers have often found an early demise from a surprise tail blade.</description>
+							<description>A fur-covered tail with a sharp blade hidden at its tip.</description>
 							<descriptionHyperlinks><RecipeDef>InstallTailBlade</RecipeDef></descriptionHyperlinks>
 							<thingSetMakerTags>
 							<li>RewardStandardMidFreq</li>

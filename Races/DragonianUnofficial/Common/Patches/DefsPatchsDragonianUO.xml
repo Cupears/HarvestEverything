@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>DR_Tail_DP2Unofficial</defName>
 					<label>dragonian tail</label>
-					<description>A biological Dragonian tail.</description>
+					<description>A tail used for balance, movement or display.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallDragonianTail</RecipeDef>
 					</descriptionHyperlinks>
@@ -70,7 +70,7 @@
 							<ThingDef ParentName="BodyPartNaturalBase">
 								<defName>DragonianHorn_DP2Unofficial</defName>
 								<label>dragonian horn</label>
-								<description>A biological dragonian horn</description>
+								<description>A hard growth used for defense or display.</description>
 								<statBases>
 									<MarketValue>35</MarketValue>
 									<Mass>2</Mass>

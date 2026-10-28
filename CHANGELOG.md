@@ -1,3 +1,7 @@
+## Changes - 1.7.1.13
+
+- Applied short biological descriptions to older natural body parts, race-specific tails, ears, horns and tail materials in both supported game versions.
+
 ## Changes - 1.7.1.12
 
 - Replaced feature explanations in new body-part descriptions with short biological descriptions.

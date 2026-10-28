@@ -1602,7 +1602,7 @@
 					<ThingDef ParentName="BodyPartNaturalBase">
 						<defName>Stomach</defName>
 						<label>stomach</label>
-						<description>A biological human stomach. Digests food and turns it into energy and nutrients.</description>
+						<description>A muscular pouch that breaks down food.</description>
 						<statBases>
 							<MarketValue>350</MarketValue>
 							<Mass>2</Mass>
@@ -1709,7 +1709,7 @@
 									<ThingDef ParentName="BodyPartNaturalBase">
 										<defName>Spine</defName>
 										<label>Spine</label>
-										<description>A biological human spine. Required for walking and standing.</description>
+										<description>A column of bones that supports the body and protects the spinal cord.</description>
 										<statBases>
 											<MarketValue>750</MarketValue>
 											<Mass>2</Mass>
@@ -1817,7 +1817,7 @@
 					<ThingDef ParentName="BodyPartNaturalBase">
 						<defName>Eye</defName>
 						<label>eyeball</label>
-						<description>A biological human eyeball. Absorbs light, which lets a person know what's around them.</description>
+						<description>An organ that detects light and allows sight.</description>
 						<statBases>
 							<MarketValue>200</MarketValue>
 							<Mass>0.3</Mass>
@@ -1919,7 +1919,7 @@
 					<ThingDef ParentName="BodyPartNaturalBase">
 						<defName>Ear</defName>
 						<label>ear</label>
-						<description>A biological human ear. Picks up vibrations in the air, allowing people to hear sound.</description>
+						<description>An organ that detects sound.</description>
 						<statBases>
 							<MarketValue>50</MarketValue>
 							<Mass>0.3</Mass>
@@ -2027,7 +2027,7 @@
 					<ThingDef ParentName="BodyPartNaturalBase">
 						<defName>Brain</defName>
 						<label>brain</label>
-						<description>A biological human brain. The center of all Consciousness.</description>
+						<description>The organ that controls thought, movement and the senses.</description>
 						<statBases>
 							<MarketValue>900</MarketValue>
 							<Mass>1</Mass>
@@ -2129,7 +2129,7 @@
 					<ThingDef ParentName="BodyPartNaturalBase">
 						<defName>Nose</defName>
 						<label>nose</label>
-						<description>A biological human nose. A pretty useful organ to distinguish odors, applies the finishing touch to a face.</description>
+						<description>An organ used for breathing and smelling.</description>
 						<statBases>
 							<MarketValue>50</MarketValue>
 							<Mass>0.2</Mass>
@@ -2231,7 +2231,7 @@
 									<ThingDef ParentName="BodyPartNaturalBase">
 										<defName>Jaw</defName>
 										<label>jaw</label>
-										<description>A biological human jaw. A nice set of teeth for chewing food and talking.</description>
+										<description>A bone that supports the teeth and helps with chewing.</description>
 										<statBases>
 											<MarketValue>75</MarketValue>
 											<Mass>1</Mass>
@@ -2336,7 +2336,7 @@
 					<ThingDef ParentName="BodyPartNaturalBase">
 						<defName>Arm</defName>
 						<label>arm</label>
-						<description>A biological human arm. Arms are like legs, except you can carry stuff with them.</description>
+						<description>A limb used for reaching, lifting and carrying.</description>
 						<statBases>
 							<MarketValue>200</MarketValue>
 							<Mass>5</Mass>
@@ -2441,7 +2441,7 @@
 					<ThingDef ParentName="BodyPartNaturalBase">
 						<defName>Hand</defName>
 						<label>hand</label>
-						<description>A man's best friend.</description>
+						<description>The end of an arm, used for gripping and fine movement.</description>
 						<statBases>
 							<MarketValue>100</MarketValue>
 							<Mass>2</Mass>
@@ -2550,7 +2550,7 @@
 					<ThingDef ParentName="BodyPartNaturalBase">
 						<defName>Leg</defName>
 						<label>leg</label>
-						<description>A biological human leg. Basically long meaty sticks that let you move around.</description>
+						<description>A limb that supports the body and allows movement.</description>
 						<statBases>
 							<MarketValue>200</MarketValue>
 							<Mass>8</Mass>
@@ -2653,7 +2653,7 @@
 					<ThingDef ParentName="BodyPartNaturalBase">
 						<defName>Foot</defName>
 						<label>foot</label>
-						<description>A biological human foot. The thing you can put shoes on.</description>
+						<description>The end of a leg, used for balance and support.</description>
 						<statBases>
 							<MarketValue>100</MarketValue>
 							<Mass>2</Mass>
@@ -2821,7 +2821,7 @@
 									<ThingDef ParentName="BodyPartNaturalBase">
 										<defName>ReproductiveOrgans</defName>
 										<label>reproductive organs</label>
-										<description>Biological human reproductive organs. Useful for procreation and recreation , surprisingly interchangeable.</description>
+										<description>Organs involved in reproduction.</description>
 										<statBases>
 											<MarketValue>300</MarketValue>
 											<Mass>0.4</Mass>
@@ -2907,7 +2907,7 @@
 									<ThingDef ParentName="BodyPartNaturalBase">
 										<defName>ReproductiveOrgans</defName>
 										<label>reproductive organs</label>
-										<description>Biological human reproductive organs. Useful for procreation and recreation , surprisingly interchangeable.</description>
+										<description>Organs involved in reproduction.</description>
 										<statBases>
 											<MarketValue>300</MarketValue>
 											<Mass>0.4</Mass>

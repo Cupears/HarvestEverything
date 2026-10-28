@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>RK_RatTail</defName>
 					<label>Ratkin tail</label>
-					<description>A biological Ratkin tail.</description>
+					<description>A tail used for balance, movement or display.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallRatkinTail</RecipeDef>
 					</descriptionHyperlinks>

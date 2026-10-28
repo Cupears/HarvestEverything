@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>Kiiro_Tail</defName>
 					<label>kiiro tail</label>
-					<description>A biological Kiiro tail. Very soft and smooth.</description>
+					<description>A tail used for balance, movement or display.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallKiiroTail</RecipeDef>
 					</descriptionHyperlinks>
@@ -71,7 +71,7 @@
 							<ThingDef ParentName="BodyPartNaturalBase">
 								<defName>Kiiro_Tailbone</defName>
 								<label>kiiro tailbone</label>
-								<description>A biological Kiiro tailbone.</description>
+								<description>A set of bones that supports the tail.</description>
 								<statBases>
 									<MarketValue>35</MarketValue>
 									<Mass>2</Mass>

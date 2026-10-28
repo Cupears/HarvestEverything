@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>Heruan_Tail</defName>
 					<label>heruan tail</label>
-					<description>A biological Heruan tail.</description>
+					<description>A tail used for balance, movement or display.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallHeruanTail</RecipeDef>
 					</descriptionHyperlinks>
@@ -71,7 +71,7 @@
 							<ThingDef ParentName="BodyPartNaturalBase">
 								<defName>Heruan_Crownfeather</defName>
 								<label>Heruan Crownfeather</label>
-								<description>A biological Heruan crownfeather.</description>
+								<description>A feather from the crest on the head.</description>
 								<statBases>
 									<MarketValue>5</MarketValue>
 									<Mass>1</Mass>

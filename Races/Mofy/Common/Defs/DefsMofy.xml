@@ -4,7 +4,7 @@
     <ThingDef ParentName="WoolBase">
         <defName>WoolMofy</defName>
         <label>mofy tail fur</label>
-        <description>The soft, plush, beautiful fur of mofy tail.</description>
+        <description>Soft fur gathered from a tail.</description>
         <graphicData>
             <color>(254,254,254)</color>
         </graphicData>

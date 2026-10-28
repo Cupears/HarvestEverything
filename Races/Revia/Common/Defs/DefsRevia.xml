@@ -4,7 +4,7 @@
     <ThingDef ParentName="WoolBase">
         <defName>WoolRevia</defName>
         <label>revia tail fur</label>
-        <description>The soft, plush, beautiful fur of revian tail.</description>
+        <description>Soft fur gathered from a tail.</description>
         <graphicData>
             <color>(117,33,10)</color>
         </graphicData>

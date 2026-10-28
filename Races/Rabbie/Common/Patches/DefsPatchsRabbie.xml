@@ -20,7 +20,7 @@
 				<ThingDef ParentName="BodyPartNaturalBase">
 					<defName>RB_RabbitTail</defName>
 					<label>rabbie tail</label>
-					<description>A biological Rabbie tail.</description>
+					<description>A tail used for balance, movement or display.</description>
 					<descriptionHyperlinks>
 						<RecipeDef>InstallRabbieTail</RecipeDef>
 					</descriptionHyperlinks>
