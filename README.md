@@ -46,3 +46,4 @@ Enable the fork instead of the original. Both versions are declared incompatible
 ## Testing
 
 493 automated checks passed against the current 1.7 game assemblies and 46 humanoid race definitions: XML patch application, repeat application without duplicates, existing tail items, exact anatomical matching and surgery hook binding. Live startup validation passed across 768 living humanoid definitions, including runtime-generated races: 18 tail surgery definitions, no missing tail mappings and no mod startup errors. Full surgery outcomes and visual tail disappearance still need colony testing.
+
