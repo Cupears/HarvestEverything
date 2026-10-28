@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    Animals use the same organ body parts as humans, and those body parts spawn
+    the human donor items. Animal butchery swaps those items for these defs, so
+    an animal organ is never mistaken for a human organ and cannot be installed
+    in a humanlike. The item class adds the source species to the label.
+  -->
+  <ThingDef Name="HET_AnimalOrganBase" ParentName="BodyPartBase" Abstract="True">
+    <thingClass>Harvest_Everything.Thing_AnimalOrgan</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+      <color>(196,150,132)</color>
+    </graphicData>
+    <thingCategories>
+      <li>BodyPartsNatural</li>
+    </thingCategories>
+    <statBases>
+      <DeteriorationRate>4.0</DeteriorationRate>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalHeart</defName>
+    <label>animal heart</label>
+    <description>A biological heart harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <statBases>
+      <MarketValue>350</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalLung</defName>
+    <label>animal lung</label>
+    <description>A biological lung harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <statBases>
+      <MarketValue>300</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalKidney</defName>
+    <label>animal kidney</label>
+    <description>A biological kidney harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <statBases>
+      <MarketValue>250</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalLiver</defName>
+    <label>animal liver</label>
+    <description>A biological liver harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <statBases>
+      <MarketValue>350</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalStomach</defName>
+    <label>animal stomach</label>
+    <description>A biological stomach harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <statBases>
+      <MarketValue>200</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalBrain</defName>
+    <label>animal brain</label>
+    <description>A biological brain harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <statBases>
+      <MarketValue>400</MarketValue>
+    </statBases>
+  </ThingDef>
+
+</Defs>

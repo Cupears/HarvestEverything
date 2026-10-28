@@ -1,3 +1,10 @@
+## Changes - 1.7.1.3
+
+- Animal butchering now produces animal-specific organs labelled with the source species, for example "muffalo heart" or "muffalo brain", instead of the human donor organs.
+- Animal organs cannot be installed in humanlikes. They remain sellable.
+- Added the `HET_AnimalHeart`, `HET_AnimalLung`, `HET_AnimalKidney`, `HET_AnimalLiver`, `HET_AnimalStomach` and `HET_AnimalBrain` item defs.
+- Organs already present in existing saves are unchanged; only new butchering uses the animal items.
+
 ## Changes - 1.7.1.2
 
 - About.xml now states requirements and conflicts: Harmony is a hard dependency; Humanoid Alien Races and tailed-race mods are optional.

@@ -41,6 +41,18 @@ public static class AnimalButcherParts
 	// Chance per organ at 100% butchery efficiency.
 	private const float BaseDropChance = 0.25f;
 
+	// Vanilla animals reuse the human organ body parts, whose spawnThingOnRemoved
+	// points at the human donor items. Swap those for animal-specific items.
+	private static readonly Dictionary<string, string> AnimalOrganDefNames = new Dictionary<string, string>
+	{
+		{ "Heart", "HET_AnimalHeart" },
+		{ "Lung", "HET_AnimalLung" },
+		{ "Kidney", "HET_AnimalKidney" },
+		{ "Liver", "HET_AnimalLiver" },
+		{ "Stomach", "HET_AnimalStomach" },
+		{ "Brain", "HET_AnimalBrain" },
+	};
+
 	private static readonly BodyPartTagDef[] OrganTags =
 	{
 		BodyPartTagDefOf.BloodPumpingSource,
@@ -94,9 +106,27 @@ public static class AnimalButcherParts
 				continue;
 			}
 			pawn.health.AddHediff(HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn, part));
-			results.Add(ThingMaker.MakeThing(thingDef));
+			Thing thing = ThingMaker.MakeThing(AnimalOrganFor(part, thingDef));
+			if (thing is Thing_AnimalOrgan organ)
+			{
+				organ.SetSourceRace(pawn.def);
+			}
+			results.Add(thing);
 		}
 		return results;
+	}
+
+	private static ThingDef AnimalOrganFor(BodyPartRecord part, ThingDef fallback)
+	{
+		if (part.def != null && AnimalOrganDefNames.TryGetValue(part.def.defName, out string animalDefName))
+		{
+			ThingDef animalDef = DefDatabase<ThingDef>.GetNamedSilentFail(animalDefName);
+			if (animalDef != null)
+			{
+				return animalDef;
+			}
+		}
+		return fallback;
 	}
 
 	private static bool IsOrgan(BodyPartRecord part)

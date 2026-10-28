@@ -16,8 +16,9 @@ installation and per-race tail support are built in, so the standalone tails mod
   tail becomes an item and the install recipe asks for that same item. Each race maps to its own
   tail type, so the correct tail is restored.
 - **Animal butchering.** Butchering a fresh animal corpse also yields undamaged organs that have
-  a natural body-part item: heart, lung, kidney, liver, stomach and brain. The chance per organ
-  scales with butchery efficiency, at 25% for 100% efficiency.
+  a natural body-part item: heart, lung, kidney, liver, stomach and brain. Each organ is labelled
+  with the source animal, for example "muffalo heart", and cannot be transplanted into humanlikes.
+  The chance per organ scales with butchery efficiency, at 25% for 100% efficiency.
 - **Race support.** 23 tailed humanoid races, listed in [RACE-COVERAGE.md](RACE-COVERAGE.md).
   Race-specific content only loads when that race mod is active.
 
