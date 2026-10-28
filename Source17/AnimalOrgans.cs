@@ -13,6 +13,8 @@ public class Thing_AnimalOrgan : ThingWithComps
 	private string sourceRaceDefName;
 	private string sourceRaceLabel;
 	private string sourcePartLabel;
+	private string sourcePartDefName;
+	public bool Fits(Pawn pawn, BodyPartRecord part) => pawn?.def?.defName == sourceRaceDefName && part?.def != null && (sourcePartDefName.NullOrEmpty() ? part.def.label == sourcePartLabel : part.def.defName == sourcePartDefName);
 
 	public void SetSourceRace(ThingDef race)
 	{
@@ -32,6 +34,7 @@ public class Thing_AnimalOrgan : ThingWithComps
 			sourceRaceLabel = source.def.label;
 		}
 		sourcePartLabel = part?.def?.label;
+		sourcePartDefName = part?.def?.defName;
 	}
 
 	// Thing.Label already calls the virtual LabelNoCount, then adds stack count.
@@ -61,7 +64,7 @@ public class Thing_AnimalOrgan : ThingWithComps
 			return false;
 		}
 		return !(other is Thing_AnimalOrgan organ) ||
-			(organ.sourceRaceDefName == sourceRaceDefName && organ.sourcePartLabel == sourcePartLabel);
+			(organ.sourceRaceDefName == sourceRaceDefName && organ.sourcePartLabel == sourcePartLabel && organ.sourcePartDefName == sourcePartDefName);
 	}
 
 	public override Thing SplitOff(int count)
@@ -72,6 +75,7 @@ public class Thing_AnimalOrgan : ThingWithComps
 			organ.sourceRaceDefName = sourceRaceDefName;
 			organ.sourceRaceLabel = sourceRaceLabel;
 			organ.sourcePartLabel = sourcePartLabel;
+			organ.sourcePartDefName = sourcePartDefName;
 		}
 		return split;
 	}
@@ -82,5 +86,6 @@ public class Thing_AnimalOrgan : ThingWithComps
 		Scribe_Values.Look(ref sourceRaceDefName, "HET_sourceRaceDefName");
 		Scribe_Values.Look(ref sourceRaceLabel, "HET_sourceRaceLabel");
 		Scribe_Values.Look(ref sourcePartLabel, "HET_sourcePartLabel");
+		Scribe_Values.Look(ref sourcePartDefName, "HET_sourcePartDefName");
 	}
 }

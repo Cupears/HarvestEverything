@@ -8,6 +8,7 @@ public static class NaturalRaceSupport {
  static NaturalRaceSupport(){Apply();}
  public static bool Compatible(ThingDef race,RecipeDef recipe){
   if(race?.race==null||race.thingClass==null||!typeof(Pawn).IsAssignableFrom(race.thingClass)||race.race.IsMechanoid||race.race.body==null)return false;
+  if(recipe.defName=="HET_InstallAnimalPart") return race.race.Animal;
   if(recipe.defName=="HET_InstallAnimalTail")
    return (race.race.Humanlike||race.race.Animal)&&race.race.body.AllParts.Any(p=>p.def.defName=="Tail");
   if(!race.race.Humanlike)return false;

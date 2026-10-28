@@ -1,3 +1,11 @@
+## Changes - 1.7.1.10
+
+- Added matching animal-part transplant surgery for damaged or missing parts with an intact natural parent part.
+- Ingredient selection requires the donor race definition and exact body-part definition to match the patient and surgery target. Tails retain their separate cross-species recipe.
+- Added saved anatomical identity to recovered parts. Unknown old donor records are rejected safely.
+- Fixed external-part collection skipping parts without a pre-existing removal item.
+- Built for 1.6 and 1.7; seven matching and patch-binding checks passed, including a modded-race fixture. Live surgery remains to be checked in game.
+
 ## Changes - 1.7.1.9
 
 - Extended source-labeled collection and tail replacement to modded body-part names containing a supported part type.

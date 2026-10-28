@@ -124,7 +124,7 @@ public static class AnimalButcherParts
 		foreach (BodyPartRecord part in pawn.health.hediffSet.GetNotMissingParts().ToList())
 		{
 			ThingDef thingDef = part.def?.spawnThingOnRemoved;
-			if (thingDef == null || (!IsOrgan(part) && !IsBaseAnimalCollectible(part)))
+			if (pawn.health.hediffSet.PartIsMissing(part) || (!IsBaseAnimalCollectible(part) && (thingDef == null || !IsOrgan(part))))
 			{
 				continue;
 			}

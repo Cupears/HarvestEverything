@@ -1,12 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <Defs>
-
-  <!--
-    Animals use the same organ body parts as humans, and those body parts spawn
-    the human donor items. Animal butchery swaps those items for these defs, so
-    an animal organ is never mistaken for a human organ and cannot be installed
-    in a humanlike. The item class adds the source species to the label.
-  -->
   <ThingDef Name="HET_AnimalOrganBase" ParentName="BodyPartBase" Abstract="True">
     <thingClass>Harvest_Everything.Thing_AnimalOrgan</thingClass>
     <graphicData>
@@ -22,7 +15,6 @@
       <DeteriorationRate>4.0</DeteriorationRate>
     </statBases>
   </ThingDef>
-
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalHeart</defName>
     <label>animal heart</label>
@@ -31,7 +23,6 @@
       <MarketValue>350</MarketValue>
     </statBases>
   </ThingDef>
-
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalLung</defName>
     <label>animal lung</label>
@@ -40,7 +31,6 @@
       <MarketValue>300</MarketValue>
     </statBases>
   </ThingDef>
-
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalKidney</defName>
     <label>animal kidney</label>
@@ -49,7 +39,6 @@
       <MarketValue>250</MarketValue>
     </statBases>
   </ThingDef>
-
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalLiver</defName>
     <label>animal liver</label>
@@ -58,7 +47,6 @@
       <MarketValue>350</MarketValue>
     </statBases>
   </ThingDef>
-
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalStomach</defName>
     <label>animal stomach</label>
@@ -67,7 +55,6 @@
       <MarketValue>200</MarketValue>
     </statBases>
   </ThingDef>
-
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalBrain</defName>
     <label>animal brain</label>
@@ -76,28 +63,159 @@
       <MarketValue>400</MarketValue>
     </statBases>
   </ThingDef>
-
-  <!-- Phase one: shared RimWorld animal part types. Items keep their donor race
-       and exact part label; race-specific body-part types are covered later. -->
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalTail</defName><label>animal tail</label><description>A tail recovered from an animal. Its source species remains in the item name.</description><statBases><MarketValue>250</MarketValue><Mass>1</Mass></statBases></ThingDef>
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalPaw</defName><label>animal paw</label><description>A paw or foot recovered from an animal.</description><statBases><MarketValue>60</MarketValue><Mass>0.4</Mass></statBases></ThingDef>
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalClaw</defName><label>animal claw</label><description>A claw, finger or toe recovered from an animal.</description><statBases><MarketValue>12</MarketValue><Mass>0.05</Mass></statBases></ThingDef>
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalHoof</defName><label>animal hoof</label><description>A hoof recovered from an animal.</description><statBases><MarketValue>18</MarketValue><Mass>0.2</Mass></statBases></ThingDef>
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalHorn</defName><label>animal horn</label><description>A horn or antler recovered from an animal.</description><statBases><MarketValue>50</MarketValue><Mass>0.5</Mass></statBases></ThingDef>
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalBeak</defName><label>animal beak</label><description>A beak or tusk recovered from an animal.</description><statBases><MarketValue>40</MarketValue><Mass>0.3</Mass></statBases></ThingDef>
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalWing</defName><label>animal wing</label><description>A wing recovered from an animal.</description><statBases><MarketValue>80</MarketValue><Mass>0.8</Mass></statBases></ThingDef>
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalShell</defName><label>animal shell</label><description>A shell section recovered from an animal.</description><statBases><MarketValue>100</MarketValue><Mass>1</Mass></statBases></ThingDef>
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalTentacle</defName><label>animal tentacle</label><description>A tentacle recovered from an animal.</description><statBases><MarketValue>40</MarketValue><Mass>0.4</Mass></statBases></ThingDef>
-
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalTail</defName>
+    <label>animal tail</label>
+    <description>A tail recovered from an animal. Its source species remains in the item name.</description>
+    <statBases>
+      <MarketValue>250</MarketValue>
+      <Mass>1</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalPaw</defName>
+    <label>animal paw</label>
+    <description>A paw or foot recovered from an animal.</description>
+    <statBases>
+      <MarketValue>60</MarketValue>
+      <Mass>0.4</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalClaw</defName>
+    <label>animal claw</label>
+    <description>A claw, finger or toe recovered from an animal.</description>
+    <statBases>
+      <MarketValue>12</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalHoof</defName>
+    <label>animal hoof</label>
+    <description>A hoof recovered from an animal.</description>
+    <statBases>
+      <MarketValue>18</MarketValue>
+      <Mass>0.2</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalHorn</defName>
+    <label>animal horn</label>
+    <description>A horn or antler recovered from an animal.</description>
+    <statBases>
+      <MarketValue>50</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalBeak</defName>
+    <label>animal beak</label>
+    <description>A beak or tusk recovered from an animal.</description>
+    <statBases>
+      <MarketValue>40</MarketValue>
+      <Mass>0.3</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalWing</defName>
+    <label>animal wing</label>
+    <description>A wing recovered from an animal.</description>
+    <statBases>
+      <MarketValue>80</MarketValue>
+      <Mass>0.8</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalShell</defName>
+    <label>animal shell</label>
+    <description>A shell section recovered from an animal.</description>
+    <statBases>
+      <MarketValue>100</MarketValue>
+      <Mass>1</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalTentacle</defName>
+    <label>animal tentacle</label>
+    <description>A tentacle recovered from an animal.</description>
+    <statBases>
+      <MarketValue>40</MarketValue>
+      <Mass>0.4</Mass>
+    </statBases>
+  </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
     <defName>HET_InstallAnimalTail</defName>
     <label>install natural tail</label>
     <description>Install a tail recovered from an animal into a compatible tail body part.</description>
     <jobString>Installing natural tail.</jobString>
-    <ingredients><li><filter><thingDefs><li>HET_AnimalTail</li></thingDefs></filter><count>1</count></li></ingredients>
-    <fixedIngredientFilter><thingDefs><li>HET_AnimalTail</li></thingDefs></fixedIngredientFilter>
-    <appliedOnFixedBodyParts><li>Tail</li></appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HET_AnimalTail</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HET_AnimalTail</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Tail</li>
+    </appliedOnFixedBodyParts>
     <recipeUsers Inherit="False" />
   </RecipeDef>
-
+  <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+    <defName>HET_InstallAnimalPart</defName>
+    <label>install matching animal part</label>
+    <description>Replace a damaged or missing part using the same body part from the same animal species.</description>
+    <jobString>Transplanting animal part.</jobString>
+    <workerClass>Harvest_Everything.Recipe_InstallAnimalPart</workerClass>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HET_AnimalHeart</li>
+            <li>HET_AnimalLung</li>
+            <li>HET_AnimalKidney</li>
+            <li>HET_AnimalLiver</li>
+            <li>HET_AnimalStomach</li>
+            <li>HET_AnimalBrain</li>
+            <li>HET_AnimalPaw</li>
+            <li>HET_AnimalClaw</li>
+            <li>HET_AnimalHoof</li>
+            <li>HET_AnimalHorn</li>
+            <li>HET_AnimalBeak</li>
+            <li>HET_AnimalWing</li>
+            <li>HET_AnimalShell</li>
+            <li>HET_AnimalTentacle</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HET_AnimalHeart</li>
+        <li>HET_AnimalLung</li>
+        <li>HET_AnimalKidney</li>
+        <li>HET_AnimalLiver</li>
+        <li>HET_AnimalStomach</li>
+        <li>HET_AnimalBrain</li>
+        <li>HET_AnimalPaw</li>
+        <li>HET_AnimalClaw</li>
+        <li>HET_AnimalHoof</li>
+        <li>HET_AnimalHorn</li>
+        <li>HET_AnimalBeak</li>
+        <li>HET_AnimalWing</li>
+        <li>HET_AnimalShell</li>
+        <li>HET_AnimalTentacle</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <recipeUsers Inherit="False" />
+  </RecipeDef>
 </Defs>
