@@ -13,7 +13,7 @@ with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED) as z:
   for f in d.rglob('*'):
    if f.is_file() and f.name!='PublishedFileId.txt' and f.suffix.lower() not in ['.pdb']:
     z.write(f,Path(packageId)/f.relative_to(p))
- for extra in ['LICENSE-Tails','README.md','CHANGELOG.md','RACE-COVERAGE.md','loadFolders.xml','LoadFolders.xml','WORKSHOP-PREPARATION.md']:
+ for extra in ['LICENSE-Tails','README.md','FAQ.md','BUILDING.md','LICENSE-STATUS.md','CHANGELOG.md','RACE-COVERAGE.md','loadFolders.xml','LoadFolders.xml','WORKSHOP-PREPARATION.md']:
   f=p/extra
   if f.exists():z.write(f,Path(packageId)/f.relative_to(p))
 print(output)
