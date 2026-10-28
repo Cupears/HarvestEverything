@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "Harvest Everything/1.0.0": {
+      "HarvestEverythingTails/1.0.0": {
         "runtime": {
-          "Harvest Everything.dll": {}
+          "HarvestEverythingTails.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Harvest Everything/1.0.0": {
+    "HarvestEverythingTails/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

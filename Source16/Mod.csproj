@@ -16,7 +16,7 @@
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <AssemblyName>Harvest Everything</AssemblyName>
+    <AssemblyName>HarvestEverythingTails</AssemblyName>
     <RootNamespace>Harvest_Everything</RootNamespace>
     <OutputPath>../1.6/Assemblies/</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>

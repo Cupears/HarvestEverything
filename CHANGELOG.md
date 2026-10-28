@@ -1,3 +1,10 @@
+## Changes - 1.7.1.1
+
+- Renamed the assembly to `HarvestEverythingTails` so it no longer shares a name with the original Harvest Everything DLL.
+- Changed the package id to `cupears.harvesteverythingtails`.
+- Renamed the local mod folder to `Cupears-HarvestEverything-Tails`.
+- Existing saves reference the old package id and will list it as missing once; defs and items are unchanged, so no content is lost.
+
 ## Changes - 1.7.1.0
 
 - Added RimWorld 1.6 support with a dedicated `1.6/` content folder and a `<v1.6>` load-folder block.
