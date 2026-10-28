@@ -1,4 +1,4 @@
-﻿# Harvest Everything - 1.7 Race Support
+# Harvest Everything - 1.7 Race Support
 
 ![RimWorld](https://img.shields.io/badge/RimWorld-1.7-orange) ![Stage](https://img.shields.io/badge/stage-beta.1-purple)
 

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ModMetaData>
-    <name>Harvest Everything — 1.7 Race Support</name>
+    <name>Harvest Everything - 1.7 Race Support</name>
     <author>Ykara (Updated for 1.1 by Ogliss); 1.7 fork: Cupears</author>
     <supportedVersions><li>1.7</li></supportedVersions><packageId>cupears.harvesteverything17</packageId>
     <description>Natural body-part harvesting and transplantation across compatible humanoid races. RimWorld 1.7 beta. Maintained fork by Cupears. See README and compatibility notes.</description>

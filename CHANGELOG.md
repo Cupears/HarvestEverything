@@ -1,4 +1,4 @@
-## Changes — 1.7.0-beta.1
+## Changes - 1.7.0-beta.1
 
 - Rebuilt runtime code against RimWorld 1.7 / .NET 10.
 - Included current 1.6 Workshop XML content in the 1.7 content folder.
