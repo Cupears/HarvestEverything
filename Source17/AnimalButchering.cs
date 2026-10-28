@@ -151,16 +151,17 @@ public static class AnimalButcherParts
 	{
 		if (part?.def != null)
 		{
-			string collectible = part.def.defName switch
-			{
-				"Tail" => "HET_AnimalTail",
-				"Paw" or "Foot" => "HET_AnimalPaw",
-				"Finger" or "Toe" or "FrontClaw" or "RearClaw" => "HET_AnimalClaw",
-				"Hoof" => "HET_AnimalHoof",
-				"Horn" or "Antler" => "HET_AnimalHorn",
-				"Tusk" or "Beak" => "HET_AnimalBeak",
-				_ => null
-			};
+			string name = part.def.defName;
+			string collectible = name.IndexOf("Tail", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalTail"
+				: name.IndexOf("Paw", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Foot", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalPaw"
+				: name.IndexOf("Claw", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Finger", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Toe", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalClaw"
+				: name.IndexOf("Hoof", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalHoof"
+				: name.IndexOf("Horn", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Antler", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalHorn"
+				: name.IndexOf("Tusk", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Beak", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalBeak"
+				: name.IndexOf("Wing", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalWing"
+				: name.IndexOf("Shell", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalShell"
+				: name.IndexOf("Tentacle", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalTentacle"
+				: null;
 			if (collectible != null && DefDatabase<ThingDef>.GetNamedSilentFail(collectible) is ThingDef collectibleDef)
 				return collectibleDef;
 		}
@@ -177,9 +178,13 @@ public static class AnimalButcherParts
 
 	// Phase one covers shared RimWorld body-part types. Race-specific anatomical
 	// types are added in the mod-race pass after these common types.
-	private static bool IsBaseAnimalCollectible(BodyPartRecord part) => part?.def?.defName is
-		"Tail" or "Paw" or "Foot" or "Finger" or "Toe" or "FrontClaw" or "RearClaw" or
-		"Hoof" or "Horn" or "Antler" or "Tusk" or "Beak";
+	private static bool IsBaseAnimalCollectible(BodyPartRecord part)
+	{
+		string name = part?.def?.defName;
+		return !string.IsNullOrEmpty(name) &&
+			new[] { "Tail", "Paw", "Foot", "Finger", "Toe", "Claw", "Hoof", "Horn", "Antler", "Tusk", "Beak", "Wing", "Shell", "Tentacle" }
+				.Any(term => name.IndexOf(term, System.StringComparison.OrdinalIgnoreCase) >= 0);
+	}
 
 	private static bool IsOrgan(BodyPartRecord part)
 	{
@@ -213,3 +218,4 @@ public static class AnimalButcherParts
 		return true;
 	}
 }
+

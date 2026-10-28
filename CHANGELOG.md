@@ -1,3 +1,9 @@
+## Changes - 1.7.1.9
+
+- Extended source-labeled collection and tail replacement to modded body-part names containing a supported part type.
+- Tail transplant surgery now includes compatible custom tail anatomy and source-labeled animal tail items.
+- Built successfully for RimWorld 1.6 and 1.7.
+
 ## Changes - 1.7.1.8
 
 - Started animal-part support with shared RimWorld anatomy: tails, paws/feet, fingers/toes, claws, hooves, horns/antlers, tusks and beaks.

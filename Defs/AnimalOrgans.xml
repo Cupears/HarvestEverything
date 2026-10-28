@@ -85,6 +85,9 @@
   <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalHoof</defName><label>animal hoof</label><description>A hoof recovered from an animal.</description><statBases><MarketValue>18</MarketValue><Mass>0.2</Mass></statBases></ThingDef>
   <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalHorn</defName><label>animal horn</label><description>A horn or antler recovered from an animal.</description><statBases><MarketValue>50</MarketValue><Mass>0.5</Mass></statBases></ThingDef>
   <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalBeak</defName><label>animal beak</label><description>A beak or tusk recovered from an animal.</description><statBases><MarketValue>40</MarketValue><Mass>0.3</Mass></statBases></ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalWing</defName><label>animal wing</label><description>A wing recovered from an animal.</description><statBases><MarketValue>80</MarketValue><Mass>0.8</Mass></statBases></ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalShell</defName><label>animal shell</label><description>A shell section recovered from an animal.</description><statBases><MarketValue>100</MarketValue><Mass>1</Mass></statBases></ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalTentacle</defName><label>animal tentacle</label><description>A tentacle recovered from an animal.</description><statBases><MarketValue>40</MarketValue><Mass>0.4</Mass></statBases></ThingDef>
 
   <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
     <defName>HET_InstallAnimalTail</defName>

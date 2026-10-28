@@ -20,6 +20,11 @@ public static class NaturalRaceSupport {
   foreach(var race in DefDatabase<ThingDef>.AllDefsListForReading.Where(r=>r.race?.Humanlike==true||r.race?.Animal==true)){
    bool changed=false;
    foreach(var recipe in DefDatabase<RecipeDef>.AllDefsListForReading){
+    if(recipe.defName=="HET_InstallAnimalTail"){
+     recipe.appliedOnFixedBodyParts??=new List<BodyPartDef>();
+     foreach(var tail in DefDatabase<BodyPartDef>.AllDefsListForReading.Where(p=>p.defName.IndexOf("Tail",System.StringComparison.OrdinalIgnoreCase)>=0))
+      if(!recipe.appliedOnFixedBodyParts.Contains(tail))recipe.appliedOnFixedBodyParts.Add(tail);
+    }
     if(!Compatible(race,recipe))continue;
     recipe.recipeUsers??=new List<ThingDef>();
     if(!recipe.recipeUsers.Contains(race)){recipe.recipeUsers.Add(race);changed=true;count++;}
@@ -29,3 +34,4 @@ public static class NaturalRaceSupport {
   return count;
  }
 }
+
