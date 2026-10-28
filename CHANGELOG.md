@@ -7,4 +7,5 @@
 - Added null-safe natural-transplant recipe handling.
 - Added anatomy-based natural surgery availability for humanoid races.
 - Kept missing parent parts, incompatible anatomy, and existing game surgery checks intact.
+- Added animal butchering support: fresh animal corpses now give up clean, undamaged organs (heart, lung, kidney, liver, stomach, brain).
 - Added a separate package identity and incompatibility with the original.

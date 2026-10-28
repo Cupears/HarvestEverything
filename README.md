@@ -13,7 +13,17 @@ Natural body-part harvesting and transplantation across compatible humanoid race
 - Added null-safe natural-transplant recipe handling.
 - Added anatomy-based natural surgery availability for humanoid races.
 - Kept missing parent parts, incompatible anatomy, and existing game surgery checks intact.
+- Added animal butchering support: fresh animal corpses now give up clean organs.
 - Added a separate package identity and incompatibility with the original.
+
+## Animal butchering
+
+Butchering a fresh animal corpse yields its undamaged organs in addition to vanilla meat,
+leather and life-stage parts. Only organ body parts that have a natural body-part item are
+dropped (heart, lung, kidney, liver, stomach and brain), and only if the organ is undamaged.
+Limbs, jaws, eyes and ears are never taken this way. Mechanoids, anomaly entities and
+non-fresh corpses are skipped. The chance per organ scales with butchery efficiency
+(25% at 100% efficiency), so a skilled cook recovers more organs.
 
 ## Coverage
 
