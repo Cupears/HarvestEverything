@@ -77,4 +77,24 @@
     </statBases>
   </ThingDef>
 
+  <!-- Phase one: shared RimWorld animal part types. Items keep their donor race
+       and exact part label; race-specific body-part types are covered later. -->
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalTail</defName><label>animal tail</label><description>A tail recovered from an animal. Its source species remains in the item name.</description><statBases><MarketValue>250</MarketValue><Mass>1</Mass></statBases></ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalPaw</defName><label>animal paw</label><description>A paw or foot recovered from an animal.</description><statBases><MarketValue>60</MarketValue><Mass>0.4</Mass></statBases></ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalClaw</defName><label>animal claw</label><description>A claw, finger or toe recovered from an animal.</description><statBases><MarketValue>12</MarketValue><Mass>0.05</Mass></statBases></ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalHoof</defName><label>animal hoof</label><description>A hoof recovered from an animal.</description><statBases><MarketValue>18</MarketValue><Mass>0.2</Mass></statBases></ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalHorn</defName><label>animal horn</label><description>A horn or antler recovered from an animal.</description><statBases><MarketValue>50</MarketValue><Mass>0.5</Mass></statBases></ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalBeak</defName><label>animal beak</label><description>A beak or tusk recovered from an animal.</description><statBases><MarketValue>40</MarketValue><Mass>0.3</Mass></statBases></ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+    <defName>HET_InstallAnimalTail</defName>
+    <label>install natural tail</label>
+    <description>Install a tail recovered from an animal into a compatible tail body part.</description>
+    <jobString>Installing natural tail.</jobString>
+    <ingredients><li><filter><thingDefs><li>HET_AnimalTail</li></thingDefs></filter><count>1</count></li></ingredients>
+    <fixedIngredientFilter><thingDefs><li>HET_AnimalTail</li></thingDefs></fixedIngredientFilter>
+    <appliedOnFixedBodyParts><li>Tail</li></appliedOnFixedBodyParts>
+    <recipeUsers Inherit="False" />
+  </RecipeDef>
+
 </Defs>

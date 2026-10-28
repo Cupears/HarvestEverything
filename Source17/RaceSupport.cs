@@ -7,14 +7,17 @@ namespace Harvest_Everything;
 public static class NaturalRaceSupport {
  static NaturalRaceSupport(){Apply();}
  public static bool Compatible(ThingDef race,RecipeDef recipe){
-  if(race?.race?.Humanlike!=true||race.thingClass==null||!typeof(Pawn).IsAssignableFrom(race.thingClass)||race.race.IsMechanoid||race.race.body==null)return false;
+  if(race?.race==null||race.thingClass==null||!typeof(Pawn).IsAssignableFrom(race.thingClass)||race.race.IsMechanoid||race.race.body==null)return false;
+  if(recipe.defName=="HET_InstallAnimalTail")
+   return (race.race.Humanlike||race.race.Animal)&&race.race.body.AllParts.Any(p=>p.def.defName=="Tail");
+  if(!race.race.Humanlike)return false;
   if(recipe.defName=="HarvestEverything")return true;
   if(recipe.workerClass!=typeof(Recipe_InstallNaturalBodyPart)||recipe.appliedOnFixedBodyParts==null)return false;
   return race.race.body.AllParts.Any(p=>recipe.appliedOnFixedBodyParts.Contains(p.def));
  }
  public static int Apply(){
   int count=0;
-  foreach(var race in DefDatabase<ThingDef>.AllDefsListForReading.Where(r=>r.race?.Humanlike==true)){
+  foreach(var race in DefDatabase<ThingDef>.AllDefsListForReading.Where(r=>r.race?.Humanlike==true||r.race?.Animal==true)){
    bool changed=false;
    foreach(var recipe in DefDatabase<RecipeDef>.AllDefsListForReading){
     if(!Compatible(race,recipe))continue;

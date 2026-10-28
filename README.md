@@ -78,3 +78,5 @@ See [CHANGELOG.md](CHANGELOG.md).
 Natural fingers and toes can be transplanted into matching humanoid anatomy. Post Mortem autopsies use a separate recovery roll for each eligible digit, at 20% of the usual natural-part chance. Whole limbs and their loose digits are not both recovered. Damaged or missing child parts prevent the enclosing limb counting as intact. Surgery on living pawns has no added recovery chance penalty. Mechanical digits are excluded.
 
 Natural tongues can be recovered from eligible humanoid corpses and transplanted with surgery.
+
+Animal body-part support starts with shared RimWorld anatomy. Recovered parts keep the source species in their item label and stack only with matching source and part. Natural tails can be transplanted between pawns whose anatomy uses the shared `Tail` body-part type. Race-specific anatomy is handled in later compatibility updates.

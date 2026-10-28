@@ -124,7 +124,7 @@ public static class AnimalButcherParts
 		foreach (BodyPartRecord part in pawn.health.hediffSet.GetNotMissingParts().ToList())
 		{
 			ThingDef thingDef = part.def?.spawnThingOnRemoved;
-			if (thingDef == null || !IsOrgan(part))
+			if (thingDef == null || (!IsOrgan(part) && !IsBaseAnimalCollectible(part)))
 			{
 				continue;
 			}
@@ -140,7 +140,7 @@ public static class AnimalButcherParts
 			Thing thing = ThingMaker.MakeThing(AnimalOrganFor(part, thingDef));
 			if (thing is Thing_AnimalOrgan organ)
 			{
-				organ.SetSourceRace(pawn.def);
+				organ.SetAnimalPart(pawn, part);
 			}
 			results.Add(thing);
 		}
@@ -149,6 +149,21 @@ public static class AnimalButcherParts
 
 	private static ThingDef AnimalOrganFor(BodyPartRecord part, ThingDef fallback)
 	{
+		if (part?.def != null)
+		{
+			string collectible = part.def.defName switch
+			{
+				"Tail" => "HET_AnimalTail",
+				"Paw" or "Foot" => "HET_AnimalPaw",
+				"Finger" or "Toe" or "FrontClaw" or "RearClaw" => "HET_AnimalClaw",
+				"Hoof" => "HET_AnimalHoof",
+				"Horn" or "Antler" => "HET_AnimalHorn",
+				"Tusk" or "Beak" => "HET_AnimalBeak",
+				_ => null
+			};
+			if (collectible != null && DefDatabase<ThingDef>.GetNamedSilentFail(collectible) is ThingDef collectibleDef)
+				return collectibleDef;
+		}
 		if (part.def != null && AnimalOrganDefNames.TryGetValue(part.def.defName, out string animalDefName))
 		{
 			ThingDef animalDef = DefDatabase<ThingDef>.GetNamedSilentFail(animalDefName);
@@ -159,6 +174,12 @@ public static class AnimalButcherParts
 		}
 		return fallback;
 	}
+
+	// Phase one covers shared RimWorld body-part types. Race-specific anatomical
+	// types are added in the mod-race pass after these common types.
+	private static bool IsBaseAnimalCollectible(BodyPartRecord part) => part?.def?.defName is
+		"Tail" or "Paw" or "Foot" or "Finger" or "Toe" or "FrontClaw" or "RearClaw" or
+		"Hoof" or "Horn" or "Antler" or "Tusk" or "Beak";
 
 	private static bool IsOrgan(BodyPartRecord part)
 	{

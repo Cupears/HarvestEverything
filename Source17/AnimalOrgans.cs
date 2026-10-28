@@ -12,6 +12,7 @@ public class Thing_AnimalOrgan : ThingWithComps
 {
 	private string sourceRaceDefName;
 	private string sourceRaceLabel;
+	private string sourcePartLabel;
 
 	public void SetSourceRace(ThingDef race)
 	{
@@ -21,6 +22,16 @@ public class Thing_AnimalOrgan : ThingWithComps
 		}
 		sourceRaceDefName = race.defName;
 		sourceRaceLabel = race.label;
+	}
+
+	public void SetAnimalPart(Pawn source, BodyPartRecord part)
+	{
+		if (source?.def != null)
+		{
+			sourceRaceDefName = source.def.defName;
+			sourceRaceLabel = source.def.label;
+		}
+		sourcePartLabel = part?.def?.label;
 	}
 
 	// Thing.Label already calls the virtual LabelNoCount, then adds stack count.
@@ -35,10 +46,11 @@ public class Thing_AnimalOrgan : ThingWithComps
 		}
 		// Our def labels start with "animal " so an unnamed item still reads as
 		// an animal organ; the species name replaces that generic prefix.
-		const string animalPrefix = "animal ";
-		string noun = baseLabel.StartsWith(animalPrefix, StringComparison.Ordinal)
-			? baseLabel.Substring(animalPrefix.Length)
-			: baseLabel;
+		string noun = sourcePartLabel.NullOrEmpty() ? baseLabel : sourcePartLabel;
+		if (noun.StartsWith("animal ", StringComparison.OrdinalIgnoreCase))
+			noun = noun.Substring("animal ".Length);
+		if (noun.EndsWith(" (natural)", StringComparison.OrdinalIgnoreCase))
+			noun = noun.Substring(0, noun.Length - " (natural)".Length);
 		return sourceRaceLabel + " " + noun;
 	}
 
@@ -48,7 +60,8 @@ public class Thing_AnimalOrgan : ThingWithComps
 		{
 			return false;
 		}
-		return !(other is Thing_AnimalOrgan organ) || organ.sourceRaceDefName == sourceRaceDefName;
+		return !(other is Thing_AnimalOrgan organ) ||
+			(organ.sourceRaceDefName == sourceRaceDefName && organ.sourcePartLabel == sourcePartLabel);
 	}
 
 	public override Thing SplitOff(int count)
@@ -58,6 +71,7 @@ public class Thing_AnimalOrgan : ThingWithComps
 		{
 			organ.sourceRaceDefName = sourceRaceDefName;
 			organ.sourceRaceLabel = sourceRaceLabel;
+			organ.sourcePartLabel = sourcePartLabel;
 		}
 		return split;
 	}
@@ -67,5 +81,6 @@ public class Thing_AnimalOrgan : ThingWithComps
 		base.ExposeData();
 		Scribe_Values.Look(ref sourceRaceDefName, "HET_sourceRaceDefName");
 		Scribe_Values.Look(ref sourceRaceLabel, "HET_sourceRaceLabel");
+		Scribe_Values.Look(ref sourcePartLabel, "HET_sourcePartLabel");
 	}
 }

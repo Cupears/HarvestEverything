@@ -1,3 +1,10 @@
+## Changes - 1.7.1.8
+
+- Started animal-part support with shared RimWorld anatomy: tails, paws/feet, fingers/toes, claws, hooves, horns/antlers, tusks and beaks.
+- Butchered parts are labeled with the source species and exact body-part label; different species and part types do not stack together.
+- Added a tail transplant recipe for animals and humanoids that share the standard Tail body-part type. The tail keeps its source-species name in storage and on the ingredient.
+- Mod-specific body-part types remain for the next compatibility pass.
+
 ## Changes - 1.7.1.7
 
 - Added a recoverable natural tongue and a matching transplant surgery.
