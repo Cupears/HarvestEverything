@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-28",
+  "game": "RimWorld 1.7",
+  "checks": 493,
+  "raceDefinitions": 46,
+  "anatomicalTailRaces": 19,
+  "tailFamilies": 9,
+  "categories": [
+    "actual PatchOperation XML application",
+    "idempotent patches",
+    "existing natural tail items preserved",
+    "exact body-part matching",
+    "1.7 surgery hook binding"
+  ],
+  "liveStartup": {
+    "livingHumanoidDefinitions": 768,
+    "tailSurgeryDefinitions": 18,
+    "missingTailMappings": [],
+    "nonVulkanStartupErrors": []
+  }
+}
