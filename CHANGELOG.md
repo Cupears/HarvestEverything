@@ -1,3 +1,7 @@
+## Changes - 1.7.1.14
+
+- Recovered animal parts now describe their saved donor species and biological role, including modded species.
+
 ## Changes - 1.7.1.13
 
 - Applied short biological descriptions to older natural body parts, race-specific tails, ears, horns and tail materials in both supported game versions.

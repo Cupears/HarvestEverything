@@ -40,6 +40,39 @@ public class Thing_AnimalOrgan : ThingWithComps
 	// Thing.Label already calls the virtual LabelNoCount, then adds stack count.
 	// Adding the species there too would prefix it twice.
 	public override string LabelNoCount => WithSpecies(base.LabelNoCount);
+	public override string DescriptionFlavor => SourceDescription();
+	public override string DescriptionDetailed
+	{
+		get
+		{
+			string description = SourceDescription();
+			return def.description.NullOrEmpty() ? description : base.DescriptionDetailed.Replace(def.description, description);
+		}
+	}
+
+	private string SourceDescription()
+	{
+		if (sourceRaceLabel.NullOrEmpty()) return base.DescriptionFlavor;
+		string name = WithSpecies(def.label);
+		string part = (sourcePartDefName ?? def.defName ?? "").ToLowerInvariant();
+		string purpose = part.Contains("tail") ? "used for balance, movement or display"
+			: part.Contains("heart") ? "that pumps blood through the body"
+			: part.Contains("lung") ? "that draws oxygen into the blood"
+			: part.Contains("kidney") ? "that filters waste from the blood"
+			: part.Contains("liver") ? "that processes nutrients and breaks down toxins"
+			: part.Contains("stomach") ? "that breaks down food"
+			: part.Contains("brain") ? "that controls movement and the senses"
+			: part.Contains("paw") || part.Contains("hand") || part.Contains("finger") ? "used for gripping and movement"
+			: part.Contains("foot") || part.Contains("toe") || part.Contains("hoof") ? "used for support and movement"
+			: part.Contains("claw") ? "used for gripping, digging or defense"
+			: part.Contains("horn") || part.Contains("antler") || part.Contains("tusk") ? "used for defense or display"
+			: part.Contains("beak") ? "used for feeding"
+			: part.Contains("wing") ? "used for flight or gliding"
+			: part.Contains("shell") ? "that protects the body"
+			: part.Contains("tentacle") ? "used for grasping and movement" : "";
+		string article = "aeiouAEIOU".IndexOf(name[0]) >= 0 ? "An " : "A ";
+		return article + name + (purpose.Length == 0 ? "." : " " + purpose + ".");
+	}
 
 	private string WithSpecies(string baseLabel)
 	{
