@@ -23,8 +23,8 @@ public class Thing_AnimalOrgan : ThingWithComps
 		sourceRaceLabel = race.label;
 	}
 
-	public override string Label => WithSpecies(base.Label);
-
+	// Thing.Label already calls the virtual LabelNoCount, then adds stack count.
+	// Adding the species there too would prefix it twice.
 	public override string LabelNoCount => WithSpecies(base.LabelNoCount);
 
 	private string WithSpecies(string baseLabel)

@@ -1,3 +1,9 @@
+## Changes - 1.7.1.5
+
+- Fixed animal organ names repeating the species twice.
+- Stack labels keep their normal counts.
+- Existing organs use the corrected labels without save edits.
+
 ## Changes - 1.7.1.4
 
 - Animal organs now come from a separate **Butcher for animal parts** bill on the butcher spot and butcher table, instead of the ordinary **Butcher creature** bill.
