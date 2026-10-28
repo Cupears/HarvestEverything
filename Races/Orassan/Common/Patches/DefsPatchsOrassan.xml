@@ -46,7 +46,7 @@
                 <defName>HATT17_Remove_OTail</defName>
                 <label>remove natural orassan tail</label>
                 <jobString>Removing natural tail.</jobString>
-                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workerClass>Harvest_Everything.Recipe_RemoveDefinedParts</workerClass>
                 <workAmount>400</workAmount>
                 <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
                 <appliedOnFixedBodyParts>

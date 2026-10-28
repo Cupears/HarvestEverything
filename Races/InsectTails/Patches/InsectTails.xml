@@ -72,7 +72,7 @@
                 <defName>HATT17_Remove_InsectTail</defName>
                 <label>remove natural tail</label>
                 <jobString>Removing natural tail.</jobString>
-                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workerClass>Harvest_Everything.Recipe_RemoveDefinedParts</workerClass>
                 <workAmount>400</workAmount>
                 <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
                 <appliedOnFixedBodyParts>
@@ -157,7 +157,7 @@
                 <defName>HATT17_Remove_AA_InsectTail</defName>
                 <label>remove natural tail</label>
                 <jobString>Removing natural tail.</jobString>
-                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workerClass>Harvest_Everything.Recipe_RemoveDefinedParts</workerClass>
                 <workAmount>400</workAmount>
                 <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
                 <appliedOnFixedBodyParts>
@@ -242,7 +242,7 @@
                 <defName>HATT17_Remove_DA_InsectTail</defName>
                 <label>remove natural tail</label>
                 <jobString>Removing natural tail.</jobString>
-                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workerClass>Harvest_Everything.Recipe_RemoveDefinedParts</workerClass>
                 <workAmount>400</workAmount>
                 <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
                 <appliedOnFixedBodyParts>

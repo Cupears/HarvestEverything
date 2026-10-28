@@ -18,7 +18,7 @@ public static class SmallPartAutopsy
         if (utility == null) return;
         var clean = AccessTools.Method(utility, "IsCleanAndDroppable");
         var extract = AccessTools.Method(utility, "TryGetParts");
-        if (clean == null || extract == null)
+        if (clean?.GetParameters().Length != 2 || extract?.GetParameters().Length != 6)
         {
             Log.Warning("Harvest Everything: Post Mortem small-part integration unavailable: expected methods were not found.");
             return;
@@ -65,6 +65,7 @@ public static class SmallPartAutopsy
         var info = __args[1];
         var type = info?.GetType();
         var ctor = type?.GetConstructor(new[] { typeof(float), typeof(int), typeof(float), typeof(int), typeof(float) });
+        if(type==null || new[]{"NaturalChance","CorpseValidAge","BionicChance","PartNumber","FrozenDecay"}.Any(n=>AccessTools.Field(type,n)==null))return;
         if (ctor == null) return;
         object Read(string name) => AccessTools.Field(type, name).GetValue(info);
         __args[1] = ctor.Invoke(new object[] {

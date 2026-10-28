@@ -18,6 +18,8 @@ public class MedicalRecipesUtility_SpawnNaturalPartIfClean_Patch
 {
 	public static bool Prefix(Pawn pawn, BodyPartRecord part, IntVec3 pos, Map map, ref Thing __result)
 	{
+		if(pawn?.health?.hediffSet==null||part?.def==null){__result=null;return false;}
+  if(pawn.RaceProps.Animal){__result=AnimalNaturalRecovery.Spawn(pawn,part,pos,map);return false;}
 		if (!GenList.NullOrEmpty<BodyPartRecord>((IList<BodyPartRecord>)part.parts))
 		{
 			return HarmonyPatches.IsChildrenClean(pawn, part);
@@ -41,23 +43,21 @@ public class HealthCardUtility_CreateSurgeryBill_Patch
 			foreach (Hediff item in list)
 			{
 				RecipeDef val = DefDatabase<RecipeDef>.AllDefs.FirstOrDefault((RecipeDef x) => x.removesHediff == item.def);
-				if (val != null)
+				if (val != null && !HasBill(medPawn,val,item.Part))
 				{
 					Bill_Medical val2 = new Bill_Medical(val, (List<Thing>)null);
-					val2.Part = item.Part;
 					medPawn.BillStack.AddBill((Bill)(object)val2);
+					val2.Part = item.Part;
 				}
 			}
-			IEnumerable<BodyPartRecord> enumerable = from x in GetHarvestablePartsToApplyOn(medPawn)
-				orderby OrderFor(x.def.tags) descending
-				select x;
+			var enumerable = GetHarvestablePartsToApplyOn(medPawn).OrderByDescending(x=>OrderFor(x.def.tags)).ToList();
 			foreach (BodyPartRecord item2 in enumerable)
 			{
-				if (!item2.IsCorePart && !enumerable.Any((BodyPartRecord x) => x == item2.parent || x == item2.parent?.parent))
+				if (!item2.IsCorePart && !HasSelectedAncestor(item2,enumerable) && !HasBill(medPawn,RecipeDefOf.RemoveBodyPart,item2))
 				{
 					Bill_Medical val3 = new Bill_Medical(RecipeDefOf.RemoveBodyPart, (List<Thing>)null);
-					val3.Part = item2;
 					medPawn.BillStack.AddBill((Bill)(object)val3);
+					val3.Part = item2;
 				}
 			}
 			return false;
@@ -65,8 +65,16 @@ public class HealthCardUtility_CreateSurgeryBill_Patch
 		return true;
 	}
 
-	public static int OrderFor(List<BodyPartTagDef> tags)
-	{
+	public static bool HasBill(Pawn pawn,RecipeDef recipe,BodyPartRecord part) =>
+  pawn.BillStack.Bills.OfType<Bill_Medical>().Any(b=>b.recipe==recipe && b.Part==part);
+ public static bool HasSelectedAncestor(BodyPartRecord part,IEnumerable<BodyPartRecord> selected) {
+  for(var ancestor=part.parent;ancestor!=null;ancestor=ancestor.parent)
+   if(selected.Contains(ancestor))return true;
+  return false;
+ }
+ public static int OrderFor(List<BodyPartTagDef> tags)
+ {
+  if(tags==null)return 4;
 		if (tags.Contains(BodyPartTagDefOf.BloodPumpingSource) || tags.Contains(BodyPartTagDefOf.ConsciousnessSource))
 		{
 			return 0;
@@ -124,7 +132,7 @@ public class Recipe_InstallNaturalBodyPart_GetPartsToApplyOn_Patch
 			select x;
 		foreach (BodyPartRecord part in notMissingParts)
 		{
-			if (HarmonyPatches.IsChildrenDamaged(pawn, part) && !HarmonyPatches.HasAmputateableFor(pawn, part))
+			if (HarmonyPatches.IsChildrenDamaged(pawn, part) && !HarmonyPatches.HasAmputateableFor(pawn, part) && !pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(part))
 			{
 				yield return part;
 			}

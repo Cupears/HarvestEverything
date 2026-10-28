@@ -6,7 +6,7 @@
   <RecipeDef>
     <defName>HET_ButcherAnimalParts</defName>
     <label>butcher for animal parts</label>
-    <description>Pick an animal corpse apart for its organs. Recovers usable organs, but wastes half the meat compared to ordinary butchering.</description>
+    <description>Recover healthy body parts from a fresh animal corpse. Produces half the usual meat.</description>
     <workerCounterClass>RecipeWorkerCounter_ButcherAnimals</workerCounterClass>
     <jobString>Butchering for animal parts.</jobString>
     <workAmount>450</workAmount>

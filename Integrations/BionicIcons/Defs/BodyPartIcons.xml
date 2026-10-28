@@ -73,7 +73,7 @@
   <BionicIconsIconDef>
     <defName>HET_Icon_HET_AnimalHoof</defName>
     <thingDef>HET_AnimalHoof</thingDef>
-    <texture>BionicIcons/BodyParts/Foot</texture>
+    <texture>BionicIcons/BodyParts/AnimalLeg</texture>
   </BionicIconsIconDef>
   <BionicIconsIconDef>
     <defName>HET_Icon_HET_AnimalHorn</defName>
@@ -103,7 +103,7 @@
   <BionicIconsIconDef>
     <defName>HET_Icon_HET_AnimalPaw</defName>
     <thingDef>HET_AnimalPaw</thingDef>
-    <texture>BionicIcons/BodyParts/Foot</texture>
+    <texture>BionicIcons/BodyParts/AnimalLeg</texture>
   </BionicIconsIconDef>
   <BionicIconsIconDef>
     <defName>HET_Icon_HET_AnimalShell</defName>
@@ -209,5 +209,65 @@
     <defName>HET_Icon_Silkiera_Tail</defName>
     <thingDef>Silkiera_Tail</thingDef>
     <texture>BionicIcons/BodyParts/Tail</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalEye</defName>
+    <thingDef>HET_AnimalEye</thingDef>
+    <texture>BionicIcons/BodyParts/Eye</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalEar</defName>
+    <thingDef>HET_AnimalEar</thingDef>
+    <texture>BionicIcons/BodyParts/AnimalEar</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalNose</defName>
+    <thingDef>HET_AnimalNose</thingDef>
+    <texture>BionicIcons/BodyParts/Nose</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalJaw</defName>
+    <thingDef>HET_AnimalJaw</thingDef>
+    <texture>BionicIcons/BodyParts/Jaw</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalTongue</defName>
+    <thingDef>HET_AnimalTongue</thingDef>
+    <texture>BionicIcons/BodyParts/Tongue</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalFinger</defName>
+    <thingDef>HET_AnimalFinger</thingDef>
+    <texture>BionicIcons/BodyParts/Finger</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalToe</defName>
+    <thingDef>HET_AnimalToe</thingDef>
+    <texture>BionicIcons/BodyParts/Toe</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalFoot</defName>
+    <thingDef>HET_AnimalFoot</thingDef>
+    <texture>BionicIcons/BodyParts/AnimalLeg</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalTusk</defName>
+    <thingDef>HET_AnimalTusk</thingDef>
+    <texture>BionicIcons/BodyParts/Fangs</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalSpine</defName>
+    <thingDef>HET_AnimalSpine</thingDef>
+    <texture>BionicIcons/BodyParts/Spine</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalAntenna</defName>
+    <thingDef>HET_AnimalAntenna</thingDef>
+    <texture>BionicIcons/BodyParts/AnimalEar</texture>
+  </BionicIconsIconDef>
+  <BionicIconsIconDef>
+    <defName>HET_Icon_HET_AnimalFin</defName>
+    <thingDef>HET_AnimalFin</thingDef>
+    <texture>BionicIcons/BodyParts/Wing</texture>
   </BionicIconsIconDef>
 </Defs>

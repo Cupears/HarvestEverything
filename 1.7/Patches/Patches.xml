@@ -94,7 +94,7 @@
 							<jobString>Installing brain.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -204,7 +204,7 @@
 							<jobString>Installing jaw.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -314,7 +314,7 @@
 							<jobString>Installing spine.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -424,7 +424,7 @@
 							<jobString>Installing eye.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -534,7 +534,7 @@
 							<jobString>Installing nose.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -644,7 +644,7 @@
 							<jobString>Installing ear.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -754,7 +754,7 @@
 							<jobString>Installing arm.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -864,7 +864,7 @@
 							<jobString>Installing hand.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -974,7 +974,7 @@
 							<jobString>Installing leg.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1084,7 +1084,7 @@
 							<jobString>Installing foot.</jobString>
 							<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 							<workAmount>4000</workAmount>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1144,7 +1144,7 @@
 							<description>Install a biological stomach.</description>
 							<descriptionHyperlinks><ThingDef>Stomach</ThingDef></descriptionHyperlinks>
 							<jobString>Installing stomach.</jobString>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1181,7 +1181,7 @@
 							<description>Install a biological brain.</description>
 							<descriptionHyperlinks><ThingDef>Brain</ThingDef></descriptionHyperlinks>
 							<jobString>Installing brain.</jobString>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1218,7 +1218,7 @@
 							<description>Install a biological eyeball.</description>
 							<descriptionHyperlinks><ThingDef>Eye</ThingDef></descriptionHyperlinks>
 							<jobString>Installing eyeball.</jobString>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1255,7 +1255,7 @@
 							<description>Install a biological nose.</description>
 							<descriptionHyperlinks><ThingDef>Nose</ThingDef></descriptionHyperlinks>
 							<jobString>Installing nose.</jobString>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1292,7 +1292,7 @@
 							<description>Install a biological ear.</description>
 							<descriptionHyperlinks><ThingDef>Ear</ThingDef></descriptionHyperlinks>
 							<jobString>Installing ear.</jobString>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1329,7 +1329,7 @@
 							<description>Install a biological arm.</description>
 							<descriptionHyperlinks><ThingDef>Arm</ThingDef></descriptionHyperlinks>
 							<jobString>Installing arm.</jobString>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1366,7 +1366,7 @@
 							<description>Install a biological hand.</description>
 							<descriptionHyperlinks><ThingDef>Hand</ThingDef></descriptionHyperlinks>
 							<jobString>Installing hand.</jobString>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1403,7 +1403,7 @@
 							<description>Install a biological leg.</description>
 							<descriptionHyperlinks><ThingDef>Leg</ThingDef></descriptionHyperlinks>
 							<jobString>Installing leg.</jobString>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1440,7 +1440,7 @@
 							<description>Install a biological foot.</description>
 							<descriptionHyperlinks><ThingDef>Foot</ThingDef></descriptionHyperlinks>
 							<jobString>Installing foot.</jobString>
-							<ingredients>
+							<ingredients Inherit="False">
 								<li>
 									<filter>
 										<categories>
@@ -1484,7 +1484,7 @@
 								<description>Install a biological spine.</description>
 								<descriptionHyperlinks><ThingDef>Spine</ThingDef></descriptionHyperlinks>
 								<jobString>Installing spine.</jobString>
-								<ingredients>
+								<ingredients Inherit="False">
 									<li>
 										<filter>
 											<categories>
@@ -1528,7 +1528,7 @@
 								<description>Install a biological jaw.</description>
 								<descriptionHyperlinks><ThingDef>Jaw</ThingDef></descriptionHyperlinks>
 								<jobString>Installing jaw.</jobString>
-								<ingredients>
+								<ingredients Inherit="False">
 									<li>
 										<filter>
 											<categories>
@@ -2833,7 +2833,7 @@
 										<label>install reproductive organs</label>
 										<description>Install biological reproductive organs.</description>
 										<jobString>Installing reproductive organs.</jobString>
-										<ingredients>
+										<ingredients Inherit="False">
 										<li>
 											<filter>
 												<categories>
@@ -2998,7 +2998,7 @@
 										<jobString>Installing reproductive organs.</jobString>
 										<deathOnFailedSurgeryChance>0.2</deathOnFailedSurgeryChance>
 										<workAmount>4000</workAmount>
-										<ingredients>
+										<ingredients Inherit="False">
 											<li>
 												<filter>
 													<categories>

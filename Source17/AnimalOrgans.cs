@@ -14,7 +14,8 @@ public class Thing_AnimalOrgan : ThingWithComps
 	private string sourceRaceLabel;
 	private string sourcePartLabel;
 	private string sourcePartDefName;
-	public bool Fits(Pawn pawn, BodyPartRecord part) => pawn?.def?.defName == sourceRaceDefName && part?.def != null && (sourcePartDefName.NullOrEmpty() ? part.def.label == sourcePartLabel : part.def.defName == sourcePartDefName);
+ public bool Fits(Pawn pawn, BodyPartRecord part) => !sourceRaceDefName.NullOrEmpty() && !sourcePartDefName.NullOrEmpty() &&
+  pawn?.def?.defName==sourceRaceDefName && part?.def?.defName==sourcePartDefName;
 
  public TailOrigin DonorOrigin() => sourceRaceDefName.NullOrEmpty() ||
   !(sourcePartDefName ?? def?.defName ?? "").ToLowerInvariant().Contains("tail") ? null :
@@ -63,20 +64,29 @@ public class Thing_AnimalOrgan : ThingWithComps
 		if (sourceRaceLabel.NullOrEmpty()) return base.DescriptionFlavor;
 		string name = WithSpecies(def.label);
 		string part = (sourcePartDefName ?? def.defName ?? "").ToLowerInvariant();
-		string purpose = part.Contains("tail") ? "used for balance, movement or display"
-			: part.Contains("heart") ? "that pumps blood through the body"
-			: part.Contains("lung") ? "that draws oxygen into the blood"
-			: part.Contains("kidney") ? "that filters waste from the blood"
-			: part.Contains("liver") ? "that processes nutrients and breaks down toxins"
-			: part.Contains("stomach") ? "that breaks down food"
-			: part.Contains("brain") ? "that controls movement and the senses"
-			: part.Contains("paw") || part.Contains("hand") || part.Contains("finger") ? "used for gripping and movement"
-			: part.Contains("leg") || part.Contains("foot") || part.Contains("toe") || part.Contains("hoof") ? "used for support and movement"
+		string kind=(def.defName??"").ToLowerInvariant();
+		string purpose = (part.Contains("tail")||kind.EndsWith("tail")) ? "used for balance, movement or display"
+			: (part.Contains("heart")||kind.EndsWith("heart")) ? "that pumps blood through the body"
+			: (part.Contains("lung")||kind.EndsWith("lung")) ? "that draws oxygen into the blood"
+			: (part.Contains("kidney")||kind.EndsWith("kidney")) ? "that filters waste from the blood"
+			: (part.Contains("liver")||kind.EndsWith("liver")) ? "that processes nutrients and breaks down toxins"
+			: (part.Contains("stomach")||kind.EndsWith("stomach")) ? "that breaks down food"
+			: (part.Contains("brain")||kind.EndsWith("brain")) ? "that controls movement and the senses"
+			: part.Contains("tongue")||kind.EndsWith("tongue") ? "used for tasting and swallowing"
+   : part.Contains("jaw")||part.Contains("mouth")||kind.EndsWith("jaw") ? "used for feeding"
+   : part.Contains("eye")||kind.EndsWith("eye") ? "that detects light and allows sight"
+   : part.EndsWith("ear")||kind.EndsWith("ear") ? "that detects sound"
+   : part.Contains("nose")||part.Contains("nostril")||kind.EndsWith("nose") ? "used for breathing and smelling"
+   : part.Contains("antenna")||kind.EndsWith("antenna") ? "used to sense the surroundings"
+   : part=="fin"||kind.EndsWith("fin") ? "used for swimming and balance"
+   : part.Contains("paw") || part.Contains("hand") || part.Contains("finger") || kind.EndsWith("paw") || kind.EndsWith("finger") ? "used for gripping and movement"
+			: part.Contains("spine") || kind.EndsWith("spine") ? "that supports the body and protects the spinal cord"
+   : part.Contains("leg") || part.Contains("foot") || part.Contains("toe") || part.Contains("hoof") || kind.EndsWith("limb") || kind.EndsWith("foot") || kind.EndsWith("toe") || kind.EndsWith("hoof") ? "used for support and movement"
 			: part.Contains("claw") ? "used for gripping, digging or defense"
-			: part.Contains("horn") || part.Contains("antler") || part.Contains("tusk") ? "used for defense or display"
+			: part.Contains("horn") || part.Contains("antler") || part.Contains("tusk") || kind.EndsWith("horn") || kind.EndsWith("tusk") ? "used for defense or display"
 			: part.Contains("beak") ? "used for feeding"
 			: part.Contains("wing") ? "used for flight or gliding"
-			: part.Contains("shell") ? "that protects the body"
+			: part.Contains("shell") || kind.EndsWith("shell") ? "that protects the body"
 			: part.Contains("tentacle") ? "used for grasping and movement" : "";
 		string article = "aeiouAEIOU".IndexOf(name[0]) >= 0 ? "An " : "A ";
 		return article + name + (purpose.Length == 0 ? "." : " " + purpose + ".");
@@ -86,11 +96,11 @@ public class Thing_AnimalOrgan : ThingWithComps
 	{
 		if (sourceRaceLabel.NullOrEmpty())
 		{
-			return baseLabel;
+			return baseLabel??"body part";
 		}
 		// Our def labels start with "animal " so an unnamed item still reads as
 		// an animal organ; the species name replaces that generic prefix.
-		string noun = sourcePartLabel.NullOrEmpty() ? baseLabel : sourcePartLabel;
+		string noun = sourcePartLabel.NullOrEmpty() ? (baseLabel??"body part") : sourcePartLabel;
 		if (noun.StartsWith("animal ", StringComparison.OrdinalIgnoreCase))
 			noun = noun.Substring("animal ".Length);
 		if (noun.EndsWith(" (natural)", StringComparison.OrdinalIgnoreCase))

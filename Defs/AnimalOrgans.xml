@@ -144,8 +144,15 @@
       <Mass>0.4</Mass>
     </statBases>
   </ThingDef>
-  <ThingDef ParentName="HET_AnimalOrganBase"><defName>HET_AnimalLimb</defName><label>animal limb</label><description>A limb used for support and movement.</description><statBases><MarketValue>120</MarketValue><Mass>1</Mass></statBases></ThingDef>
-
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalLimb</defName>
+    <label>animal limb</label>
+    <description>A limb used for support and movement.</description>
+    <statBases>
+      <MarketValue>120</MarketValue>
+      <Mass>1</Mass>
+    </statBases>
+  </ThingDef>
   <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
     <defName>HET_InstallAnimalTail</defName>
     <label>install tail</label>
@@ -196,6 +203,18 @@
             <li>HET_AnimalWing</li>
             <li>HET_AnimalShell</li>
             <li>HET_AnimalTentacle</li>
+            <li>HET_AnimalEye</li>
+            <li>HET_AnimalEar</li>
+            <li>HET_AnimalNose</li>
+            <li>HET_AnimalJaw</li>
+            <li>HET_AnimalTongue</li>
+            <li>HET_AnimalFinger</li>
+            <li>HET_AnimalToe</li>
+            <li>HET_AnimalFoot</li>
+            <li>HET_AnimalTusk</li>
+            <li>HET_AnimalSpine</li>
+            <li>HET_AnimalAntenna</li>
+            <li>HET_AnimalFin</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -204,7 +223,7 @@
     <fixedIngredientFilter>
       <thingDefs>
         <li>HET_AnimalLimb</li>
-            <li>HET_AnimalHeart</li>
+        <li>HET_AnimalHeart</li>
         <li>HET_AnimalLung</li>
         <li>HET_AnimalKidney</li>
         <li>HET_AnimalLiver</li>
@@ -218,8 +237,156 @@
         <li>HET_AnimalWing</li>
         <li>HET_AnimalShell</li>
         <li>HET_AnimalTentacle</li>
+        <li>HET_AnimalEye</li>
+        <li>HET_AnimalEar</li>
+        <li>HET_AnimalNose</li>
+        <li>HET_AnimalJaw</li>
+        <li>HET_AnimalTongue</li>
+        <li>HET_AnimalFinger</li>
+        <li>HET_AnimalToe</li>
+        <li>HET_AnimalFoot</li>
+        <li>HET_AnimalTusk</li>
+        <li>HET_AnimalSpine</li>
+        <li>HET_AnimalAntenna</li>
+        <li>HET_AnimalFin</li>
       </thingDefs>
     </fixedIngredientFilter>
     <recipeUsers Inherit="False" />
   </RecipeDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalEye</defName>
+    <label>animal eye</label>
+    <description>An organ that detects light and allows sight.</description>
+    <statBases>
+      <MarketValue>80</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalEar</defName>
+    <label>animal ear</label>
+    <description>An organ that detects sound.</description>
+    <statBases>
+      <MarketValue>35</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalNose</defName>
+    <label>animal nose</label>
+    <description>An organ used for breathing and smelling.</description>
+    <statBases>
+      <MarketValue>35</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalJaw</defName>
+    <label>animal jaw</label>
+    <description>A bone that supports the teeth and helps with chewing.</description>
+    <statBases>
+      <MarketValue>80</MarketValue>
+      <Mass>0.25</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalTongue</defName>
+    <label>animal tongue</label>
+    <description>A muscular organ used for tasting and swallowing.</description>
+    <statBases>
+      <MarketValue>35</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>HET_RemoveAnimalTail</defName>
+    <label>remove tail</label>
+    <description>Remove a natural tail.</description>
+    <workerClass>Harvest_Everything.Recipe_RemoveDefinedParts</workerClass>
+    <workAmount>1500</workAmount>
+    <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+    <jobString>Removing tail.</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Tail</li>
+    </appliedOnFixedBodyParts>
+    <recipeUsers Inherit="False" />
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter Inherit="False">
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalFinger</defName>
+    <label>animal finger</label>
+    <description>A digit used for gripping and fine movement.</description>
+    <statBases>
+      <MarketValue>12</MarketValue>
+      <Mass>.04</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalToe</defName>
+    <label>animal toe</label>
+    <description>A digit used for balance and support.</description>
+    <statBases>
+      <MarketValue>8</MarketValue>
+      <Mass>.025</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalFoot</defName>
+    <label>animal foot</label>
+    <description>The end of a limb, used for support and movement.</description>
+    <statBases>
+      <MarketValue>60</MarketValue>
+      <Mass>.4</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalTusk</defName>
+    <label>animal tusk</label>
+    <description>A long tooth used for feeding or defense.</description>
+    <statBases>
+      <MarketValue>40</MarketValue>
+      <Mass>.3</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalSpine</defName>
+    <label>animal spine</label>
+    <description>A column of bones that supports the body and protects the spinal cord.</description>
+    <statBases>
+      <MarketValue>150</MarketValue>
+      <Mass>.8</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalAntenna</defName>
+    <label>animal antenna</label>
+    <description>A slender appendage used to sense the surroundings.</description>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <Mass>.03</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="HET_AnimalOrganBase">
+    <defName>HET_AnimalFin</defName>
+    <label>animal fin</label>
+    <description>An appendage used for swimming and balance.</description>
+    <statBases>
+      <MarketValue>50</MarketValue>
+      <Mass>.2</Mass>
+    </statBases>
+  </ThingDef>
 </Defs>

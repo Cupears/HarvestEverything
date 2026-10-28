@@ -1,3 +1,17 @@
+## Changes - 1.7.1.18
+
+- Fixed healthy transplanted tails being treated as dirty by the native surgery recovery check.
+- Added animal tail removal and source-labeled recovery for supported natural animal parts removed by surgery. Animal parts cannot turn into human donor items.
+- Tail removal recipes now target only their declared anatomy.
+- Fixed bulk harvesting assigning bill targets before the bill was attached. Repeated clicks no longer duplicate bills, and deep parent/child anatomy is handled correctly.
+- Fixed duplicated inherited medicine costs in older human transplant recipes.
+- Blocked natural recovery beneath prosthetic ancestors and unsafe replacement targets. Partial or unknown donor records are rejected instead of matched by display name.
+- Added missing animal senses, mouth parts, spine, antenna, fin and digit mappings, plus function-based support for custom organs.
+- Separated animal fingers, toes, feet and tusks for clearer artwork. Paw and hoof items use the animal-limb fallback; ears use animal ear artwork. Organ icons retain their corresponding organ artwork.
+- Fixed the missing tail metadata description reported at startup. Added missing-value guards to optional integrations and race apparel thoughts.
+- Kept vanilla surgery success rules. Animal sleeping spots have a 0.7 environment factor; animal beds and sleeping boxes have 1.0 before other modifiers.
+- Both builds pass; 427 focused checks pass across the safety, tail and small-part suites. Live rendering and surgeries still need a game check.
+
 ## Changes - 1.7.1.17
 
 - Fixed direct Bionic Icons mappings drawing red/green mask textures as sprites. Mapped parts now use Bionic Icons' box-and-mask renderer.

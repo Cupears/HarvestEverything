@@ -46,7 +46,7 @@
                 <defName>HATT17_Remove_FoxboldTail</defName>
                 <label>remove natural foxbold tail</label>
                 <jobString>Removing natural tail.</jobString>
-                <workerClass>Recipe_RemoveBodyPart</workerClass>
+                <workerClass>Harvest_Everything.Recipe_RemoveDefinedParts</workerClass>
                 <workAmount>400</workAmount>
                 <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
                 <appliedOnFixedBodyParts>

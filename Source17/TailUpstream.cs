@@ -16,6 +16,7 @@ public class ThoughtWorker_Precept_KurinWoolApparel : ThoughtWorker
 
 	protected override ThoughtState CurrentStateInternal(Pawn p)
 	{
+  if(p?.apparel?.WornApparel==null)return ThoughtState.Inactive;
 		//IL_0061: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0066: Unknown result type (might be due to invalid IL or missing references)
 		//IL_013b: Unknown result type (might be due to invalid IL or missing references)
@@ -76,6 +77,7 @@ public class ThoughtWorker_KurinWoolWorn_Disapproved : ThoughtWorker
 {
 	protected override ThoughtState CurrentSocialStateInternal(Pawn p, Pawn otherPawn)
 	{
+  if(p?.apparel?.WornApparel==null||otherPawn?.apparel?.WornApparel==null)return ThoughtState.Inactive;
 		//IL_0017: Unknown result type (might be due to invalid IL or missing references)
 		//IL_001c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0035: Unknown result type (might be due to invalid IL or missing references)
@@ -177,6 +179,7 @@ public class ThoughtWorker_Precept_ReviaWoolApparel : ThoughtWorker
 
 	protected override ThoughtState CurrentStateInternal(Pawn p)
 	{
+  if(p?.apparel?.WornApparel==null)return ThoughtState.Inactive;
 		//IL_0042: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0047: Unknown result type (might be due to invalid IL or missing references)
 		//IL_011c: Unknown result type (might be due to invalid IL or missing references)
@@ -233,6 +236,7 @@ public class ThoughtWorker_ReviaWoolWorn : ThoughtWorker
 {
 	protected override ThoughtState CurrentSocialStateInternal(Pawn p, Pawn otherPawn)
 	{
+  if(p?.apparel?.WornApparel==null||otherPawn?.apparel?.WornApparel==null)return ThoughtState.Inactive;
 		//IL_0017: Unknown result type (might be due to invalid IL or missing references)
 		//IL_001c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0035: Unknown result type (might be due to invalid IL or missing references)

@@ -17,9 +17,10 @@ public static class BionicIconsBridge
   var iconType=AccessTools.TypeByName("Verse.BionicIconsIconDef");
   var boxType=AccessTools.TypeByName("Verse.BionicIconsTextureDef");
   if(renderer==null||iconType==null||boxType==null)return;
-  RuntimeHelpers.RunClassConstructor(renderer.TypeHandle);
+  try {RuntimeHelpers.RunClassConstructor(renderer.TypeHandle);}
+  catch(TypeInitializationException error) {Log.Warning("Harvest Everything: Bionic Icons failed to initialize; optional icon setup skipped. "+error.GetBaseException().Message);return;}
   var replace=AccessTools.Method(renderer,"replace");
-  if(replace==null) {Log.Warning("Harvest Everything: Bionic Icons renderer was not found.");return;}
+  if(replace?.GetParameters().Length!=4 || AccessTools.Field(iconType,"thingDef")==null || AccessTools.Field(iconType,"texture")==null || AccessTools.Field(boxType,"replacement")==null) {Log.Warning("Harvest Everything: Bionic Icons renderer was not found.");return;}
   var database=typeof(DefDatabase<>).MakeGenericType(iconType);
   var definitions=(IEnumerable)AccessTools.Property(database,"AllDefsListForReading").GetValue(null,null);
   foreach(Def icon in definitions)

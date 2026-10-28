@@ -8,7 +8,7 @@ public static class NaturalRaceSupport {
  static NaturalRaceSupport(){Apply();}
  public static bool Compatible(ThingDef race,RecipeDef recipe){
   if(race?.race==null||race.thingClass==null||!typeof(Pawn).IsAssignableFrom(race.thingClass)||race.race.IsMechanoid||race.race.body==null)return false;
-  if(recipe.defName=="HET_InstallAnimalPart") return race.race.Animal;
+  if(recipe.defName=="HET_InstallAnimalPart"||recipe.defName=="HET_RemoveAnimalTail") return race.race.Animal;
   if(recipe.defName=="HET_InstallAnimalTail")
    return (race.race.Humanlike||race.race.Animal)&&race.race.body.AllParts.Any(p=>recipe.appliedOnFixedBodyParts.Contains(p.def));
   if(!race.race.Humanlike)return false;
@@ -35,7 +35,7 @@ public static class NaturalRaceSupport {
   foreach(var race in DefDatabase<ThingDef>.AllDefsListForReading.Where(r=>r.race?.Humanlike==true||r.race?.Animal==true)){
    bool changed=false;
    foreach(var recipe in DefDatabase<RecipeDef>.AllDefsListForReading){
-    if(recipe.defName=="HET_InstallAnimalTail"){
+    if(recipe.defName=="HET_InstallAnimalTail"||recipe.defName=="HET_RemoveAnimalTail"){
      recipe.appliedOnFixedBodyParts??=new List<BodyPartDef>();
      foreach(var tail in DefDatabase<BodyPartDef>.AllDefsListForReading.Where(p=>TailOrigins.IsTail(p)))
       if(!recipe.appliedOnFixedBodyParts.Contains(tail))recipe.appliedOnFixedBodyParts.Add(tail);

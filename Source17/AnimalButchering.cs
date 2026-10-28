@@ -45,28 +45,6 @@ public static class AnimalButcherParts
 	// Chance per organ at 100% butchery efficiency.
 	private const float BaseDropChance = 0.25f;
 
-	// Vanilla animals reuse the human organ body parts, whose spawnThingOnRemoved
-	// points at the human donor items. Swap those for animal-specific items.
-	private static readonly Dictionary<string, string> AnimalOrganDefNames = new Dictionary<string, string>
-	{
-		{ "Heart", "HET_AnimalHeart" },
-		{ "Lung", "HET_AnimalLung" },
-		{ "Kidney", "HET_AnimalKidney" },
-		{ "Liver", "HET_AnimalLiver" },
-		{ "Stomach", "HET_AnimalStomach" },
-		{ "Brain", "HET_AnimalBrain" },
-	};
-
-	private static readonly BodyPartTagDef[] OrganTags =
-	{
-		BodyPartTagDefOf.BloodPumpingSource,
-		BodyPartTagDefOf.BreathingSource,
-		BodyPartTagDefOf.BloodFiltrationKidney,
-		BodyPartTagDefOf.BloodFiltrationLiver,
-		BodyPartTagDefOf.MetabolismSource,
-		BodyPartTagDefOf.ConsciousnessSource,
-	};
-
 	public static bool ShouldApply(Pawn pawn)
 	{
 		if (pawn?.RaceProps == null || pawn.health?.hediffSet == null)
@@ -74,7 +52,7 @@ public static class AnimalButcherParts
 			return false;
 		}
 		RaceProperties props = pawn.RaceProps;
-		if (!props.Animal || props.IsMechanoid || props.IsAnomalyEntity)
+		if (!pawn.Dead || !props.Animal || !props.IsFlesh || props.IsMechanoid || props.IsAnomalyEntity)
 		{
 			return false;
 		}
@@ -116,15 +94,14 @@ public static class AnimalButcherParts
 	public static List<Thing> Extract(Pawn pawn, float efficiency)
 	{
 		List<Thing> results = new List<Thing>();
-		float chance = Mathf.Clamp01(efficiency * BaseDropChance);
-		if (chance <= 0f)
+		if (!ShouldApply(pawn) || float.IsNaN(efficiency) || float.IsInfinity(efficiency) || efficiency<=0)
 		{
 			return results;
 		}
-		foreach (BodyPartRecord part in pawn.health.hediffSet.GetNotMissingParts().ToList())
+		foreach (BodyPartRecord part in pawn.health.hediffSet.GetNotMissingParts().OrderBy(AncestorDepth).ToList())
 		{
-			ThingDef thingDef = part.def?.spawnThingOnRemoved;
-			if (part.parent==null || pawn.health.hediffSet.PartIsMissing(part) || (!IsBaseAnimalCollectible(part) && (thingDef == null || !IsOrgan(part))))
+			ThingDef thingDef = AnimalPartCatalog.ItemDef(part.def);
+			if (part.parent==null || pawn.health.hediffSet.PartIsMissing(part) || thingDef==null)
 			{
 				continue;
 			}
@@ -138,7 +115,7 @@ public static class AnimalButcherParts
 			}
 			var tailOrigin=TailOrigins.IsTail(part.def)?TailOrigins.FromPawn(pawn,part):null;
 			pawn.health.AddHediff(HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, pawn, part));
-			Thing thing = ThingMaker.MakeThing(AnimalOrganFor(part, thingDef));
+			Thing thing = ThingMaker.MakeThing(thingDef);
 			if (thing is Thing_AnimalOrgan organ)
 			{
 				organ.SetAnimalPart(pawn, part);
@@ -149,67 +126,16 @@ public static class AnimalButcherParts
 		return results;
 	}
 
-	private static ThingDef AnimalOrganFor(BodyPartRecord part, ThingDef fallback)
-	{
-		if (part?.def != null)
-		{
-			string name = part.def.defName;
-			string collectible = name.IndexOf("Tail", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalTail"
-				: name.IndexOf("Leg", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Arm", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Shoulder", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalLimb"
-				: name.IndexOf("Paw", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Foot", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalPaw"
-				: name.IndexOf("Claw", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Finger", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Toe", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalClaw"
-				: name.IndexOf("Hoof", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalHoof"
-				: name.IndexOf("Horn", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Antler", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalHorn"
-				: name.IndexOf("Tusk", System.StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Beak", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalBeak"
-				: name.IndexOf("Wing", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalWing"
-				: name.IndexOf("Shell", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalShell"
-				: name.IndexOf("Tentacle", System.StringComparison.OrdinalIgnoreCase) >= 0 ? "HET_AnimalTentacle"
-				: null;
-			if (collectible != null && DefDatabase<ThingDef>.GetNamedSilentFail(collectible) is ThingDef collectibleDef)
-				return collectibleDef;
-		}
-		if (part.def != null && AnimalOrganDefNames.TryGetValue(part.def.defName, out string animalDefName))
-		{
-			ThingDef animalDef = DefDatabase<ThingDef>.GetNamedSilentFail(animalDefName);
-			if (animalDef != null)
-			{
-				return animalDef;
-			}
-		}
-		return fallback;
-	}
-
-	// Phase one covers shared RimWorld body-part types. Race-specific anatomical
-	// types are added in the mod-race pass after these common types.
-	private static bool IsBaseAnimalCollectible(BodyPartRecord part)
-	{
-		string name = part?.def?.defName;
-		return !string.IsNullOrEmpty(name) &&
-			new[] { "Tail", "Leg", "Arm", "Shoulder", "Paw", "Foot", "Finger", "Toe", "Claw", "Hoof", "Horn", "Antler", "Tusk", "Beak", "Wing", "Shell", "Tentacle" }
-				.Any(term => name.IndexOf(term, System.StringComparison.OrdinalIgnoreCase) >= 0);
-	}
-
-	private static bool IsOrgan(BodyPartRecord part)
-	{
-		List<BodyPartTagDef> tags = part.def?.tags;
-		if (tags == null || tags.Count == 0)
-		{
-			return false;
-		}
-		for (int i = 0; i < OrganTags.Length; i++)
-		{
-			if (tags.Contains(OrganTags[i]))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+ public static int AncestorDepth(BodyPartRecord part) {
+  int depth=0;for(var parent=part?.parent;parent!=null;parent=parent.parent)depth++;
+  return depth;
+ }
 
 	// MedicalRecipesUtility.IsClean returns false for dead pawns, and every animal
 	// here is a corpse, so mirror its check without the liveness requirement.
-	private static bool IsPartClean(Pawn pawn, BodyPartRecord part)
+	public static bool IsPartClean(Pawn pawn, BodyPartRecord part)
 	{
+		if(pawn?.health?.hediffSet==null||part?.def==null||pawn.health.hediffSet.PartIsMissing(part)||pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(part))return false;
 		List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 		for (int i = 0; i < hediffs.Count; i++)
 		{
@@ -223,9 +149,11 @@ public static class AnimalButcherParts
   return true;
  }
  public static float RecoveryChance(BodyPartRecord part,float efficiency) {
-  string name=part.def.defName.ToLowerInvariant();
-  float factor=name.Contains("finger")||name.Contains("toe")||name.Contains("claw")?0.2f:
-   name.Contains("hoof")||name.Contains("horn")||name.Contains("antler")||name.Contains("tusk")||name.Contains("beak")?0.5f:1f;
+  if(part?.def?.defName==null||float.IsNaN(efficiency)||float.IsInfinity(efficiency)||efficiency<=0)return 0f;
+  string kind=AnimalPartCatalog.ItemName(part.def);
+  if(kind==null)return 0f;
+  float factor=kind=="HET_AnimalFinger"||kind=="HET_AnimalToe"||kind=="HET_AnimalClaw"?0.2f:
+   kind=="HET_AnimalHoof"||kind=="HET_AnimalHorn"||kind=="HET_AnimalTusk"||kind=="HET_AnimalBeak"||kind=="HET_AnimalAntenna"?0.5f:1f;
   return Mathf.Clamp01(efficiency*BaseDropChance)*factor;
  }
 }

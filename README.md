@@ -1,6 +1,6 @@
 # Harvest Everything + Tails
 
-![RimWorld](https://img.shields.io/badge/RimWorld-1.6%20%7C%201.7-orange) ![Stage](https://img.shields.io/badge/stage-beta.1-purple) ![Tails](https://img.shields.io/badge/tails-supported-green)
+![RimWorld](https://img.shields.io/badge/RimWorld-1.6%20%7C%201.7-orange) ![Stage](https://img.shields.io/badge/stage-beta-purple) ![Tails](https://img.shields.io/badge/tails-supported-green)
 
 Harvest and transplant natural body parts on compatible humanoid races, including natural
 tails. Butcher fresh animal corpses for their organs with a dedicated butcher-table bill.
@@ -14,10 +14,16 @@ installation and per-race tail support are built in, so the standalone tails mod
 - **Animal parts.** The **Butcher for animal parts** bill recovers healthy parts from fresh animal corpses and yields half the normal meat. Recovered items show the donor species. Animal transplant ingredients must match the patient's exact species and body-part type.
 - **Tails.** Natural tails can be transplanted between compatible animal and humanoid tail anatomy. Newly recovered tails retain their donor name through successful surgery, save/load and later removal. Cosmetic gene tails without an anatomical body part cannot be harvested.
 - **Recovery chances.** At 100% butcher efficiency, digits and claws have a 5% chance, hooves/horns/antlers/tusks/beaks 12.5%, and larger parts and organs 25%. Whole parts need intact, healthy children; a recovered parent does not also produce its child parts.
-- **Modded animals and races.** Shared anatomy works automatically. Recognized custom body-part names support tails, limbs, paws, digits, claws, hooves, horns, beaks, tusks, wings, shells and tentacles. Unrecognized anatomy requires a specific mapping.
+- **Modded animals and races.** Shared anatomy works automatically. Recognized custom body-part names and function tags support tails, limbs, paws, digits, claws, hooves, horns, beaks, tusks, wings, shells, tentacles and natural organs. Unrecognized anatomy requires a specific mapping.
 - **Surgery menus.** Part names follow the target anatomy. Matching-animal surgery is offered only when a suitable donor part is available; queued bills wait for donor parts before requesting medical rest.
 
 Old items without saved donor information cannot be given a reliable donor identity. The new donor records have no pain or health effects.
+
+## Surgery
+
+Use an animal bed or sleeping box and suitable medicine. Animal sleeping spots apply a 0.7 surgery factor; beds and boxes use 1.0 before other modifiers. Doctor skill, sight, manipulation and medicine still affect the final chance, and normal surgeries retain their failure risk.
+
+The **remove tail** operation recovers a healthy natural animal tail. Transplant bills require an intact parent body part and a donor that matches the animal's species and exact anatomy; tails use their separate cross-species recipe.
 
 ## Compatibility
 
