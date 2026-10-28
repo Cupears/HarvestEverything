@@ -1,3 +1,7 @@
+## Changes - 1.7.1.12
+
+- Replaced feature explanations in new body-part descriptions with short biological descriptions.
+
 ## Changes - 1.7.1.11
 
 - Animal transplant surgery uses RimWorld-style names such as "install paw", "install hand" and "install hoof".

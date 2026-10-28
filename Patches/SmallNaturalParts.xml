@@ -20,7 +20,7 @@
                   <ThingDef ParentName="BodyPartNaturalBase">
                     <defName>HET_NaturalFinger</defName>
                     <label>finger (natural)</label>
-                    <description>A natural finger, usable to replace the matching damaged or missing digit.</description>
+                    <description>A finger, used for grip and fine movement.</description>
                     <statBases>
                       <Mass>.04</Mass>
                       <MarketValue>12</MarketValue>
@@ -78,7 +78,7 @@
                   <ThingDef ParentName="BodyPartNaturalBase">
                     <defName>HET_NaturalToe</defName>
                     <label>toe (natural)</label>
-                    <description>A natural toe, usable to replace the matching damaged or missing digit.</description>
+                    <description>A toe, used for balance and support.</description>
                     <statBases>
                       <Mass>.025</Mass>
                       <MarketValue>8</MarketValue>
@@ -134,7 +134,7 @@
                   <ThingDef ParentName="BodyPartNaturalBase">
                     <defName>HET_NaturalTongue</defName>
                     <label>tongue (natural)</label>
-                    <description>A natural tongue, usable to replace a damaged or missing tongue.</description>
+                    <description>A muscular organ used for tasting, swallowing and speech.</description>
                     <statBases><Mass>0.05</Mass><MarketValue>15</MarketValue></statBases>
                   </ThingDef>
                   <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">

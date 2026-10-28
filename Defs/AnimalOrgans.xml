@@ -18,7 +18,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalHeart</defName>
     <label>animal heart</label>
-    <description>A biological heart harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <description>A muscular organ that pumps blood through the body.</description>
     <statBases>
       <MarketValue>350</MarketValue>
     </statBases>
@@ -26,7 +26,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalLung</defName>
     <label>animal lung</label>
-    <description>A biological lung harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <description>A breathing organ that draws oxygen into the blood.</description>
     <statBases>
       <MarketValue>300</MarketValue>
     </statBases>
@@ -34,7 +34,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalKidney</defName>
     <label>animal kidney</label>
-    <description>A biological kidney harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <description>An organ that filters waste from the blood.</description>
     <statBases>
       <MarketValue>250</MarketValue>
     </statBases>
@@ -42,7 +42,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalLiver</defName>
     <label>animal liver</label>
-    <description>A biological liver harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <description>An organ that processes nutrients and breaks down toxins.</description>
     <statBases>
       <MarketValue>350</MarketValue>
     </statBases>
@@ -50,7 +50,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalStomach</defName>
     <label>animal stomach</label>
-    <description>A biological stomach harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <description>A muscular pouch that breaks down food.</description>
     <statBases>
       <MarketValue>200</MarketValue>
     </statBases>
@@ -58,7 +58,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalBrain</defName>
     <label>animal brain</label>
-    <description>A biological brain harvested from an animal. Animal organs cannot be transplanted into humanlikes.</description>
+    <description>The organ that controls thought, movement and the senses.</description>
     <statBases>
       <MarketValue>400</MarketValue>
     </statBases>
@@ -66,7 +66,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalTail</defName>
     <label>animal tail</label>
-    <description>A tail recovered from an animal. Its source species remains in the item name.</description>
+    <description>An animal's tail, used for balance, movement or communication.</description>
     <statBases>
       <MarketValue>250</MarketValue>
       <Mass>1</Mass>
@@ -75,7 +75,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalPaw</defName>
     <label>animal paw</label>
-    <description>A paw or foot recovered from an animal.</description>
+    <description>The end of an animal's limb, used for support and movement.</description>
     <statBases>
       <MarketValue>60</MarketValue>
       <Mass>0.4</Mass>
@@ -84,7 +84,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalClaw</defName>
     <label>animal claw</label>
-    <description>A claw, finger or toe recovered from an animal.</description>
+    <description>A small part from the end of an animal's limb.</description>
     <statBases>
       <MarketValue>12</MarketValue>
       <Mass>0.05</Mass>
@@ -93,7 +93,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalHoof</defName>
     <label>animal hoof</label>
-    <description>A hoof recovered from an animal.</description>
+    <description>A hard covering that protects the end of an animal's foot.</description>
     <statBases>
       <MarketValue>18</MarketValue>
       <Mass>0.2</Mass>
@@ -102,7 +102,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalHorn</defName>
     <label>animal horn</label>
-    <description>A horn or antler recovered from an animal.</description>
+    <description>A hard growth used for defense or display.</description>
     <statBases>
       <MarketValue>50</MarketValue>
       <Mass>0.5</Mass>
@@ -111,7 +111,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalBeak</defName>
     <label>animal beak</label>
-    <description>A beak or tusk recovered from an animal.</description>
+    <description>A hard structure used for feeding or defense.</description>
     <statBases>
       <MarketValue>40</MarketValue>
       <Mass>0.3</Mass>
@@ -120,7 +120,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalWing</defName>
     <label>animal wing</label>
-    <description>A wing recovered from an animal.</description>
+    <description>A limb shaped for flight or gliding.</description>
     <statBases>
       <MarketValue>80</MarketValue>
       <Mass>0.8</Mass>
@@ -129,7 +129,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalShell</defName>
     <label>animal shell</label>
-    <description>A shell section recovered from an animal.</description>
+    <description>A hard outer covering that protects the body.</description>
     <statBases>
       <MarketValue>100</MarketValue>
       <Mass>1</Mass>
@@ -138,7 +138,7 @@
   <ThingDef ParentName="HET_AnimalOrganBase">
     <defName>HET_AnimalTentacle</defName>
     <label>animal tentacle</label>
-    <description>A tentacle recovered from an animal.</description>
+    <description>A flexible limb used to grasp, feel or move.</description>
     <statBases>
       <MarketValue>40</MarketValue>
       <Mass>0.4</Mass>

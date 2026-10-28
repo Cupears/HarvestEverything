@@ -13,7 +13,7 @@
               <ThingDef ParentName="BodyPartNaturalBase">
                 <defName>HATT17_StarbeastTail</defName>
                 <label>xenomorph tail</label>
-                <description>A natural xenomorph tail. Transplantable into humanoid races with the matching anatomical tail type.</description>
+                <description>A long, powerful tail tipped with a sharp blade.</description>
                 <statBases>
                   <MarketValue>250</MarketValue>
                   <Mass>2</Mass>
