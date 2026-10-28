@@ -116,4 +116,42 @@
       </operations>
     </match>
   </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/BodyPartDef[defName="Tongue"]</xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/BodyPartDef[defName="Tongue"]/spawnThingOnRemoved</xpath>
+          <nomatch Class="PatchOperationSequence">
+            <operations>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/BodyPartDef[defName="Tongue"]</xpath>
+                <value><spawnThingOnRemoved>HET_NaturalTongue</spawnThingOnRemoved></value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                  <ThingDef ParentName="BodyPartNaturalBase">
+                    <defName>HET_NaturalTongue</defName>
+                    <label>tongue (natural)</label>
+                    <description>A natural tongue, usable to replace a damaged or missing tongue.</description>
+                    <statBases><Mass>0.05</Mass><MarketValue>15</MarketValue></statBases>
+                  </ThingDef>
+                  <RecipeDef ParentName="SurgeryInstallBodyPartNaturalBase">
+                    <defName>HET_InstallNaturalTongue</defName>
+                    <label>install natural tongue</label>
+                    <jobString>Installing natural tongue.</jobString>
+                    <ingredients><li><filter><thingDefs><li>HET_NaturalTongue</li></thingDefs></filter><count>1</count></li></ingredients>
+                    <fixedIngredientFilter><thingDefs><li>HET_NaturalTongue</li></thingDefs></fixedIngredientFilter>
+                    <appliedOnFixedBodyParts><li>Tongue</li></appliedOnFixedBodyParts>
+                    <recipeUsers Inherit="False" />
+                  </RecipeDef>
+                </value>
+              </li>
+            </operations>
+          </nomatch>
+        </li>
+      </operations>
+    </match>
+  </Operation>
 </Patch>

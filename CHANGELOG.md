@@ -1,3 +1,9 @@
+## Changes - 1.7.1.7
+
+- Added a recoverable natural tongue and a matching transplant surgery.
+- Humanlike corpse autopsies can recover tongues through the existing natural-part recovery rules.
+- An existing tongue item mapping from another mod is preserved.
+
 ## Changes - 1.7.1.6
 
 - Added natural finger and toe items and matching transplant recipes for humanoid anatomy.
